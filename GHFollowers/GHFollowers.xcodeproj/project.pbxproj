@@ -17,6 +17,7 @@
 		0CA18A242C429D6200BD5767 /* GFButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA18A232C429D6200BD5767 /* GFButton.swift */; };
 		0CA18A262C42AA7D00BD5767 /* GFTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA18A252C42AA7D00BD5767 /* GFTextField.swift */; };
 		0CA18A282C43E84A00BD5767 /* View+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA18A272C43E84A00BD5767 /* View+Ext.swift */; };
+		0CA18A2C2C4538AE00BD5767 /* LogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA18A2B2C4538AE00BD5767 /* LogoView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		0CA18A232C429D6200BD5767 /* GFButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFButton.swift; sourceTree = "<group>"; };
 		0CA18A252C42AA7D00BD5767 /* GFTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFTextField.swift; sourceTree = "<group>"; };
 		0CA18A272C43E84A00BD5767 /* View+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Ext.swift"; sourceTree = "<group>"; };
+		0CA18A2B2C4538AE00BD5767 /* LogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +73,7 @@
 				0CA18A232C429D6200BD5767 /* GFButton.swift */,
 				0CA18A252C42AA7D00BD5767 /* GFTextField.swift */,
 				0CA18A272C43E84A00BD5767 /* View+Ext.swift */,
+				0CA18A2B2C4538AE00BD5767 /* LogoView.swift */,
 				0CA18A0F2C42970F00BD5767 /* Assets.xcassets */,
 				0CA18A112C42970F00BD5767 /* Preview Content */,
 			);
@@ -156,6 +159,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0CA18A282C43E84A00BD5767 /* View+Ext.swift in Sources */,
+				0CA18A2C2C4538AE00BD5767 /* LogoView.swift in Sources */,
 				0CA18A202C429A7600BD5767 /* FavoritesView.swift in Sources */,
 				0CA18A1E2C429A5C00BD5767 /* SearchView.swift in Sources */,
 				0CA18A242C429D6200BD5767 /* GFButton.swift in Sources */,
