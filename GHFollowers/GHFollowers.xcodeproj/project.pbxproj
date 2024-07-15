@@ -20,6 +20,8 @@
 		0CA18A2C2C4538AE00BD5767 /* LogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA18A2B2C4538AE00BD5767 /* LogoView.swift */; };
 		0CA18A2E2C4542A300BD5767 /* AlertItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA18A2D2C4542A300BD5767 /* AlertItem.swift */; };
 		0CA18A302C454AAE00BD5767 /* FollowersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA18A2F2C454AAE00BD5767 /* FollowersView.swift */; };
+		0CA18A3E2C4559B000BD5767 /* Follower.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA18A3D2C4559AF00BD5767 /* Follower.swift */; };
+		0CA18A402C4559BC00BD5767 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA18A3F2C4559BC00BD5767 /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +39,8 @@
 		0CA18A2B2C4538AE00BD5767 /* LogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoView.swift; sourceTree = "<group>"; };
 		0CA18A2D2C4542A300BD5767 /* AlertItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertItem.swift; sourceTree = "<group>"; };
 		0CA18A2F2C454AAE00BD5767 /* FollowersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersView.swift; sourceTree = "<group>"; };
+		0CA18A3D2C4559AF00BD5767 /* Follower.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Follower.swift; sourceTree = "<group>"; };
+		0CA18A3F2C4559BC00BD5767 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +75,7 @@
 			children = (
 				0CA18A0B2C42970E00BD5767 /* GHFollowersApp.swift */,
 				0CA18A342C4554AF00BD5767 /* Utilities */,
+				0CA18A3C2C45599900BD5767 /* Model */,
 				0CA18A312C4553F000BD5767 /* View */,
 				0CA18A0F2C42970F00BD5767 /* Assets.xcassets */,
 				0CA18A112C42970F00BD5767 /* Preview Content */,
@@ -132,6 +137,15 @@
 				0CA18A272C43E84A00BD5767 /* View+Ext.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		0CA18A3C2C45599900BD5767 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0CA18A3D2C4559AF00BD5767 /* Follower.swift */,
+				0CA18A3F2C4559BC00BD5767 /* User.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -204,6 +218,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0CA18A402C4559BC00BD5767 /* User.swift in Sources */,
 				0CA18A282C43E84A00BD5767 /* View+Ext.swift in Sources */,
 				0CA18A2C2C4538AE00BD5767 /* LogoView.swift in Sources */,
 				0CA18A202C429A7600BD5767 /* FavoritesView.swift in Sources */,
@@ -211,6 +226,7 @@
 				0CA18A2E2C4542A300BD5767 /* AlertItem.swift in Sources */,
 				0CA18A1E2C429A5C00BD5767 /* SearchView.swift in Sources */,
 				0CA18A242C429D6200BD5767 /* GFButton.swift in Sources */,
+				0CA18A3E2C4559B000BD5767 /* Follower.swift in Sources */,
 				0CA18A0E2C42970E00BD5767 /* ContentView.swift in Sources */,
 				0CA18A0C2C42970E00BD5767 /* GHFollowersApp.swift in Sources */,
 				0CA18A222C429A9200BD5767 /* AppTabView.swift in Sources */,
