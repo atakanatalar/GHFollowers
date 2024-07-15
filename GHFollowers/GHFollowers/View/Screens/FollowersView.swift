@@ -8,13 +8,25 @@
 import SwiftUI
 
 struct FollowersView: View {
-    var username: String
     @State var followers: [Follower] = []
     @State var alertItem: AlertItem?
     
+    var username: String
+    let columns = Array(repeating: GridItem(.flexible()), count: 3)
+    
     var body: some View {
         ZStack {
-            Text("Followers View")
+            NavigationStack {
+                ScrollView{
+                    LazyVGrid(columns: columns) {
+                        ForEach(followers, id: \.self) { follower in
+                            FollowersTitleView(follower: follower)
+                        }
+                    }
+                    .padding()
+                }
+            }
+            
         }
         .navigationTitle(username)
         .navigationBarTitleDisplayMode(.large)
