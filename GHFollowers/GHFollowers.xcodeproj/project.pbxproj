@@ -70,16 +70,8 @@
 			isa = PBXGroup;
 			children = (
 				0CA18A0B2C42970E00BD5767 /* GHFollowersApp.swift */,
-				0CA18A0D2C42970E00BD5767 /* ContentView.swift */,
-				0CA18A212C429A9200BD5767 /* AppTabView.swift */,
-				0CA18A1D2C429A5C00BD5767 /* SearchView.swift */,
-				0CA18A1F2C429A7600BD5767 /* FavoritesView.swift */,
-				0CA18A2F2C454AAE00BD5767 /* FollowersView.swift */,
-				0CA18A232C429D6200BD5767 /* GFButton.swift */,
-				0CA18A252C42AA7D00BD5767 /* GFTextField.swift */,
-				0CA18A272C43E84A00BD5767 /* View+Ext.swift */,
-				0CA18A2B2C4538AE00BD5767 /* LogoView.swift */,
-				0CA18A2D2C4542A300BD5767 /* AlertItem.swift */,
+				0CA18A342C4554AF00BD5767 /* Utilities */,
+				0CA18A312C4553F000BD5767 /* View */,
 				0CA18A0F2C42970F00BD5767 /* Assets.xcassets */,
 				0CA18A112C42970F00BD5767 /* Preview Content */,
 			);
@@ -92,6 +84,54 @@
 				0CA18A122C42970F00BD5767 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		0CA18A312C4553F000BD5767 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0CA18A0D2C42970E00BD5767 /* ContentView.swift */,
+				0CA18A212C429A9200BD5767 /* AppTabView.swift */,
+				0CA18A322C4553FC00BD5767 /* CustomViews */,
+				0CA18A332C45540200BD5767 /* Screens */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0CA18A322C4553FC00BD5767 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				0CA18A232C429D6200BD5767 /* GFButton.swift */,
+				0CA18A252C42AA7D00BD5767 /* GFTextField.swift */,
+				0CA18A2B2C4538AE00BD5767 /* LogoView.swift */,
+			);
+			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		0CA18A332C45540200BD5767 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				0CA18A1D2C429A5C00BD5767 /* SearchView.swift */,
+				0CA18A1F2C429A7600BD5767 /* FavoritesView.swift */,
+				0CA18A2F2C454AAE00BD5767 /* FollowersView.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		0CA18A342C4554AF00BD5767 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				0CA18A2D2C4542A300BD5767 /* AlertItem.swift */,
+				0CA18A352C4554BF00BD5767 /* Extensions */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		0CA18A352C4554BF00BD5767 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				0CA18A272C43E84A00BD5767 /* View+Ext.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
