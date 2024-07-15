@@ -57,7 +57,7 @@ struct SearchView: View {
                         } label: { Image(systemName: "keyboard.chevron.compact.down") }
                     }
                 }
-                .navigationDestination(isPresented: $navigateToFollowers) { FollowersView() }
+                .navigationDestination(isPresented: $navigateToFollowers) { FollowersView(username: username) }
                 .alert(item: $alertItem, content: { $0.alert })
             }
         }

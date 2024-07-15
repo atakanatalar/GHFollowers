@@ -22,6 +22,8 @@
 		0CA18A302C454AAE00BD5767 /* FollowersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA18A2F2C454AAE00BD5767 /* FollowersView.swift */; };
 		0CA18A3E2C4559B000BD5767 /* Follower.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA18A3D2C4559AF00BD5767 /* Follower.swift */; };
 		0CA18A402C4559BC00BD5767 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA18A3F2C4559BC00BD5767 /* User.swift */; };
+		0CA18A432C455A4200BD5767 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA18A422C455A4200BD5767 /* NetworkManager.swift */; };
+		0CA18A452C45686E00BD5767 /* GFError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA18A442C45686E00BD5767 /* GFError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +43,8 @@
 		0CA18A2F2C454AAE00BD5767 /* FollowersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersView.swift; sourceTree = "<group>"; };
 		0CA18A3D2C4559AF00BD5767 /* Follower.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Follower.swift; sourceTree = "<group>"; };
 		0CA18A3F2C4559BC00BD5767 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		0CA18A422C455A4200BD5767 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		0CA18A442C45686E00BD5767 /* GFError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +79,7 @@
 			children = (
 				0CA18A0B2C42970E00BD5767 /* GHFollowersApp.swift */,
 				0CA18A342C4554AF00BD5767 /* Utilities */,
+				0CA18A412C455A2000BD5767 /* Managers */,
 				0CA18A3C2C45599900BD5767 /* Model */,
 				0CA18A312C4553F000BD5767 /* View */,
 				0CA18A0F2C42970F00BD5767 /* Assets.xcassets */,
@@ -126,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				0CA18A2D2C4542A300BD5767 /* AlertItem.swift */,
+				0CA18A442C45686E00BD5767 /* GFError.swift */,
 				0CA18A352C4554BF00BD5767 /* Extensions */,
 			);
 			path = Utilities;
@@ -146,6 +152,14 @@
 				0CA18A3F2C4559BC00BD5767 /* User.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		0CA18A412C455A2000BD5767 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				0CA18A422C455A4200BD5767 /* NetworkManager.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -228,6 +242,8 @@
 				0CA18A242C429D6200BD5767 /* GFButton.swift in Sources */,
 				0CA18A3E2C4559B000BD5767 /* Follower.swift in Sources */,
 				0CA18A0E2C42970E00BD5767 /* ContentView.swift in Sources */,
+				0CA18A432C455A4200BD5767 /* NetworkManager.swift in Sources */,
+				0CA18A452C45686E00BD5767 /* GFError.swift in Sources */,
 				0CA18A0C2C42970E00BD5767 /* GHFollowersApp.swift in Sources */,
 				0CA18A222C429A9200BD5767 /* AppTabView.swift in Sources */,
 				0CA18A262C42AA7D00BD5767 /* GFTextField.swift in Sources */,
