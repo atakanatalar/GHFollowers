@@ -25,6 +25,7 @@
 		0CA18A432C455A4200BD5767 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA18A422C455A4200BD5767 /* NetworkManager.swift */; };
 		0CA18A452C45686E00BD5767 /* GFError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA18A442C45686E00BD5767 /* GFError.swift */; };
 		0CA18A472C456FF600BD5767 /* FollowerTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA18A462C456FF600BD5767 /* FollowerTitleView.swift */; };
+		0CA18A4B2C458BF500BD5767 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA18A4A2C458BF500BD5767 /* LoadingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +48,7 @@
 		0CA18A422C455A4200BD5767 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		0CA18A442C45686E00BD5767 /* GFError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFError.swift; sourceTree = "<group>"; };
 		0CA18A462C456FF600BD5767 /* FollowerTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerTitleView.swift; sourceTree = "<group>"; };
+		0CA18A4A2C458BF500BD5767 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +118,7 @@
 				0CA18A252C42AA7D00BD5767 /* GFTextField.swift */,
 				0CA18A2B2C4538AE00BD5767 /* LogoView.swift */,
 				0CA18A462C456FF600BD5767 /* FollowerTitleView.swift */,
+				0CA18A4A2C458BF500BD5767 /* LoadingView.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -239,6 +242,7 @@
 				0CA18A282C43E84A00BD5767 /* View+Ext.swift in Sources */,
 				0CA18A2C2C4538AE00BD5767 /* LogoView.swift in Sources */,
 				0CA18A202C429A7600BD5767 /* FavoritesView.swift in Sources */,
+				0CA18A4B2C458BF500BD5767 /* LoadingView.swift in Sources */,
 				0CA18A302C454AAE00BD5767 /* FollowersView.swift in Sources */,
 				0CA18A2E2C4542A300BD5767 /* AlertItem.swift in Sources */,
 				0CA18A1E2C429A5C00BD5767 /* SearchView.swift in Sources */,
