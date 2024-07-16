@@ -8,10 +8,14 @@
 import SwiftUI
 
 struct FollowersView: View {
-    @State var followers: [Follower] = []
     @State var alertItem: AlertItem?
+    @State var followers: [Follower] = []
+    @State var username: String
+    @State var page: Int = 1
+    @State var hasMoreFollower: Bool = true
+    @State var isLoading = false
     
-    var username: String
+    
     let columns = Array(repeating: GridItem(.flexible()), count: 3)
     
     var body: some View {
@@ -22,29 +26,49 @@ struct FollowersView: View {
                         ForEach(followers, id: \.self) { follower in
                             FollowersTitleView(follower: follower)
                         }
+                        
+                        if hasMoreFollower {
+//                            LoadingView()
+                            FollowersTitleView(follower: Follower(login: "More Followers", avatarUrl: ""))
+                                .onAppear {
+                                    Task {
+                                        page += 1
+                                        await getFollowers(username: username, page: page)
+                                    }
+                                }
+                        }
                     }
                     .padding()
                 }
             }
-            
+            if isLoading { LoadingView() }
         }
         .navigationTitle(username)
         .navigationBarTitleDisplayMode(.large)
-        .task { await getFollowers() }
+        .task { await getFollowers(username: username, page: page) }
         .alert(item: $alertItem, content: { $0.alert })
     }
     
-    private func getFollowers() async {
+    private func getFollowers(username: String, page: Int) async {
+        showLoadingView()
         do {
-            followers = try await NetworkManager.shared.fetchFollowers(username: username, page: 1)
+            let followers = try await NetworkManager.shared.fetchFollowers(username: username, page: page)
+            if followers.count < 100 { hasMoreFollower = false }
+            self.followers.append(contentsOf: followers)
+            hideLoadingView()
         } catch {
+            hideLoadingView()
             if let gfError = error as? GFError {
                 alertItem = AlertItem(title: Text("Bad Stuff Happend"), message: Text(gfError.rawValue), dismissButton: .default(Text("Ok")))
             } else {
                 alertItem = AlertContext.defaultError
             }
         }
+//        hideLoadingView()
     }
+    
+    private func showLoadingView() { isLoading = true }
+    private func hideLoadingView() { isLoading = false }
 }
 
 #Preview {
