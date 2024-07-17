@@ -35,4 +35,24 @@ class NetworkManager {
             throw GFError.invalidData
         }
     }
+    
+    func fetchUserInfo(username: String) async throws -> User  {
+        let urlString = "\(baseUrl)\(username)"
+        
+        guard let url = URL(string: urlString) else {
+            throw GFError.invalidUsername
+        }
+        
+        let (data, response) = try await URLSession.shared.data(from: url)
+        
+        guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+            throw GFError.invalidResponse
+        }
+        
+        do {
+            return try decoder.decode(User.self, from: data)
+        } catch {
+            throw GFError.invalidData
+        }
+    }
 }
