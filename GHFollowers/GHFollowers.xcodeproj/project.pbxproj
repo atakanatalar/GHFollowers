@@ -26,6 +26,7 @@
 		0CA18A452C45686E00BD5767 /* GFError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA18A442C45686E00BD5767 /* GFError.swift */; };
 		0CA18A472C456FF600BD5767 /* FollowerTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA18A462C456FF600BD5767 /* FollowerTitleView.swift */; };
 		0CA18A4B2C458BF500BD5767 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA18A4A2C458BF500BD5767 /* LoadingView.swift */; };
+		0CA18A4D2C469D9500BD5767 /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA18A4C2C469D9500BD5767 /* EmptyStateView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +50,7 @@
 		0CA18A442C45686E00BD5767 /* GFError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFError.swift; sourceTree = "<group>"; };
 		0CA18A462C456FF600BD5767 /* FollowerTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerTitleView.swift; sourceTree = "<group>"; };
 		0CA18A4A2C458BF500BD5767 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		0CA18A4C2C469D9500BD5767 /* EmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +121,7 @@
 				0CA18A2B2C4538AE00BD5767 /* LogoView.swift */,
 				0CA18A462C456FF600BD5767 /* FollowerTitleView.swift */,
 				0CA18A4A2C458BF500BD5767 /* LoadingView.swift */,
+				0CA18A4C2C469D9500BD5767 /* EmptyStateView.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -238,6 +241,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0CA18A4D2C469D9500BD5767 /* EmptyStateView.swift in Sources */,
 				0CA18A402C4559BC00BD5767 /* User.swift in Sources */,
 				0CA18A282C43E84A00BD5767 /* View+Ext.swift in Sources */,
 				0CA18A2C2C4538AE00BD5767 /* LogoView.swift in Sources */,
