@@ -18,16 +18,20 @@ struct UserInfoView: View {
     
     var body: some View {
         NavigationStack {
-            VStack(alignment: .leading) {
+            VStack() {
                 HStack {
-                    UserInfoHeaderView(user: user ?? User(login: "", avatarUrl: "", publicRepos: 0, publicGists: 0, htmlUrl: "", following: 0, followers: 0, createdAt: ""))
+                    UserInfoHeaderView(user: user ?? User(login: "", avatarUrl: "", publicRepos: 0, publicGists: 0, htmlUrl: "", following: 0, followers: 0, createdAt: Date.now))
                     Spacer()
                 }
                 
-                RepoItemInfoView(user: user ?? User(login: "", avatarUrl: "", publicRepos: 0, publicGists: 0, htmlUrl: "", following: 0, followers: 0, createdAt: ""))
-                FollowerItemInfoView(user: user ?? User(login: "", avatarUrl: "", publicRepos: 0, publicGists: 0, htmlUrl: "", following: 0, followers: 0, createdAt: ""))
+                RepoItemInfoView(user: user ?? User(login: "", avatarUrl: "", publicRepos: 0, publicGists: 0, htmlUrl: "", following: 0, followers: 0, createdAt: Date.now))
+                FollowerItemInfoView(user: user ?? User(login: "", avatarUrl: "", publicRepos: 0, publicGists: 0, htmlUrl: "", following: 0, followers: 0, createdAt: Date.now))
                 
                 Spacer()
+                
+                if let user {
+                    Label("GitHub since \(user.createdAt.convertToMonthYearFormat())", systemImage: "calendar")
+                }
             }
             .padding(.horizontal)
         }

@@ -32,6 +32,7 @@
 		0CA18A562C480E0B00BD5767 /* ItemInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA18A552C480E0B00BD5767 /* ItemInfoView.swift */; };
 		0CA18A582C48101F00BD5767 /* RepoItemInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA18A572C48101F00BD5767 /* RepoItemInfoView.swift */; };
 		0CA18A5A2C4811EA00BD5767 /* FollowerItemInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA18A592C4811EA00BD5767 /* FollowerItemInfoView.swift */; };
+		0CA18A5C2C492E4B00BD5767 /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA18A5B2C492E4B00BD5767 /* Date+Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +62,7 @@
 		0CA18A552C480E0B00BD5767 /* ItemInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemInfoView.swift; sourceTree = "<group>"; };
 		0CA18A572C48101F00BD5767 /* RepoItemInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoItemInfoView.swift; sourceTree = "<group>"; };
 		0CA18A592C4811EA00BD5767 /* FollowerItemInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerItemInfoView.swift; sourceTree = "<group>"; };
+		0CA18A5B2C492E4B00BD5767 /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				0CA18A272C43E84A00BD5767 /* View+Ext.swift */,
+				0CA18A5B2C492E4B00BD5767 /* Date+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -259,6 +262,7 @@
 				0CA18A4D2C469D9500BD5767 /* EmptyStateView.swift in Sources */,
 				0CA18A402C4559BC00BD5767 /* User.swift in Sources */,
 				0CA18A282C43E84A00BD5767 /* View+Ext.swift in Sources */,
+				0CA18A5C2C492E4B00BD5767 /* Date+Ext.swift in Sources */,
 				0CA18A2C2C4538AE00BD5767 /* LogoView.swift in Sources */,
 				0CA18A202C429A7600BD5767 /* FavoritesView.swift in Sources */,
 				0CA18A4B2C458BF500BD5767 /* LoadingView.swift in Sources */,

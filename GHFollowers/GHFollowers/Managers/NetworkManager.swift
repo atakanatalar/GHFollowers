@@ -14,6 +14,7 @@ class NetworkManager {
     
     private init() {
         decoder.keyDecodingStrategy = .convertFromSnakeCase
+        decoder.dateDecodingStrategy = .iso8601
     }
     
     func fetchFollowers(username: String, page: Int) async throws -> [Follower] {
