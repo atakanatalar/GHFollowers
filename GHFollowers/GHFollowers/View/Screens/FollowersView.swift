@@ -10,12 +10,14 @@ import SwiftUI
 struct FollowersView: View {
     @State var alertItem: AlertItem?
     @State var followers: [Follower] = []
+    @State var selectedUsername: String = ""
     @State var username: String
     @State var page: Int = 1
     @State var hasMoreFollower: Bool = true
     @State var isLoading = false
     @State var isEmptyState = false
     @State var searchTerm = ""
+    @State var isShowingUserInfoView: Bool = false
     
     var filteredFollowers: [Follower] {
         guard !searchTerm.isEmpty else { return followers }
@@ -31,6 +33,10 @@ struct FollowersView: View {
                     LazyVGrid(columns: columns) {
                         ForEach(filteredFollowers, id: \.self) { follower in
                             FollowersTitleView(follower: follower)
+                                .onTapGesture {
+                                    selectedUsername = follower.login
+                                    isShowingUserInfoView = true
+                                }
                         }
                         
                         if hasMoreFollower && !self.followers.isEmpty {
@@ -53,6 +59,18 @@ struct FollowersView: View {
         .navigationTitle(username)
         .navigationBarTitleDisplayMode(.large)
         .task { await getFollowers(username: username, page: page) }
+        .sheet(isPresented: $isShowingUserInfoView) {
+            NavigationStack {
+                UserInfoView(username: selectedUsername)
+                    .toolbar {
+                        ToolbarItem(placement: .topBarTrailing) {
+                            Button("Done") {
+                                isShowingUserInfoView = false
+                            }
+                        }
+                    }
+            }
+        }
         .alert(item: $alertItem, content: { $0.alert })
         .overlay {
             if filteredFollowers.isEmpty && !followers.isEmpty {
