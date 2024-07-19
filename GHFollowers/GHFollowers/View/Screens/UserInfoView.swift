@@ -31,6 +31,7 @@ struct UserInfoView: View {
                 
                 if let user {
                     Label("GitHub since \(user.createdAt.convertToMonthYearFormat())", systemImage: "calendar")
+                        .padding()
                 }
             }
             .padding(.horizontal)
@@ -49,13 +50,15 @@ struct UserInfoView: View {
         } catch {
             hideLoadingView()
             if let gfError = error as? GFError {
-                alertItem = AlertItem(title: Text("Bad Stuff Happend"), message: Text(gfError.rawValue), dismissButton: .default(Text("Ok")))
+                alertItem = AlertItem(title: Text("Bad Stuff Happend"),
+                                      message: Text(gfError.rawValue),
+                                      dismissButton: .default(Text("Ok")))
             } else {
                 alertItem = AlertContext.defaultError
             }
         }
     }
-    
+     
     private func showLoadingView() { isLoading = true }
     private func hideLoadingView() { isLoading = false }
 }
