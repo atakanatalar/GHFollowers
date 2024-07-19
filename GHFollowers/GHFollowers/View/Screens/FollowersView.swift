@@ -77,6 +77,32 @@ struct FollowersView: View {
                 EmptyStateView(message: "No result for \"\(searchTerm)\" ").padding(.horizontal, 40)
             }
         }
+        .toolbar {
+            ToolbarItem(placement: .topBarTrailing) {
+                Button() {
+                    showLoadingView()
+                    
+                    Task {
+                        do {
+                            let user = try await NetworkManager.shared.fetchUserInfo(username: username)
+                            addUserToFavorite(user: user)
+                            hideLoadingView()
+                        } catch {
+                            if let gfError = error as? GFError {
+                                alertItem = AlertItem(title: Text("Bad Stuff Happend"),
+                                                      message: Text(gfError.rawValue),
+                                                      dismissButton: .default(Text("Ok")))
+                            } else {
+                                alertItem = AlertContext.defaultError
+                            }
+                            hideLoadingView()
+                        }
+                    }
+                } label: {
+                    Label("", systemImage: "star")
+                }
+            }
+        }
     }
     
     private func getFollowers(username: String, page: Int) async {
@@ -95,6 +121,25 @@ struct FollowersView: View {
                 alertItem = AlertItem(title: Text("Bad Stuff Happend"), message: Text(gfError.rawValue), dismissButton: .default(Text("Ok")))
             } else {
                 alertItem = AlertContext.defaultError
+            }
+        }
+    }
+    
+    func addUserToFavorite(user: User) {
+        let favorite = Follower(login: user.login, avatarUrl: user.avatarUrl)
+        PersistenceManager.updateWith(favorite: favorite, actionType: .add) { error in
+            guard error != nil else {
+                DispatchQueue.main.async {
+                    alertItem = AlertItem(title: Text("Success"),
+                                          message: Text("You have successfully favorited this user"),
+                                          dismissButton: .default(Text("Ok")))
+                }
+                return
+            }
+            DispatchQueue.main.async {
+                alertItem = AlertItem(title: Text("Something went wrong"),
+                                      message: Text(error?.rawValue ?? "We were unable to complete your task at this time. Please try again"),
+                                      dismissButton: .default(Text("Ok")))
             }
         }
     }
