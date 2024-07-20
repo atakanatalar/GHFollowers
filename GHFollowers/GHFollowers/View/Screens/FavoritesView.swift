@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct FavoritesView: View {
+    @EnvironmentObject var userManager: UserManager
+    
     @State var favorites: [Follower] = []
-    @State var selectedUsername: String = ""
     @State var isShowingUserInfoView: Bool = false
     @State var isEmptyState = false
     @State var alertItem: AlertItem?
@@ -20,7 +21,7 @@ struct FavoritesView: View {
                 List(favorites, id: \.self) { favorite in
                     FavoritesListCell(favorite: favorite)
                         .onTapGesture {
-                            selectedUsername = favorite.login
+                            userManager.addUsername(to: favorite.login)
                             isShowingUserInfoView = true
                         }
                         .swipeActions {
@@ -42,7 +43,7 @@ struct FavoritesView: View {
         }
         .sheet(isPresented: $isShowingUserInfoView) {
             NavigationStack {
-                UserInfoView(username: selectedUsername)
+                UserInfoView()
                     .toolbar {
                         ToolbarItem(placement: .topBarTrailing) {
                             Button("Done") {

@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct FollowerItemInfoView: View {
-    var user: User
+    @EnvironmentObject var userManager: UserManager
     @State var isShowingFollowersView: Bool = false
+    
+    var user: User
     
     var body: some View {
         ZStack {
@@ -23,6 +25,7 @@ struct FollowerItemInfoView: View {
                 .padding(.horizontal, 12)
                 
                 Button {
+                    userManager.addUsername(to: user.login)
                     isShowingFollowersView = true
                 } label: {
                     Label("Get Followers", systemImage: "person.3")
@@ -36,7 +39,7 @@ struct FollowerItemInfoView: View {
             .clipShape(RoundedRectangle(cornerRadius: 18))
             .padding(.vertical, 8)
         }
-        .navigationDestination(isPresented: $isShowingFollowersView) { FollowersView(username: user.login) }
+        .navigationDestination(isPresented: $isShowingFollowersView) { FollowersView() }
     }
 }
 

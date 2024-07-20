@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct SearchView: View {
+    @EnvironmentObject var userManager: UserManager
+    
     @State var username: String = ""
     @State var alertItem: AlertItem?
     @State var navigateToFollowers: Bool = false
@@ -29,6 +31,7 @@ struct SearchView: View {
                         .padding(.horizontal, 48)
                         .onSubmit {
                             if !isUsernameEmpty {
+                                userManager.addUsername(to: username)
                                 navigateToFollowers = true
                             } else {
                                 alertItem = AlertContext.invalidUsername
@@ -38,6 +41,7 @@ struct SearchView: View {
                     Spacer()
                     
                     Button {
+                        userManager.addUsername(to: username)
                         navigateToFollowers = true
                     } label: {
                         Label("Get Followers", systemImage: "person.3")
@@ -57,7 +61,7 @@ struct SearchView: View {
                         } label: { Image(systemName: "keyboard.chevron.compact.down") }
                     }
                 }
-                .navigationDestination(isPresented: $navigateToFollowers) { FollowersView(username: username) }
+                .navigationDestination(isPresented: $navigateToFollowers) { FollowersView() }
                 .alert(item: $alertItem, content: { $0.alert })
             }
         }

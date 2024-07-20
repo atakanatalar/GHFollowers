@@ -8,36 +8,45 @@
 import SwiftUI
 
 struct UserInfoView: View {
+    @EnvironmentObject var userManager: UserManager
     @Environment(\.dismiss) var dismiss
     
-    var username: String
-    
     @State var user: User?
-    @State var isLoading = false
+    @State var isLoading: Bool = false
     @State var alertItem: AlertItem?
     
     var body: some View {
-        NavigationStack {
-            VStack() {
-                HStack {
-                    UserInfoHeaderView(user: user ?? User(login: "", avatarUrl: "", publicRepos: 0, publicGists: 0, htmlUrl: "", following: 0, followers: 0, createdAt: Date.now))
+        ZStack {
+            NavigationStack {
+                VStack() {
+                    HStack {
+                        UserInfoHeaderView(user: user ?? User(login: "", avatarUrl: "", publicRepos: 0, publicGists: 0, htmlUrl: "", following: 0, followers: 0, createdAt: Date.now))
+                        Spacer()
+                    }
+                    
+                    RepoItemInfoView(user: user ?? User(login: "", avatarUrl: "", publicRepos: 0, publicGists: 0, htmlUrl: "", following: 0, followers: 0, createdAt: Date.now))
+                    FollowerItemInfoView(user: user ?? User(login: "", avatarUrl: "", publicRepos: 0, publicGists: 0, htmlUrl: "", following: 0, followers: 0, createdAt: Date.now))
+                    
                     Spacer()
+                    
+                    if let user {
+                        Label("GitHub since \(user.createdAt.convertToMonthYearFormat())", systemImage: "calendar")
+                            .padding()
+                    }
                 }
-                
-                RepoItemInfoView(user: user ?? User(login: "", avatarUrl: "", publicRepos: 0, publicGists: 0, htmlUrl: "", following: 0, followers: 0, createdAt: Date.now))
-                FollowerItemInfoView(user: user ?? User(login: "", avatarUrl: "", publicRepos: 0, publicGists: 0, htmlUrl: "", following: 0, followers: 0, createdAt: Date.now))
-                
-                Spacer()
-                
-                if let user {
-                    Label("GitHub since \(user.createdAt.convertToMonthYearFormat())", systemImage: "calendar")
-                        .padding()
-                }
+                .padding(.horizontal)
             }
-            .padding(.horizontal)
+            if isLoading { LoadingView() }
         }
-        .task { await getUserInfo(username: username) }
+        .navigationBarTitleDisplayMode(.inline)
+        .task { await getUserInfo(username: userManager.usernames.last ?? "username") }
         .alert(item: $alertItem, content: { $0.alert })
+        .onAppear {
+            print(userManager.usernames)
+        }
+        .onDisappear {
+            userManager.removeUsername()
+        }
     }
     
     private func getUserInfo(username: String) async {
@@ -45,7 +54,6 @@ struct UserInfoView: View {
         do {
             let user = try await NetworkManager.shared.fetchUserInfo(username: username)
             self.user = user
-            
             hideLoadingView()
         } catch {
             hideLoadingView()
@@ -58,11 +66,11 @@ struct UserInfoView: View {
             }
         }
     }
-     
+    
     private func showLoadingView() { isLoading = true }
     private func hideLoadingView() { isLoading = false }
 }
 
 #Preview {
-    UserInfoView(username: "")
+    UserInfoView()
 }

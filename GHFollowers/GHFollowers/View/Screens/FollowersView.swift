@@ -8,15 +8,16 @@
 import SwiftUI
 
 struct FollowersView: View {
+    @EnvironmentObject var userManager: UserManager
+    
     @State var alertItem: AlertItem?
     @State var followers: [Follower] = []
-    @State var selectedUsername: String = ""
-    @State var username: String
     @State var page: Int = 1
     @State var hasMoreFollower: Bool = true
     @State var isLoading = false
     @State var isEmptyState = false
     @State var searchTerm = ""
+    @State var navigationTitle = ""
     @State var isShowingUserInfoView: Bool = false
     
     var filteredFollowers: [Follower] {
@@ -34,7 +35,7 @@ struct FollowersView: View {
                         ForEach(filteredFollowers, id: \.self) { follower in
                             FollowersTitleView(follower: follower)
                                 .onTapGesture {
-                                    selectedUsername = follower.login
+                                    userManager.addUsername(to: follower.login)
                                     isShowingUserInfoView = true
                                 }
                         }
@@ -44,7 +45,7 @@ struct FollowersView: View {
                                 .onAppear {
                                     Task {
                                         page += 1
-                                        await getFollowers(username: username, page: page)
+                                        await getFollowers(username: userManager.usernames.last ?? "username", page: page)
                                     }
                                 }
                         }
@@ -56,12 +57,13 @@ struct FollowersView: View {
             if isEmptyState { EmptyStateView(message: "This user doesn't have any followers, go follow them").padding(.horizontal, 40) }
             if isLoading { LoadingView() }
         }
-        .navigationTitle(username)
+        .navigationTitle(navigationTitle)
         .navigationBarTitleDisplayMode(.large)
-        .task { await getFollowers(username: username, page: page) }
+        .interactiveDismissDisabled()
+        .task { await getFollowers(username: userManager.usernames.last ?? "username", page: page) }
         .sheet(isPresented: $isShowingUserInfoView) {
             NavigationStack {
-                UserInfoView(username: selectedUsername)
+                UserInfoView()
                     .toolbar {
                         ToolbarItem(placement: .topBarTrailing) {
                             Button("Done") {
@@ -70,6 +72,10 @@ struct FollowersView: View {
                         }
                     }
             }
+        }
+        .onAppear {
+            navigationTitle = userManager.usernames.last ?? ""
+            followers = []
         }
         .alert(item: $alertItem, content: { $0.alert })
         .overlay {
@@ -84,7 +90,7 @@ struct FollowersView: View {
                     
                     Task {
                         do {
-                            let user = try await NetworkManager.shared.fetchUserInfo(username: username)
+                            let user = try await NetworkManager.shared.fetchUserInfo(username: userManager.usernames.last ?? "username")
                             addUserToFavorite(user: user)
                             hideLoadingView()
                         } catch {
@@ -150,5 +156,5 @@ struct FollowersView: View {
 }
 
 #Preview {
-    FollowersView(username: "username")
+    FollowersView()
 }
