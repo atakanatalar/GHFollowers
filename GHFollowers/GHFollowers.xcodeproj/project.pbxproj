@@ -35,6 +35,7 @@
 		0CA18A5C2C492E4B00BD5767 /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA18A5B2C492E4B00BD5767 /* Date+Ext.swift */; };
 		0CA18A5E2C49728F00BD5767 /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA18A5D2C49728F00BD5767 /* PersistenceManager.swift */; };
 		0CA18A642C4A915400BD5767 /* FavoritesListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA18A632C4A915400BD5767 /* FavoritesListCell.swift */; };
+		0CA18A6E2C4AC95000BD5767 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA18A6D2C4AC95000BD5767 /* UserManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +68,7 @@
 		0CA18A5B2C492E4B00BD5767 /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
 		0CA18A5D2C49728F00BD5767 /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
 		0CA18A632C4A915400BD5767 /* FavoritesListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesListCell.swift; sourceTree = "<group>"; };
+		0CA18A6D2C4AC95000BD5767 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +193,7 @@
 			children = (
 				0CA18A422C455A4200BD5767 /* NetworkManager.swift */,
 				0CA18A5D2C49728F00BD5767 /* PersistenceManager.swift */,
+				0CA18A6D2C4AC95000BD5767 /* UserManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -283,6 +286,7 @@
 				0CA18A3E2C4559B000BD5767 /* Follower.swift in Sources */,
 				0CA18A472C456FF600BD5767 /* FollowerTitleView.swift in Sources */,
 				0CA18A0E2C42970E00BD5767 /* ContentView.swift in Sources */,
+				0CA18A6E2C4AC95000BD5767 /* UserManager.swift in Sources */,
 				0CA18A432C455A4200BD5767 /* NetworkManager.swift in Sources */,
 				0CA18A562C480E0B00BD5767 /* ItemInfoView.swift in Sources */,
 				0CA18A452C45686E00BD5767 /* GFError.swift in Sources */,
