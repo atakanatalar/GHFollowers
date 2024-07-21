@@ -9,12 +9,7 @@ import SwiftUI
 
 struct SearchView: View {
     @EnvironmentObject var userManager: UserManager
-    
-    @State var username: String = ""
-    @State var alertItem: AlertItem?
-    @State var navigateToFollowers: Bool = false
-    
-    var isUsernameEmpty: Bool { return username.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty }
+    @StateObject private var viewModel = SearchViewModel()
     
     var body: some View {
         NavigationStack {
@@ -26,30 +21,30 @@ struct SearchView: View {
                         .padding(.top, 96)
                         .padding(.bottom, 24)
                     
-                    TextField("Enter a username", text: $username)
+                    TextField(SearchViewConstants.textFieldText, text: $viewModel.username)
                         .modifier(CustomTextFieldModifier())
                         .padding(.horizontal, 48)
                         .onSubmit {
-                            if !isUsernameEmpty {
-                                userManager.addUsername(to: username)
-                                navigateToFollowers = true
+                            if !viewModel.isUsernameEmpty {
+                                userManager.addUsername(to: viewModel.username)
+                                viewModel.isShowingFollowersView = true
                             } else {
-                                alertItem = AlertContext.invalidUsername
+                                viewModel.alertItem = AlertContext.invalidUsername
                             }
                         }
                     
                     Spacer()
                     
                     Button {
-                        userManager.addUsername(to: username)
-                        navigateToFollowers = true
+                        userManager.addUsername(to: viewModel.username)
+                        viewModel.isShowingFollowersView = true
                     } label: {
-                        Label("Get Followers", systemImage: "person.3")
+                        Label(SearchViewConstants.buttonTitle, systemImage: SearchViewConstants.buttonImageTitle)
                             .frame(maxWidth: .infinity, maxHeight: 48)
                     }
                     .modifier(CustomButtonModifier(backgroundColor: Color(.systemGreen)))
-                    .disabled(isUsernameEmpty)
-                    .opacity(isUsernameEmpty ? 0.8 : 1.0)
+                    .disabled(viewModel.isUsernameEmpty)
+                    .opacity(viewModel.isUsernameEmpty ? 0.8 : 1.0)
                     .padding(.horizontal, 48)
                     .padding(.bottom, 24)
                 }
@@ -58,11 +53,11 @@ struct SearchView: View {
                         Spacer()
                         Button() {
                             dismissKeyboard()
-                        } label: { Image(systemName: "keyboard.chevron.compact.down") }
+                        } label: { Image(systemName: KeyboardConstants.imageTitle) }
                     }
                 }
-                .navigationDestination(isPresented: $navigateToFollowers) { FollowersView() }
-                .alert(item: $alertItem, content: { $0.alert })
+                .navigationDestination(isPresented: $viewModel.isShowingFollowersView) { viewModel.createFollowersView() }
+                .alert(item: $viewModel.alertItem, content: { $0.alert })
             }
         }
     }

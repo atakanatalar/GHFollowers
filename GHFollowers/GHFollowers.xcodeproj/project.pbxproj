@@ -36,6 +36,8 @@
 		0CA18A5E2C49728F00BD5767 /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA18A5D2C49728F00BD5767 /* PersistenceManager.swift */; };
 		0CA18A642C4A915400BD5767 /* FavoritesListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA18A632C4A915400BD5767 /* FavoritesListCell.swift */; };
 		0CA18A6E2C4AC95000BD5767 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA18A6D2C4AC95000BD5767 /* UserManager.swift */; };
+		0CA18A702C4DA23800BD5767 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA18A6F2C4DA23800BD5767 /* SearchViewModel.swift */; };
+		0CA18A722C4DA4FC00BD5767 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA18A712C4DA4FC00BD5767 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +71,8 @@
 		0CA18A5D2C49728F00BD5767 /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
 		0CA18A632C4A915400BD5767 /* FavoritesListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesListCell.swift; sourceTree = "<group>"; };
 		0CA18A6D2C4AC95000BD5767 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
+		0CA18A6F2C4DA23800BD5767 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		0CA18A712C4DA4FC00BD5767 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				0CA18A1D2C429A5C00BD5767 /* SearchView.swift */,
+				0CA18A6F2C4DA23800BD5767 /* SearchViewModel.swift */,
 				0CA18A1F2C429A7600BD5767 /* FavoritesView.swift */,
 				0CA18A2F2C454AAE00BD5767 /* FollowersView.swift */,
 				0CA18A4E2C47F0E300BD5767 /* UserInfoView.swift */,
@@ -165,6 +170,7 @@
 			children = (
 				0CA18A2D2C4542A300BD5767 /* AlertItem.swift */,
 				0CA18A442C45686E00BD5767 /* GFError.swift */,
+				0CA18A712C4DA4FC00BD5767 /* Constants.swift */,
 				0CA18A352C4554BF00BD5767 /* Extensions */,
 			);
 			path = Utilities;
@@ -273,6 +279,7 @@
 				0CA18A402C4559BC00BD5767 /* User.swift in Sources */,
 				0CA18A282C43E84A00BD5767 /* View+Ext.swift in Sources */,
 				0CA18A5C2C492E4B00BD5767 /* Date+Ext.swift in Sources */,
+				0CA18A722C4DA4FC00BD5767 /* Constants.swift in Sources */,
 				0CA18A2C2C4538AE00BD5767 /* LogoView.swift in Sources */,
 				0CA18A202C429A7600BD5767 /* FavoritesView.swift in Sources */,
 				0CA18A642C4A915400BD5767 /* FavoritesListCell.swift in Sources */,
@@ -290,6 +297,7 @@
 				0CA18A432C455A4200BD5767 /* NetworkManager.swift in Sources */,
 				0CA18A562C480E0B00BD5767 /* ItemInfoView.swift in Sources */,
 				0CA18A452C45686E00BD5767 /* GFError.swift in Sources */,
+				0CA18A702C4DA23800BD5767 /* SearchViewModel.swift in Sources */,
 				0CA18A0C2C42970E00BD5767 /* GHFollowersApp.swift in Sources */,
 				0CA18A222C429A9200BD5767 /* AppTabView.swift in Sources */,
 				0CA18A4F2C47F0E300BD5767 /* UserInfoView.swift in Sources */,
