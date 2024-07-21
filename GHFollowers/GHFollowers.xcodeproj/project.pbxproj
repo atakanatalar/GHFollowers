@@ -38,6 +38,7 @@
 		0CA18A6E2C4AC95000BD5767 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA18A6D2C4AC95000BD5767 /* UserManager.swift */; };
 		0CA18A702C4DA23800BD5767 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA18A6F2C4DA23800BD5767 /* SearchViewModel.swift */; };
 		0CA18A722C4DA4FC00BD5767 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA18A712C4DA4FC00BD5767 /* Constants.swift */; };
+		0CA18A742C4DC1D900BD5767 /* FollowersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA18A732C4DC1D900BD5767 /* FollowersViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,6 +74,7 @@
 		0CA18A6D2C4AC95000BD5767 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		0CA18A6F2C4DA23800BD5767 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		0CA18A712C4DA4FC00BD5767 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		0CA18A732C4DC1D900BD5767 /* FollowersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +162,7 @@
 				0CA18A6F2C4DA23800BD5767 /* SearchViewModel.swift */,
 				0CA18A1F2C429A7600BD5767 /* FavoritesView.swift */,
 				0CA18A2F2C454AAE00BD5767 /* FollowersView.swift */,
+				0CA18A732C4DC1D900BD5767 /* FollowersViewModel.swift */,
 				0CA18A4E2C47F0E300BD5767 /* UserInfoView.swift */,
 			);
 			path = Screens;
@@ -278,6 +281,7 @@
 				0CA18A5E2C49728F00BD5767 /* PersistenceManager.swift in Sources */,
 				0CA18A402C4559BC00BD5767 /* User.swift in Sources */,
 				0CA18A282C43E84A00BD5767 /* View+Ext.swift in Sources */,
+				0CA18A742C4DC1D900BD5767 /* FollowersViewModel.swift in Sources */,
 				0CA18A5C2C492E4B00BD5767 /* Date+Ext.swift in Sources */,
 				0CA18A722C4DA4FC00BD5767 /* Constants.swift in Sources */,
 				0CA18A2C2C4538AE00BD5767 /* LogoView.swift in Sources */,

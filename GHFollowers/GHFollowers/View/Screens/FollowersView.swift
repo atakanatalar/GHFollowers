@@ -9,150 +9,74 @@ import SwiftUI
 
 struct FollowersView: View {
     @EnvironmentObject var userManager: UserManager
-    
-    @State var alertItem: AlertItem?
-    @State var followers: [Follower] = []
-    @State var page: Int = 1
-    @State var hasMoreFollower: Bool = true
-    @State var isLoading = false
-    @State var isEmptyState = false
-    @State var searchTerm = ""
-    @State var navigationTitle = ""
-    @State var isShowingUserInfoView: Bool = false
-    
-    var filteredFollowers: [Follower] {
-        guard !searchTerm.isEmpty else { return followers }
-        return followers.filter { $0.login.localizedCaseInsensitiveContains(searchTerm) }
-    }
-    
-    let columns = Array(repeating: GridItem(.flexible()), count: 3)
+    @StateObject private var viewModel = FollowersViewModel()
     
     var body: some View {
         ZStack {
             NavigationStack {
                 ScrollView {
-                    LazyVGrid(columns: columns) {
-                        ForEach(filteredFollowers, id: \.self) { follower in
+                    LazyVGrid(columns: viewModel.columns) {
+                        ForEach(viewModel.filteredFollowers, id: \.self) { follower in
                             FollowersTitleView(follower: follower)
                                 .onTapGesture {
                                     userManager.addUsername(to: follower.login)
-                                    isShowingUserInfoView = true
+                                    viewModel.isShowingUserInfoView = true
                                 }
                         }
                         
-                        if hasMoreFollower && !self.followers.isEmpty {
-                            FollowersTitleView(follower: Follower(login: "More Followers", avatarUrl: ""))
+                        if viewModel.hasMoreFollower && !viewModel.followers.isEmpty {
+                            FollowersTitleView(follower: Follower(login: FollowersViewConstants.followersTitleViewTitle, avatarUrl: FollowersViewConstants.followersTitleViewAvatarUrl))
                                 .onAppear {
                                     Task {
-                                        page += 1
-                                        await getFollowers(username: userManager.usernames.last ?? "username", page: page)
+                                        viewModel.page += 1
+                                        await viewModel.getFollowers(username: userManager.usernames.last ?? "username", page: viewModel.page)
                                     }
                                 }
                         }
                     }
                     .padding()
-                    .searchable(text: $searchTerm, placement: .navigationBarDrawer(displayMode: .always), prompt: "Search Followers")
+                    .searchable(text: $viewModel.searchTerm, placement: .navigationBarDrawer(displayMode: .always), prompt: FollowersViewConstants.searchTitle)
                 }
             }
-            if isEmptyState { EmptyStateView(message: "This user doesn't have any followers, go follow them").padding(.horizontal, 40) }
-            if isLoading { LoadingView() }
+            if viewModel.isEmptyState { EmptyStateView(message: FollowersViewConstants.emptyMessage).padding(.horizontal, 40) }
+            if viewModel.isLoading { LoadingView() }
         }
-        .navigationTitle(navigationTitle)
+        .navigationTitle(viewModel.navigationTitle)
         .navigationBarTitleDisplayMode(.large)
         .interactiveDismissDisabled()
-        .task { await getFollowers(username: userManager.usernames.last ?? "username", page: page) }
-        .sheet(isPresented: $isShowingUserInfoView) {
+        .task { await viewModel.getFollowers(username: userManager.usernames.last ?? "username", page: viewModel.page) }
+        .sheet(isPresented: $viewModel.isShowingUserInfoView) {
             NavigationStack {
-                UserInfoView()
+                viewModel.createUserInfoView()
                     .toolbar {
                         ToolbarItem(placement: .topBarTrailing) {
-                            Button("Done") {
-                                isShowingUserInfoView = false
+                            Button(FollowersViewConstants.userInfoViewToolbarButtonTitle) {
+                                viewModel.isShowingUserInfoView = false
                             }
                         }
                     }
             }
         }
         .onAppear {
-            navigationTitle = userManager.usernames.last ?? ""
-            followers = []
+            viewModel.navigationTitle = userManager.usernames.last ?? ""
+            viewModel.followers = []
         }
-        .alert(item: $alertItem, content: { $0.alert })
+        .alert(item: $viewModel.alertItem, content: { $0.alert })
         .overlay {
-            if filteredFollowers.isEmpty && !followers.isEmpty {
-                EmptyStateView(message: "No result for \"\(searchTerm)\" ").padding(.horizontal, 40)
+            if viewModel.filteredFollowers.isEmpty && !viewModel.followers.isEmpty {
+                EmptyStateView(message: FollowersViewConstants.noResultMessageFirst + "\(viewModel.searchTerm)" + FollowersViewConstants.noResultMessageSecond).padding(.horizontal, 40)
             }
         }
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
                 Button() {
-                    showLoadingView()
-                    
-                    Task {
-                        do {
-                            let user = try await NetworkManager.shared.fetchUserInfo(username: userManager.usernames.last ?? "username")
-                            addUserToFavorite(user: user)
-                            hideLoadingView()
-                        } catch {
-                            if let gfError = error as? GFError {
-                                alertItem = AlertItem(title: Text("Bad Stuff Happend"),
-                                                      message: Text(gfError.rawValue),
-                                                      dismissButton: .default(Text("Ok")))
-                            } else {
-                                alertItem = AlertContext.defaultError
-                            }
-                            hideLoadingView()
-                        }
-                    }
+                    viewModel.getUserForFavorite(username: userManager.usernames.last ?? "username")
                 } label: {
-                    Label("", systemImage: "star")
+                    Label(FollowersViewConstants.favoriteToolbarButtonTitle, systemImage: FollowersViewConstants.favoriteToolbarButtonImageTitle)
                 }
             }
         }
     }
-    
-    private func getFollowers(username: String, page: Int) async {
-        showLoadingView()
-        do {
-            let followers = try await NetworkManager.shared.fetchFollowers(username: username, page: page)
-            if followers.count < 100 { hasMoreFollower = false }
-            self.followers.append(contentsOf: followers)
-            if self.followers.isEmpty {
-                DispatchQueue.main.async { showEmptyStateView() }
-            }
-            hideLoadingView()
-        } catch {
-            hideLoadingView()
-            if let gfError = error as? GFError {
-                alertItem = AlertItem(title: Text("Bad Stuff Happend"), message: Text(gfError.rawValue), dismissButton: .default(Text("Ok")))
-            } else {
-                alertItem = AlertContext.defaultError
-            }
-        }
-    }
-    
-    func addUserToFavorite(user: User) {
-        let favorite = Follower(login: user.login, avatarUrl: user.avatarUrl)
-        PersistenceManager.updateWith(favorite: favorite, actionType: .add) { error in
-            guard error != nil else {
-                DispatchQueue.main.async {
-                    alertItem = AlertItem(title: Text("Success"),
-                                          message: Text("You have successfully favorited this user"),
-                                          dismissButton: .default(Text("Ok")))
-                }
-                return
-            }
-            DispatchQueue.main.async {
-                alertItem = AlertItem(title: Text("Something went wrong"),
-                                      message: Text(error?.rawValue ?? "We were unable to complete your task at this time. Please try again"),
-                                      dismissButton: .default(Text("Ok")))
-            }
-        }
-    }
-    
-    private func showLoadingView() { isLoading = true }
-    private func hideLoadingView() { isLoading = false }
-    private func showEmptyStateView() { isEmptyState = true }
 }
 
 #Preview {
