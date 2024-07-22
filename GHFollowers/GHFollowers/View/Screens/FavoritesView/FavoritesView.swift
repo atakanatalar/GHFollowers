@@ -23,7 +23,6 @@ struct FavoritesView: View {
                         .swipeActions {
                             Button(role: .destructive) {
                                 viewModel.removeFromFavorites(favorite: favorite)
-                                viewModel.favorites.removeAll { $0 == favorite }
                             } label: {
                                 Label(FavoritesViewConstants.swipeDeleteButtonTitle, systemImage: FavoritesViewConstants.swipeDeleteButtonImageTitle)
                             }

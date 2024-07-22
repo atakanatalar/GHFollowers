@@ -21,9 +21,7 @@ extension FavoritesView {
                 switch result {
                 case .success(let favorites):
                     self.favorites = favorites
-                    if self.favorites.isEmpty {
-                        DispatchQueue.main.async { self.showEmptyStateView() }
-                    }
+                    self.checkIsEpmty()
                 case .failure(let error):
                     DispatchQueue.main.async {
                         self.alertItem = AlertItem(title: AlertItemConstants.failureTitle,
@@ -39,6 +37,8 @@ extension FavoritesView {
             PersistenceManager.updateWith(favorite: favorite, actionType: .remove) { error in
                 guard let error = error else {
                     print("\(favorite.login) is removed")
+                    self.favorites.removeAll { $0 == favorite }
+                    self.checkIsEpmty()
                     return
                 }
                 DispatchQueue.main.async {
@@ -50,6 +50,17 @@ extension FavoritesView {
         }
         
         @MainActor
+        func checkIsEpmty() {
+            if favorites.isEmpty {
+                DispatchQueue.main.async { self.showEmptyStateView() }
+            } else {
+                DispatchQueue.main.async { self.hideEmptyStateView() }
+            }
+        }
+        
+        @MainActor
         func showEmptyStateView() { isEmptyState = true }
+        @MainActor
+        func hideEmptyStateView() { isEmptyState = false }
     }
 }
