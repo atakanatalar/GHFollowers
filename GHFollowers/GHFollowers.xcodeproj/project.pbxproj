@@ -41,6 +41,7 @@
 		0CA18A742C4DC1D900BD5767 /* FollowersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA18A732C4DC1D900BD5767 /* FollowersViewModel.swift */; };
 		0CA18A762C4E6BCC00BD5767 /* UserInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA18A752C4E6BCC00BD5767 /* UserInfoViewModel.swift */; };
 		0CA18A782C4E6F9F00BD5767 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA18A772C4E6F9F00BD5767 /* MockData.swift */; };
+		0CA18A7A2C4E736C00BD5767 /* FavoritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA18A792C4E736C00BD5767 /* FavoritesViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -79,6 +80,7 @@
 		0CA18A732C4DC1D900BD5767 /* FollowersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersViewModel.swift; sourceTree = "<group>"; };
 		0CA18A752C4E6BCC00BD5767 /* UserInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewModel.swift; sourceTree = "<group>"; };
 		0CA18A772C4E6F9F00BD5767 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
+		0CA18A792C4E736C00BD5767 /* FavoritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +167,7 @@
 				0CA18A1D2C429A5C00BD5767 /* SearchView.swift */,
 				0CA18A6F2C4DA23800BD5767 /* SearchViewModel.swift */,
 				0CA18A1F2C429A7600BD5767 /* FavoritesView.swift */,
+				0CA18A792C4E736C00BD5767 /* FavoritesViewModel.swift */,
 				0CA18A2F2C454AAE00BD5767 /* FollowersView.swift */,
 				0CA18A732C4DC1D900BD5767 /* FollowersViewModel.swift */,
 				0CA18A4E2C47F0E300BD5767 /* UserInfoView.swift */,
@@ -295,6 +298,7 @@
 				0CA18A202C429A7600BD5767 /* FavoritesView.swift in Sources */,
 				0CA18A642C4A915400BD5767 /* FavoritesListCell.swift in Sources */,
 				0CA18A4B2C458BF500BD5767 /* LoadingView.swift in Sources */,
+				0CA18A7A2C4E736C00BD5767 /* FavoritesViewModel.swift in Sources */,
 				0CA18A582C48101F00BD5767 /* RepoItemInfoView.swift in Sources */,
 				0CA18A782C4E6F9F00BD5767 /* MockData.swift in Sources */,
 				0CA18A302C454AAE00BD5767 /* FollowersView.swift in Sources */,

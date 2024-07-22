@@ -57,14 +57,14 @@ extension FollowersView {
                     DispatchQueue.main.async {
                         self.alertItem = AlertItem(title: AlertItemConstants.successTitle,
                                                    message: AlertItemConstants.addUserSuccessMessage,
-                                              dismissButton: .default(AlertItemConstants.dismissButtonTitle))
+                                                   dismissButton: .default(AlertItemConstants.dismissButtonTitle))
                     }
                     return
                 }
                 DispatchQueue.main.async {
                     self.alertItem = AlertItem(title: AlertItemConstants.failureTitle,
                                                message: Text(error?.rawValue ?? AlertItemConstants.errorMessage),
-                                          dismissButton: .default(AlertItemConstants.dismissButtonTitle))
+                                               dismissButton: .default(AlertItemConstants.dismissButtonTitle))
                 }
             }
         }
@@ -81,8 +81,8 @@ extension FollowersView {
                     if let gfError = error as? GFError {
                         DispatchQueue.main.async {
                             self.alertItem = AlertItem(title: AlertItemConstants.failureTitle,
-                                                  message: Text(gfError.rawValue),
-                                                  dismissButton: .default(AlertItemConstants.dismissButtonTitle))
+                                                       message: Text(gfError.rawValue),
+                                                       dismissButton: .default(AlertItemConstants.dismissButtonTitle))
                         }
                     } else {
                         DispatchQueue.main.async {

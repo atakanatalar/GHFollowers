@@ -31,9 +31,18 @@ enum UserInfoViewConstants {
     static let dateLabelImageTitle = "calendar"
 }
 
+enum FavoritesViewConstants {
+    static let swipeDeleteButtonTitle = "Delete"
+    static let swipeDeleteButtonImageTitle = "trash"
+    static let navigationTitle = "Favorites"
+    static let emptyMessage = "No Favorites?\nAdd one on the Followers screen"
+    static let userInfoViewToolbarButtonTitle = "Done"
+}
+
 enum AlertItemConstants {
     static let successTitle = Text("Success")
     static let failureTitle = Text("Bad Stuff Happend")
+    static let removeFromFavoritesTitle = Text("Unable to Remove")
     static let dismissButtonTitle = Text("Ok")
     static let addUserSuccessMessage = Text("You have successfully favorited this user")
     static let errorMessage = "We were unable to complete your task at this time. Please try again"
