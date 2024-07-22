@@ -39,6 +39,8 @@
 		0CA18A702C4DA23800BD5767 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA18A6F2C4DA23800BD5767 /* SearchViewModel.swift */; };
 		0CA18A722C4DA4FC00BD5767 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA18A712C4DA4FC00BD5767 /* Constants.swift */; };
 		0CA18A742C4DC1D900BD5767 /* FollowersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA18A732C4DC1D900BD5767 /* FollowersViewModel.swift */; };
+		0CA18A762C4E6BCC00BD5767 /* UserInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA18A752C4E6BCC00BD5767 /* UserInfoViewModel.swift */; };
+		0CA18A782C4E6F9F00BD5767 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA18A772C4E6F9F00BD5767 /* MockData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,6 +77,8 @@
 		0CA18A6F2C4DA23800BD5767 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		0CA18A712C4DA4FC00BD5767 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		0CA18A732C4DC1D900BD5767 /* FollowersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersViewModel.swift; sourceTree = "<group>"; };
+		0CA18A752C4E6BCC00BD5767 /* UserInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewModel.swift; sourceTree = "<group>"; };
+		0CA18A772C4E6F9F00BD5767 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +168,7 @@
 				0CA18A2F2C454AAE00BD5767 /* FollowersView.swift */,
 				0CA18A732C4DC1D900BD5767 /* FollowersViewModel.swift */,
 				0CA18A4E2C47F0E300BD5767 /* UserInfoView.swift */,
+				0CA18A752C4E6BCC00BD5767 /* UserInfoViewModel.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -193,6 +198,7 @@
 			children = (
 				0CA18A3D2C4559AF00BD5767 /* Follower.swift */,
 				0CA18A3F2C4559BC00BD5767 /* User.swift */,
+				0CA18A772C4E6F9F00BD5767 /* MockData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -277,6 +283,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0CA18A762C4E6BCC00BD5767 /* UserInfoViewModel.swift in Sources */,
 				0CA18A4D2C469D9500BD5767 /* EmptyStateView.swift in Sources */,
 				0CA18A5E2C49728F00BD5767 /* PersistenceManager.swift in Sources */,
 				0CA18A402C4559BC00BD5767 /* User.swift in Sources */,
@@ -289,6 +296,7 @@
 				0CA18A642C4A915400BD5767 /* FavoritesListCell.swift in Sources */,
 				0CA18A4B2C458BF500BD5767 /* LoadingView.swift in Sources */,
 				0CA18A582C48101F00BD5767 /* RepoItemInfoView.swift in Sources */,
+				0CA18A782C4E6F9F00BD5767 /* MockData.swift in Sources */,
 				0CA18A302C454AAE00BD5767 /* FollowersView.swift in Sources */,
 				0CA18A2E2C4542A300BD5767 /* AlertItem.swift in Sources */,
 				0CA18A542C47FB1E00BD5767 /* UserInfoHeaderView.swift in Sources */,

@@ -26,6 +26,11 @@ enum FollowersViewConstants {
     static let favoriteToolbarButtonImageTitle = "star"
 }
 
+enum UserInfoViewConstants {
+    static let dateLabelTitle = "GitHub since"
+    static let dateLabelImageTitle = "calendar"
+}
+
 enum AlertItemConstants {
     static let successTitle = Text("Success")
     static let failureTitle = Text("Bad Stuff Happend")
