@@ -8,8 +8,14 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var isSplashViewPresented: Bool = false
+    
     var body: some View {
-        AppTabView()
+        if isSplashViewPresented {
+            AppTabView()
+        } else {
+            SplashView(isPresented: $isSplashViewPresented)
+        }
     }
 }
 

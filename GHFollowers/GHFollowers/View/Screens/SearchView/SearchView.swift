@@ -17,7 +17,7 @@ struct SearchView: View {
                 Color(.systemBackground).ignoresSafeArea()
                 
                 VStack {
-                    LogoView(frameWidth: 200)
+                    LogoView(frameWidth: 180)
                         .padding(.top, 96)
                         .padding(.bottom, 24)
                     
