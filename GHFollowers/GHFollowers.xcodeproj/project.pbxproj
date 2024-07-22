@@ -43,6 +43,8 @@
 		0CA18A782C4E6F9F00BD5767 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA18A772C4E6F9F00BD5767 /* MockData.swift */; };
 		0CA18A7A2C4E736C00BD5767 /* FavoritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA18A792C4E736C00BD5767 /* FavoritesViewModel.swift */; };
 		0CA18A812C4E88F400BD5767 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA18A802C4E88F400BD5767 /* SplashView.swift */; };
+		0CA18A832C4EA63600BD5767 /* OnboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA18A822C4EA63600BD5767 /* OnboardView.swift */; };
+		0CA18A852C4EA7EF00BD5767 /* OnboardInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA18A842C4EA7EF00BD5767 /* OnboardInfoView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -83,6 +85,8 @@
 		0CA18A772C4E6F9F00BD5767 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
 		0CA18A792C4E736C00BD5767 /* FavoritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewModel.swift; sourceTree = "<group>"; };
 		0CA18A802C4E88F400BD5767 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
+		0CA18A822C4EA63600BD5767 /* OnboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardView.swift; sourceTree = "<group>"; };
+		0CA18A842C4EA7EF00BD5767 /* OnboardInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardInfoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +143,7 @@
 			children = (
 				0CA18A0D2C42970E00BD5767 /* ContentView.swift */,
 				0CA18A802C4E88F400BD5767 /* SplashView.swift */,
+				0CA18A822C4EA63600BD5767 /* OnboardView.swift */,
 				0CA18A212C429A9200BD5767 /* AppTabView.swift */,
 				0CA18A322C4553FC00BD5767 /* CustomViews */,
 				0CA18A332C45540200BD5767 /* Screens */,
@@ -156,6 +161,7 @@
 				0CA18A632C4A915400BD5767 /* FavoritesListCell.swift */,
 				0CA18A4A2C458BF500BD5767 /* LoadingView.swift */,
 				0CA18A4C2C469D9500BD5767 /* EmptyStateView.swift */,
+				0CA18A842C4EA7EF00BD5767 /* OnboardInfoView.swift */,
 				0CA18A7F2C4E7BA200BD5767 /* UserInfoViewComponents */,
 			);
 			path = CustomViews;
@@ -349,7 +355,9 @@
 				0CA18A542C47FB1E00BD5767 /* UserInfoHeaderView.swift in Sources */,
 				0CA18A1E2C429A5C00BD5767 /* SearchView.swift in Sources */,
 				0CA18A812C4E88F400BD5767 /* SplashView.swift in Sources */,
+				0CA18A852C4EA7EF00BD5767 /* OnboardInfoView.swift in Sources */,
 				0CA18A242C429D6200BD5767 /* GFButton.swift in Sources */,
+				0CA18A832C4EA63600BD5767 /* OnboardView.swift in Sources */,
 				0CA18A3E2C4559B000BD5767 /* Follower.swift in Sources */,
 				0CA18A472C456FF600BD5767 /* FollowerTitleView.swift in Sources */,
 				0CA18A0E2C42970E00BD5767 /* ContentView.swift in Sources */,

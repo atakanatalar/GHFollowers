@@ -39,6 +39,20 @@ enum FavoritesViewConstants {
     static let userInfoViewToolbarButtonTitle = "Done"
 }
 
+enum OnboardViewConstants {
+    static let viewFollowersImageTitle = "person"
+    static let viewFollowersTitle = "View Followers"
+    static let viewFollowersDescription = "See the followers of a given GitHub username and explore their list of followers"
+    static let profileViewingImageTitle = "person.crop.square.filled.and.at.rectangle"
+    static let profileViewingTitle = "Profile Viewing"
+    static let profileViewingDescription = "Click on followers' profiles to view detailed information"
+    static let favoritesListImageTitle = "list.star"
+    static let favoritesListTitle = "Favorites List"
+    static let favoritesListDescription = "Add desired users to your favorites list for easy access"
+    static let buttonTitle = "Contiune"
+    static let buttonImageTitle = "arrow.right"
+}
+
 enum AlertItemConstants {
     static let successTitle = Text("Success")
     static let failureTitle = Text("Bad Stuff Happend")
