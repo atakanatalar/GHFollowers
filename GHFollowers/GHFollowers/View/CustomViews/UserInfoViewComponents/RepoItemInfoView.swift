@@ -22,7 +22,7 @@ struct RepoItemInfoView: View {
                 .padding(.horizontal, 12)
                 
                 Link(destination: (URL(string: user.htmlUrl) ?? URL(string: "https://github.com"))!) {
-                    Label("GitHub Profile", systemImage: "person")
+                    Label(RepoItemInfoViewConstants.gitHubProfileButtonTitle, systemImage: RepoItemInfoViewConstants.gitHubProfileButtonImageTitle)
                         .frame(maxWidth: .infinity, maxHeight: 48)
                         .modifier(CustomButtonModifier(backgroundColor: Color(.systemPurple)))
                         .padding(.horizontal, 24)
@@ -37,5 +37,5 @@ struct RepoItemInfoView: View {
 }
 
 #Preview {
-    RepoItemInfoView(user: User(login: "", avatarUrl: "", publicRepos: 0, publicGists: 0, htmlUrl: "", following: 0, followers: 0, createdAt: Date.now))
+    RepoItemInfoView(user: MockData.user)
 }

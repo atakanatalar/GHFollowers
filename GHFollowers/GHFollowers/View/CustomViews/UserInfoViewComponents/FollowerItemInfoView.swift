@@ -28,7 +28,7 @@ struct FollowerItemInfoView: View {
                     userManager.addUsername(to: user.login)
                     isShowingFollowersView = true
                 } label: {
-                    Label("Get Followers", systemImage: "person.3")
+                    Label(FollowersItemInfoViewConstants.getFollowersButtonTitle, systemImage: FollowersItemInfoViewConstants.getFollowersButtonImageTitle)
                         .frame(maxWidth: .infinity, maxHeight: 48)
                 }
                 .modifier(CustomButtonModifier(backgroundColor: Color(.systemGreen)))
@@ -44,5 +44,5 @@ struct FollowerItemInfoView: View {
 }
 
 #Preview {
-    FollowerItemInfoView(user: User(login: "", avatarUrl: "", publicRepos: 0, publicGists: 0, htmlUrl: "", following: 0, followers: 0, createdAt: Date.now))
+    FollowerItemInfoView(user: MockData.user)
 }

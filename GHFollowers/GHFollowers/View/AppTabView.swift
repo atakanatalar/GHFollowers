@@ -14,10 +14,10 @@ struct AppTabView: View {
     var body: some View {
         TabView {
             SearchView()
-                .tabItem { Label("Search", systemImage: "magnifyingglass") }
+                .tabItem { Label(AppTabViewConstants.searchViewTabItemTitle, systemImage: AppTabViewConstants.searchViewTabItemImageTitle) }
             
             FavoritesView()
-                .tabItem { Label("Favorites", systemImage: "star") }
+                .tabItem { Label(AppTabViewConstants.favoritesViewTabItemTitle, systemImage: AppTabViewConstants.favoritesViewTabItemImageTitle) }
         }
         .onAppear {
             if isFirstTime {

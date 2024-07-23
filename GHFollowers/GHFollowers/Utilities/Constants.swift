@@ -53,13 +53,45 @@ enum OnboardViewConstants {
     static let buttonImageTitle = "arrow.right"
 }
 
+enum AppTabViewConstants {
+    static let searchViewTabItemTitle = "Search"
+    static let searchViewTabItemImageTitle = "magnifyingglass"
+    static let favoritesViewTabItemTitle = "Favorites"
+    static let favoritesViewTabItemImageTitle = "star"
+}
+
+enum RepoItemInfoViewConstants {
+    static let gitHubProfileButtonTitle = "GitHub Profile"
+    static let gitHubProfileButtonImageTitle = "person"
+}
+
+enum FollowersItemInfoViewConstants {
+    static let getFollowersButtonTitle = "Get Followers"
+    static let getFollowersButtonImageTitle = "person.3"
+}
+
+enum ItemInfoViewConstants {
+    static let publicReposTitle = "Public Repos"
+    static let publicReposImageTitle = "folder"
+    static let publicGistsTitle = "Public Gists"
+    static let publicGistsImageTitle = "text.alignleft"
+    static let followersTitle = "Followers"
+    static let followersImageTitle = "heart"
+    static let followingTitle = "Following"
+    static let followingImageTitle = "person.2"
+}
+
 enum AlertItemConstants {
     static let successTitle = Text("Success")
     static let failureTitle = Text("Bad Stuff Happend")
     static let removeFromFavoritesTitle = Text("Unable to Remove")
+    static let invalidUsernameTitle = Text("Empty Username")
+    static let defaultErrorTitle = Text("Something Went Wrong")
     static let dismissButtonTitle = Text("Ok")
     static let addUserSuccessMessage = Text("You have successfully favorited this user")
     static let errorMessage = "We were unable to complete your task at this time. Please try again"
+    static let invalidUsernameMessage = Text("Please enter a username, we need to know who to look for")
+    static let defaultErrorMessage = Text("We were unable to complete your task at this time. Please try again")
 }
 
 enum KeyboardConstants {

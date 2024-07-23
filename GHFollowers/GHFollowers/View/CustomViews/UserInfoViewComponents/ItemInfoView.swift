@@ -18,13 +18,13 @@ struct ItemInfoView: View {
     private var label: Label<Text, Image> {
         switch itemInfoType {
         case .repos:
-            return Label("Public Repos", systemImage: "folder")
+            return Label(ItemInfoViewConstants.publicReposTitle, systemImage: ItemInfoViewConstants.publicReposImageTitle)
         case .gists:
-            return Label("Public Gists", systemImage: "text.alignleft")
+            return Label(ItemInfoViewConstants.publicGistsTitle, systemImage: ItemInfoViewConstants.publicGistsImageTitle)
         case .followers:
-            return Label("Followers", systemImage: "heart")
+            return Label(ItemInfoViewConstants.followersTitle, systemImage: ItemInfoViewConstants.followersImageTitle)
         case .following:
-            return Label("Following", systemImage: "person.2")
+            return Label(ItemInfoViewConstants.followingTitle, systemImage: ItemInfoViewConstants.followingImageTitle)
         }
     }
     

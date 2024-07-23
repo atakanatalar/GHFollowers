@@ -77,5 +77,5 @@ struct UserInfoHeaderView: View {
 }
 
 #Preview {
-    UserInfoHeaderView(user: User(login: "login", avatarUrl: "", publicRepos: 99, publicGists: 99, htmlUrl: "", following: 99, followers: 99, createdAt: Date.now))
+    UserInfoHeaderView(user: MockData.user)
 }

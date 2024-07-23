@@ -54,11 +54,7 @@ extension FollowersView {
             let favorite = Follower(login: user.login, avatarUrl: user.avatarUrl)
             PersistenceManager.updateWith(favorite: favorite, actionType: .add) { error in
                 guard error != nil else {
-                    DispatchQueue.main.async {
-                        self.alertItem = AlertItem(title: AlertItemConstants.successTitle,
-                                                   message: AlertItemConstants.addUserSuccessMessage,
-                                                   dismissButton: .default(AlertItemConstants.dismissButtonTitle))
-                    }
+                    DispatchQueue.main.async { self.alertItem = AlertContext.addUserSuccess }
                     return
                 }
                 DispatchQueue.main.async {

@@ -18,11 +18,15 @@ struct AlertItem: Identifiable {
 
 struct AlertContext {
     //MARK: - SearchView Errors
-    static let invalidUsername = AlertItem(title: Text("Empty Username"),
-                                           message: Text("Please enter a username, we need to know who to look for"),
-                                           dismissButton: .default(Text("Ok")))
+    static let invalidUsername = AlertItem(title: AlertItemConstants.invalidUsernameTitle,
+                                           message: AlertItemConstants.invalidUsernameMessage,
+                                           dismissButton: .default(AlertItemConstants.dismissButtonTitle))
     
-    static let defaultError = AlertItem(title: Text("Something Went Wrong"),
-                                              message: Text("We were unable to complete your task at this time. Please try again."),
-                                              dismissButton: .default(Text("Ok")))
+    static let defaultError = AlertItem(title: AlertItemConstants.defaultErrorTitle,
+                                        message: AlertItemConstants.defaultErrorMessage,
+                                        dismissButton: .default(AlertItemConstants.dismissButtonTitle))
+    //MARK: - FollowersView
+    static let addUserSuccess = AlertItem(title: AlertItemConstants.successTitle,
+                                          message: AlertItemConstants.addUserSuccessMessage,
+                                          dismissButton: .default(AlertItemConstants.dismissButtonTitle))
 }
