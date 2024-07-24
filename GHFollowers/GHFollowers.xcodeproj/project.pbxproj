@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C64BA432C51044B009B627B /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C64BA422C51044B009B627B /* Toast.swift */; };
 		0CA18A0C2C42970E00BD5767 /* GHFollowersApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA18A0B2C42970E00BD5767 /* GHFollowersApp.swift */; };
 		0CA18A0E2C42970E00BD5767 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA18A0D2C42970E00BD5767 /* ContentView.swift */; };
 		0CA18A102C42970F00BD5767 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0CA18A0F2C42970F00BD5767 /* Assets.xcassets */; };
@@ -48,6 +49,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0C64BA422C51044B009B627B /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
 		0CA18A082C42970E00BD5767 /* GHFollowers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GHFollowers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CA18A0B2C42970E00BD5767 /* GHFollowersApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHFollowersApp.swift; sourceTree = "<group>"; };
 		0CA18A0D2C42970E00BD5767 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -100,6 +102,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0C64BA412C510415009B627B /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				0C64BA422C51044B009B627B /* Toast.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		0CA189FF2C42970E00BD5767 = {
 			isa = PBXGroup;
 			children = (
@@ -184,6 +194,7 @@
 				0CA18A2D2C4542A300BD5767 /* AlertItem.swift */,
 				0CA18A442C45686E00BD5767 /* GFError.swift */,
 				0CA18A712C4DA4FC00BD5767 /* Constants.swift */,
+				0C64BA412C510415009B627B /* Helpers */,
 				0CA18A352C4554BF00BD5767 /* Extensions */,
 			);
 			path = Utilities;
@@ -335,6 +346,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C64BA432C51044B009B627B /* Toast.swift in Sources */,
 				0CA18A762C4E6BCC00BD5767 /* UserInfoViewModel.swift in Sources */,
 				0CA18A4D2C469D9500BD5767 /* EmptyStateView.swift in Sources */,
 				0CA18A5E2C49728F00BD5767 /* PersistenceManager.swift in Sources */,

@@ -13,8 +13,10 @@ struct GHFollowersApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .environmentObject(userManager)
+            RootView {
+                ContentView()
+                    .environmentObject(userManager)
+            }
         }
     }
 }
