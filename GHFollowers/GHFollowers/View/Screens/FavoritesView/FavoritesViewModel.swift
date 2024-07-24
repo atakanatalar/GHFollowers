@@ -13,7 +13,6 @@ extension FavoritesView {
         @Published var favorites: [Follower] = []
         @Published var isShowingUserInfoView: Bool = false
         @Published var isEmptyState = false
-        @Published var alertItem: AlertItem?
         
         @MainActor
         func getFavorites() {
@@ -24,9 +23,7 @@ extension FavoritesView {
                     self.checkIsEpmty()
                 case .failure(let error):
                     DispatchQueue.main.async {
-                        self.alertItem = AlertItem(title: AlertItemConstants.failureTitle,
-                                                   message: Text(error.rawValue),
-                                                   dismissButton: .default(AlertItemConstants.dismissButtonTitle))
+                        Toast.shared.present(title: error.rawValue, symbol: ToastConstants.defaultErrorImageTitle, tint: Color(.systemRed))
                     }
                 }
             }
@@ -36,15 +33,14 @@ extension FavoritesView {
         func removeFromFavorites(favorite: Follower) {
             PersistenceManager.updateWith(favorite: favorite, actionType: .remove) { error in
                 guard let error = error else {
-                    print("\(favorite.login) is removed")
+                    let toastTitle = "\(favorite.login)" + ToastConstants.removeSuccessTitle
+                    Toast.shared.present(title: toastTitle, symbol: ToastConstants.removeSuccessImageTitle, tint: Color(.systemGreen), timing: .medium)
                     self.favorites.removeAll { $0 == favorite }
                     self.checkIsEpmty()
                     return
                 }
                 DispatchQueue.main.async {
-                    self.alertItem = AlertItem(title: AlertItemConstants.removeFromFavoritesTitle,
-                                               message: Text(error.rawValue),
-                                               dismissButton: .default(AlertItemConstants.dismissButtonTitle))
+                    Toast.shared.present(title: error.rawValue, symbol: ToastConstants.defaultErrorImageTitle, tint: Color(.systemRed), timing: .medium)
                 }
             }
         }

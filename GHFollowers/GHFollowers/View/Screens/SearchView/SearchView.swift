@@ -24,20 +24,12 @@ struct SearchView: View {
                     TextField(SearchViewConstants.textFieldText, text: $viewModel.username)
                         .modifier(CustomTextFieldModifier())
                         .padding(.horizontal, 48)
-                        .onSubmit {
-                            if !viewModel.isUsernameEmpty {
-                                userManager.addUsername(to: viewModel.username)
-                                viewModel.isShowingFollowersView = true
-                            } else {
-                                viewModel.alertItem = AlertContext.invalidUsername
-                            }
-                        }
+                        .onSubmit { checkIsEmpty() }
                     
                     Spacer()
                     
                     Button {
-                        userManager.addUsername(to: viewModel.username)
-                        viewModel.isShowingFollowersView = true
+                        showFollowersView()
                     } label: {
                         Label(SearchViewConstants.buttonTitle, systemImage: SearchViewConstants.buttonImageTitle)
                             .frame(maxWidth: .infinity, maxHeight: 48)
@@ -57,9 +49,21 @@ struct SearchView: View {
                     }
                 }
                 .navigationDestination(isPresented: $viewModel.isShowingFollowersView) { viewModel.createFollowersView() }
-                .alert(item: $viewModel.alertItem, content: { $0.alert })
             }
         }
+    }
+    
+    private func checkIsEmpty() {
+        if !viewModel.isUsernameEmpty {
+           showFollowersView()
+        } else {
+            Toast.shared.present(title: ToastConstants.invalidUsernameMessage, symbol: ToastConstants.invalidUsernameImageTitle, tint: Color(.systemRed))
+        }
+    }
+    
+    private func showFollowersView() {
+        userManager.addUsername(to: viewModel.username)
+        viewModel.isShowingFollowersView = true
     }
 }
 

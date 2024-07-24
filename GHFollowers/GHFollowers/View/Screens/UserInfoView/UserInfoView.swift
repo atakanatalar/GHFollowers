@@ -35,7 +35,7 @@ struct UserInfoView: View {
         }
         .navigationBarTitleDisplayMode(.inline)
         .task { await viewModel.getUserInfo(username: userManager.usernames.last ?? "username") }
-        .alert(item: $viewModel.alertItem, content: { $0.alert })
+//        .alert(item: $viewModel.alertItem, content: { $0.alert })
         .onAppear {
             print(userManager.usernames)
         }

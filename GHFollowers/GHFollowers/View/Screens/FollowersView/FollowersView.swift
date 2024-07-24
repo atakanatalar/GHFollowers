@@ -61,7 +61,6 @@ struct FollowersView: View {
             viewModel.navigationTitle = userManager.usernames.last ?? ""
             viewModel.followers = []
         }
-        .alert(item: $viewModel.alertItem, content: { $0.alert })
         .overlay {
             if viewModel.filteredFollowers.isEmpty && !viewModel.followers.isEmpty {
                 EmptyStateView(message: FollowersViewConstants.noResultMessageFirst + "\(viewModel.searchTerm)" + FollowersViewConstants.noResultMessageSecond).padding(.horizontal, 40)

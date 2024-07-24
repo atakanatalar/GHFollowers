@@ -12,7 +12,7 @@ extension UserInfoView {
     final class UserInfoViewModel: ObservableObject {
         @Published var user: User = MockData.user
         @Published var isLoading: Bool = false
-        @Published var alertItem: AlertItem?
+//        @Published var alertItem: AlertItem?
         
         @MainActor
         func getUserInfo(username: String) async {
@@ -24,11 +24,13 @@ extension UserInfoView {
             } catch {
                 hideLoadingView()
                 if let gfError = error as? GFError {
-                    alertItem = AlertItem(title: AlertItemConstants.failureTitle,
-                                          message: Text(gfError.rawValue),
-                                          dismissButton: .default(AlertItemConstants.dismissButtonTitle))
+//                    alertItem = AlertItem(title: AlertItemConstants.failureTitle,
+//                                          message: Text(gfError.rawValue),
+//                                          dismissButton: .default(AlertItemConstants.dismissButtonTitle))
+                    Toast.shared.present(title: gfError.rawValue, symbol: ToastConstants.networkErrorImageTitle, tint: Color(.systemRed))
                 } else {
-                    alertItem = AlertContext.defaultError
+//                    alertItem = AlertContext.defaultError
+                    Toast.shared.present(title: ToastConstants.defaultErrorMessage, symbol: ToastConstants.defaultErrorImageTitle, tint: Color(.systemRed))
                 }
             }
         }

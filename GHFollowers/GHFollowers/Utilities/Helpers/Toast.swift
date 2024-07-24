@@ -44,7 +44,7 @@ class Toast {
     static let shared = Toast()
     fileprivate var toasts: [ToastItem] = []
     
-    func present(title: String, symbol: String?, tint: Color = .primary, isUserInteractionEnabled: Bool = false, timing: ToastTime = .medium) {
+    func present(title: String, symbol: String?, tint: Color = .primary, isUserInteractionEnabled: Bool = true, timing: ToastTime = .long) {
         withAnimation(.snappy) {
             toasts.append(.init(title: title, symbol: symbol, backgroundColor: tint, isUserInteractionEnabled: isUserInteractionEnabled, timing: timing))
         }

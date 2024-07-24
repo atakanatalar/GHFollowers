@@ -11,7 +11,6 @@ import SwiftUI
 extension SearchView {
     final class SearchViewModel: ObservableObject {
         @Published var username: String = ""
-        @Published var alertItem: AlertItem?
         @Published var isShowingFollowersView: Bool = false
         
         var isUsernameEmpty: Bool { return username.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty }

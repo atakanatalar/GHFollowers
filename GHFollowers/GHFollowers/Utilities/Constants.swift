@@ -89,9 +89,23 @@ enum AlertItemConstants {
     static let defaultErrorTitle = Text("Something Went Wrong")
     static let dismissButtonTitle = Text("Ok")
     static let addUserSuccessMessage = Text("You have successfully favorited this user")
-    static let errorMessage = "We were unable to complete your task at this time. Please try again"
     static let invalidUsernameMessage = Text("Please enter a username, we need to know who to look for")
     static let defaultErrorMessage = Text("We were unable to complete your task at this time. Please try again")
+    
+}
+
+enum ToastConstants {
+    static let addUserSuccessMessage = "You have successfully favorited this user"
+    static let invalidUsernameMessage = "Please enter a username, we need to know who to look for"
+    static let defaultErrorMessage = "We were unable to complete your task at this time. Please try again"
+    static let invalidUsernameImageTitle = "person.fill.questionmark"
+    static let defaultErrorImageTitle = "exclamationmark.triangle"
+    static let networkErrorImageTitle = "network.slash"
+    static let addUserSuccessImageTitle = "person.fill.checkmark"
+    static let addUserFailureImageTitle = "person.fill.xmark"
+    static let removeSuccessImageTitle = "person.fill.xmark"
+    static let removeSuccessTitle = " has been successfully removed from the favorites list"
+    
 }
 
 enum KeyboardConstants {

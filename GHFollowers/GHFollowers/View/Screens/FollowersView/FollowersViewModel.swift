@@ -17,7 +17,6 @@ extension FollowersView {
         @Published var hasMoreFollower: Bool = true
         @Published var isLoading: Bool = false
         @Published var isEmptyState: Bool = false
-        @Published var alertItem: AlertItem?
         @Published var isShowingUserInfoView: Bool = false
         
         var filteredFollowers: [Follower] {
@@ -40,11 +39,9 @@ extension FollowersView {
             } catch {
                 hideLoadingView()
                 if let gfError = error as? GFError {
-                    alertItem = AlertItem(title: AlertItemConstants.failureTitle,
-                                          message: Text(gfError.rawValue),
-                                          dismissButton: .default(AlertItemConstants.dismissButtonTitle))
+                    Toast.shared.present(title: gfError.rawValue, symbol: ToastConstants.networkErrorImageTitle, tint: Color(.systemRed))
                 } else {
-                    alertItem = AlertContext.defaultError
+                    Toast.shared.present(title: ToastConstants.defaultErrorMessage, symbol: ToastConstants.defaultErrorImageTitle, tint: Color(.systemRed))
                 }
             }
         }
@@ -54,13 +51,13 @@ extension FollowersView {
             let favorite = Follower(login: user.login, avatarUrl: user.avatarUrl)
             PersistenceManager.updateWith(favorite: favorite, actionType: .add) { error in
                 guard error != nil else {
-                    DispatchQueue.main.async { self.alertItem = AlertContext.addUserSuccess }
+                    DispatchQueue.main.async {
+                        Toast.shared.present(title: ToastConstants.addUserSuccessMessage, symbol: ToastConstants.addUserSuccessImageTitle, tint: Color(.systemGreen), timing: .medium)
+                    }
                     return
                 }
                 DispatchQueue.main.async {
-                    self.alertItem = AlertItem(title: AlertItemConstants.failureTitle,
-                                               message: Text(error?.rawValue ?? AlertItemConstants.errorMessage),
-                                               dismissButton: .default(AlertItemConstants.dismissButtonTitle))
+                    Toast.shared.present(title: error?.rawValue ?? "", symbol: ToastConstants.addUserFailureImageTitle, tint: Color(.systemRed), timing: .medium)
                 }
             }
         }
@@ -76,13 +73,11 @@ extension FollowersView {
                 } catch {
                     if let gfError = error as? GFError {
                         DispatchQueue.main.async {
-                            self.alertItem = AlertItem(title: AlertItemConstants.failureTitle,
-                                                       message: Text(gfError.rawValue),
-                                                       dismissButton: .default(AlertItemConstants.dismissButtonTitle))
+                            Toast.shared.present(title: gfError.rawValue, symbol: ToastConstants.networkErrorImageTitle, tint: Color(.systemRed))
                         }
                     } else {
                         DispatchQueue.main.async {
-                            self.alertItem = AlertContext.defaultError
+                            Toast.shared.present(title: ToastConstants.defaultErrorMessage, symbol: ToastConstants.defaultErrorImageTitle, tint: Color(.systemRed))
                         }
                     }
                     hideLoadingView()
