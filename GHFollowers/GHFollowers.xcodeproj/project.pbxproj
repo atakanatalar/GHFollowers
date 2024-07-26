@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C63E4A82C51AF7600BF1F9B /* Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C63E4A72C51AF7600BF1F9B /* Keyboard.swift */; };
 		0C64BA432C51044B009B627B /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C64BA422C51044B009B627B /* Toast.swift */; };
 		0CA18A0C2C42970E00BD5767 /* GHFollowersApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA18A0B2C42970E00BD5767 /* GHFollowersApp.swift */; };
 		0CA18A0E2C42970E00BD5767 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA18A0D2C42970E00BD5767 /* ContentView.swift */; };
@@ -17,7 +18,6 @@
 		0CA18A222C429A9200BD5767 /* AppTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA18A212C429A9200BD5767 /* AppTabView.swift */; };
 		0CA18A242C429D6200BD5767 /* GFButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA18A232C429D6200BD5767 /* GFButton.swift */; };
 		0CA18A262C42AA7D00BD5767 /* GFTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA18A252C42AA7D00BD5767 /* GFTextField.swift */; };
-		0CA18A282C43E84A00BD5767 /* View+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA18A272C43E84A00BD5767 /* View+Ext.swift */; };
 		0CA18A2C2C4538AE00BD5767 /* LogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA18A2B2C4538AE00BD5767 /* LogoView.swift */; };
 		0CA18A2E2C4542A300BD5767 /* AlertItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA18A2D2C4542A300BD5767 /* AlertItem.swift */; };
 		0CA18A302C454AAE00BD5767 /* FollowersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA18A2F2C454AAE00BD5767 /* FollowersView.swift */; };
@@ -36,7 +36,6 @@
 		0CA18A5C2C492E4B00BD5767 /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA18A5B2C492E4B00BD5767 /* Date+Ext.swift */; };
 		0CA18A5E2C49728F00BD5767 /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA18A5D2C49728F00BD5767 /* PersistenceManager.swift */; };
 		0CA18A642C4A915400BD5767 /* FavoritesListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA18A632C4A915400BD5767 /* FavoritesListCell.swift */; };
-		0CA18A6E2C4AC95000BD5767 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA18A6D2C4AC95000BD5767 /* UserManager.swift */; };
 		0CA18A702C4DA23800BD5767 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA18A6F2C4DA23800BD5767 /* SearchViewModel.swift */; };
 		0CA18A722C4DA4FC00BD5767 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA18A712C4DA4FC00BD5767 /* Constants.swift */; };
 		0CA18A742C4DC1D900BD5767 /* FollowersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA18A732C4DC1D900BD5767 /* FollowersViewModel.swift */; };
@@ -49,6 +48,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0C63E4A72C51AF7600BF1F9B /* Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keyboard.swift; sourceTree = "<group>"; };
 		0C64BA422C51044B009B627B /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
 		0CA18A082C42970E00BD5767 /* GHFollowers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GHFollowers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CA18A0B2C42970E00BD5767 /* GHFollowersApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHFollowersApp.swift; sourceTree = "<group>"; };
@@ -60,7 +60,6 @@
 		0CA18A212C429A9200BD5767 /* AppTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabView.swift; sourceTree = "<group>"; };
 		0CA18A232C429D6200BD5767 /* GFButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFButton.swift; sourceTree = "<group>"; };
 		0CA18A252C42AA7D00BD5767 /* GFTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFTextField.swift; sourceTree = "<group>"; };
-		0CA18A272C43E84A00BD5767 /* View+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Ext.swift"; sourceTree = "<group>"; };
 		0CA18A2B2C4538AE00BD5767 /* LogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoView.swift; sourceTree = "<group>"; };
 		0CA18A2D2C4542A300BD5767 /* AlertItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertItem.swift; sourceTree = "<group>"; };
 		0CA18A2F2C454AAE00BD5767 /* FollowersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersView.swift; sourceTree = "<group>"; };
@@ -79,7 +78,6 @@
 		0CA18A5B2C492E4B00BD5767 /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
 		0CA18A5D2C49728F00BD5767 /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
 		0CA18A632C4A915400BD5767 /* FavoritesListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesListCell.swift; sourceTree = "<group>"; };
-		0CA18A6D2C4AC95000BD5767 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		0CA18A6F2C4DA23800BD5767 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		0CA18A712C4DA4FC00BD5767 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		0CA18A732C4DC1D900BD5767 /* FollowersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersViewModel.swift; sourceTree = "<group>"; };
@@ -106,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				0C64BA422C51044B009B627B /* Toast.swift */,
+				0C63E4A72C51AF7600BF1F9B /* Keyboard.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -203,7 +202,6 @@
 		0CA18A352C4554BF00BD5767 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				0CA18A272C43E84A00BD5767 /* View+Ext.swift */,
 				0CA18A5B2C492E4B00BD5767 /* Date+Ext.swift */,
 			);
 			path = Extensions;
@@ -224,7 +222,6 @@
 			children = (
 				0CA18A422C455A4200BD5767 /* NetworkManager.swift */,
 				0CA18A5D2C49728F00BD5767 /* PersistenceManager.swift */,
-				0CA18A6D2C4AC95000BD5767 /* UserManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -351,7 +348,6 @@
 				0CA18A4D2C469D9500BD5767 /* EmptyStateView.swift in Sources */,
 				0CA18A5E2C49728F00BD5767 /* PersistenceManager.swift in Sources */,
 				0CA18A402C4559BC00BD5767 /* User.swift in Sources */,
-				0CA18A282C43E84A00BD5767 /* View+Ext.swift in Sources */,
 				0CA18A742C4DC1D900BD5767 /* FollowersViewModel.swift in Sources */,
 				0CA18A5C2C492E4B00BD5767 /* Date+Ext.swift in Sources */,
 				0CA18A722C4DA4FC00BD5767 /* Constants.swift in Sources */,
@@ -373,7 +369,7 @@
 				0CA18A3E2C4559B000BD5767 /* Follower.swift in Sources */,
 				0CA18A472C456FF600BD5767 /* FollowerTitleView.swift in Sources */,
 				0CA18A0E2C42970E00BD5767 /* ContentView.swift in Sources */,
-				0CA18A6E2C4AC95000BD5767 /* UserManager.swift in Sources */,
+				0C63E4A82C51AF7600BF1F9B /* Keyboard.swift in Sources */,
 				0CA18A432C455A4200BD5767 /* NetworkManager.swift in Sources */,
 				0CA18A562C480E0B00BD5767 /* ItemInfoView.swift in Sources */,
 				0CA18A452C45686E00BD5767 /* GFError.swift in Sources */,
@@ -394,6 +390,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -457,6 +454,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
