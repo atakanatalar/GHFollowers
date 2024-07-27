@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SearchView: View {
+    @Environment(\.dynamicTypeSize) var dynamicTypeSize
     @StateObject private var viewModel = SearchViewModel()
     
     var body: some View {
@@ -21,7 +22,7 @@ struct SearchView: View {
                         .padding(.bottom, 24)
                     
                     TextField(SearchViewConstants.textFieldText, text: $viewModel.username)
-                        .modifier(CustomTextFieldModifier())
+                        .modifier(CustomTextFieldModifier(dynamicTypeSize: dynamicTypeSize))
                         .padding(.horizontal, 48)
                         .onSubmit { checkIsEmpty() }
                     
@@ -31,7 +32,8 @@ struct SearchView: View {
                         showFollowersView()
                     } label: {
                         Label(SearchViewConstants.buttonTitle, systemImage: SearchViewConstants.buttonImageTitle)
-                            .frame(maxWidth: .infinity, maxHeight: 48)
+                            .frame(maxWidth: .infinity)
+                            .frame(height: dynamicTypeSize >= .accessibility1 ? 72 : 48)
                     }
                     .modifier(CustomButtonModifier(backgroundColor: Color(.systemGreen)))
                     .disabled(viewModel.isUsernameEmpty)
