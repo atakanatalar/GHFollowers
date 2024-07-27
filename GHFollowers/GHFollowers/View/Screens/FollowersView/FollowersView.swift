@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct FollowersView: View {
-    @EnvironmentObject var userManager: UserManager
-    @StateObject private var viewModel = FollowersViewModel()
+    @StateObject var viewModel: FollowersViewModel
     
     var body: some View {
         ZStack {
@@ -17,11 +16,9 @@ struct FollowersView: View {
                 ScrollView {
                     LazyVGrid(columns: viewModel.columns) {
                         ForEach(viewModel.filteredFollowers, id: \.self) { follower in
-                            FollowersTitleView(follower: follower)
-                                .onTapGesture {
-                                    userManager.addUsername(to: follower.login)
-                                    viewModel.isShowingUserInfoView = true
-                                }
+                            NavigationLink(destination: viewModel.createUserInfoView(selectedFollower: follower)) {
+                                FollowersTitleView(follower: follower)
+                            }
                         }
                         
                         if viewModel.hasMoreFollower && !viewModel.followers.isEmpty {
@@ -29,7 +26,7 @@ struct FollowersView: View {
                                 .onAppear {
                                     Task {
                                         viewModel.page += 1
-                                        await viewModel.getFollowers(username: userManager.usernames.last ?? "username", page: viewModel.page)
+                                        await viewModel.getFollowers(username: viewModel.selectedUsername, page: viewModel.page)
                                     }
                                 }
                         }
@@ -41,26 +38,10 @@ struct FollowersView: View {
             if viewModel.isEmptyState { EmptyStateView(message: FollowersViewConstants.emptyMessage).padding(.horizontal, 40) }
             if viewModel.isLoading { LoadingView() }
         }
-        .navigationTitle(viewModel.navigationTitle)
+        .navigationTitle(viewModel.selectedUsername)
         .navigationBarTitleDisplayMode(.large)
-        .interactiveDismissDisabled()
-        .task { await viewModel.getFollowers(username: userManager.usernames.last ?? "username", page: viewModel.page) }
-        .sheet(isPresented: $viewModel.isShowingUserInfoView) {
-            NavigationStack {
-                viewModel.createUserInfoView()
-                    .toolbar {
-                        ToolbarItem(placement: .topBarTrailing) {
-                            Button(FollowersViewConstants.userInfoViewToolbarButtonTitle) {
-                                viewModel.isShowingUserInfoView = false
-                            }
-                        }
-                    }
-            }
-        }
-        .onAppear {
-            viewModel.navigationTitle = userManager.usernames.last ?? ""
-            viewModel.followers = []
-        }
+        .task { await viewModel.getFollowers(username: viewModel.selectedUsername, page: viewModel.page) }
+        .onAppear { viewModel.followers = [] }
         .overlay {
             if viewModel.filteredFollowers.isEmpty && !viewModel.followers.isEmpty {
                 EmptyStateView(message: FollowersViewConstants.noResultMessageFirst + "\(viewModel.searchTerm)" + FollowersViewConstants.noResultMessageSecond).padding(.horizontal, 40)
@@ -69,7 +50,7 @@ struct FollowersView: View {
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
                 Button() {
-                    viewModel.getUserForFavorite(username: userManager.usernames.last ?? "username")
+                    viewModel.getUserForFavorite(username: viewModel.selectedUsername)
                 } label: {
                     Label(FollowersViewConstants.favoriteToolbarButtonTitle, systemImage: FollowersViewConstants.favoriteToolbarButtonImageTitle)
                 }
@@ -79,5 +60,5 @@ struct FollowersView: View {
 }
 
 #Preview {
-    FollowersView()
+    FollowersView(viewModel: FollowersView.FollowersViewModel(selectedUsername: ""))
 }

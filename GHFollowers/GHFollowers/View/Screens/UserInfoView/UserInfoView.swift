@@ -8,10 +8,7 @@
 import SwiftUI
 
 struct UserInfoView: View {
-    @EnvironmentObject var userManager: UserManager
-    @Environment(\.dismiss) var dismiss
-    
-    @StateObject var viewModel = UserInfoViewModel()
+    @StateObject var viewModel: UserInfoViewModel
     
     var body: some View {
         ZStack {
@@ -34,17 +31,10 @@ struct UserInfoView: View {
             if viewModel.isLoading { LoadingView() }
         }
         .navigationBarTitleDisplayMode(.inline)
-        .task { await viewModel.getUserInfo(username: userManager.usernames.last ?? "username") }
-//        .alert(item: $viewModel.alertItem, content: { $0.alert })
-        .onAppear {
-            print(userManager.usernames)
-        }
-        .onDisappear {
-            userManager.removeUsername()
-        }
+        .task { await viewModel.getUserInfo(username: viewModel.selectedFollower.login) }
     }
 }
 
 #Preview {
-    UserInfoView()
+    UserInfoView(viewModel: UserInfoView.UserInfoViewModel(selectedFollower: MockData.follower))
 }

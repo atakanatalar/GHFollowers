@@ -8,25 +8,22 @@
 import SwiftUI
 
 struct FavoritesView: View {
-    @EnvironmentObject var userManager: UserManager
     @StateObject private var viewModel = FavoritesViewModel()
     
     var body: some View {
         ZStack {
             NavigationStack {
                 List(viewModel.favorites, id: \.self) { favorite in
-                    FavoritesListCell(favorite: favorite)
-                        .onTapGesture {
-                            userManager.addUsername(to: favorite.login)
-                            viewModel.isShowingUserInfoView = true
-                        }
-                        .swipeActions {
-                            Button(role: .destructive) {
-                                viewModel.removeFromFavorites(favorite: favorite)
-                            } label: {
-                                Label(FavoritesViewConstants.swipeDeleteButtonTitle, systemImage: FavoritesViewConstants.swipeDeleteButtonImageTitle)
+                    NavigationLink(destination: viewModel.createUserInfoView(selectedFavorite: favorite)) {
+                        FavoritesListCell(favorite: favorite)
+                            .swipeActions {
+                                Button(role: .destructive) {
+                                    viewModel.removeFromFavorites(favorite: favorite)
+                                } label: {
+                                    Label(FavoritesViewConstants.swipeDeleteButtonTitle, systemImage: FavoritesViewConstants.swipeDeleteButtonImageTitle)
+                                }
                             }
-                        }
+                    }
                 }
                 .listStyle(.plain)
                 .navigationTitle(FavoritesViewConstants.navigationTitle)
@@ -35,18 +32,6 @@ struct FavoritesView: View {
         }
         .onAppear {
             viewModel.getFavorites()
-        }
-        .sheet(isPresented: $viewModel.isShowingUserInfoView) {
-            NavigationStack {
-                UserInfoView()
-                    .toolbar {
-                        ToolbarItem(placement: .topBarTrailing) {
-                            Button(FavoritesViewConstants.userInfoViewToolbarButtonTitle) {
-                                viewModel.isShowingUserInfoView = false
-                            }
-                        }
-                    }
-            }
         }
     }
 }

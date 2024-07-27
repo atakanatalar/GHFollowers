@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 extension FollowersView {
-    final class FollowersViewModel: ObservableObject {
+    class FollowersViewModel: ObservableObject {
         @Published var followers: [Follower] = []
         @Published var page: Int = 1
         @Published var searchTerm: String = ""
@@ -18,12 +18,17 @@ extension FollowersView {
         @Published var isLoading: Bool = false
         @Published var isEmptyState: Bool = false
         @Published var isShowingUserInfoView: Bool = false
+        @Published var selectedUsername: String
         
         var filteredFollowers: [Follower] {
             guard !searchTerm.isEmpty else { return followers }
             return followers.filter { $0.login.localizedCaseInsensitiveContains(searchTerm) }
         }
         let columns = Array(repeating: GridItem(.flexible()), count: 3)
+        
+        init(selectedUsername: String) {
+            self.selectedUsername = selectedUsername
+        }
         
         @MainActor
         func getFollowers(username: String, page: Int) async {
@@ -93,8 +98,8 @@ extension FollowersView {
         func showEmptyStateView() { isEmptyState = true }
         
         @MainActor
-        @ViewBuilder func createUserInfoView() -> some View {
-            UserInfoView()
+        @ViewBuilder func createUserInfoView(selectedFollower: Follower) -> some View {
+            UserInfoView(viewModel: UserInfoView.UserInfoViewModel(selectedFollower: selectedFollower))
         }
     }
 }

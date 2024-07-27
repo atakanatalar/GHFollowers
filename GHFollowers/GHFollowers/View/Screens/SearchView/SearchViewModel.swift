@@ -9,15 +9,15 @@ import Foundation
 import SwiftUI
 
 extension SearchView {
-    final class SearchViewModel: ObservableObject {
+    class SearchViewModel: ObservableObject {
         @Published var username: String = ""
         @Published var isShowingFollowersView: Bool = false
         
         var isUsernameEmpty: Bool { return username.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty }
         
         @MainActor
-        @ViewBuilder func createFollowersView() -> some View {
-            FollowersView()
+        @ViewBuilder func createFollowersView(selectedUsername: String) -> some View {
+            FollowersView(viewModel: FollowersView.FollowersViewModel(selectedUsername: selectedUsername))
         }
     }
 }

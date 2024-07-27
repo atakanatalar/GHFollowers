@@ -11,7 +11,6 @@ import SwiftUI
 extension FavoritesView {
     final class FavoritesViewModel: ObservableObject {
         @Published var favorites: [Follower] = []
-        @Published var isShowingUserInfoView: Bool = false
         @Published var isEmptyState = false
         
         @MainActor
@@ -58,5 +57,10 @@ extension FavoritesView {
         func showEmptyStateView() { isEmptyState = true }
         @MainActor
         func hideEmptyStateView() { isEmptyState = false }
+        
+        @MainActor
+        @ViewBuilder func createUserInfoView(selectedFavorite: Follower) -> some View {
+            UserInfoView(viewModel: UserInfoView.UserInfoViewModel(selectedFollower: selectedFavorite))
+        }
     }
 }

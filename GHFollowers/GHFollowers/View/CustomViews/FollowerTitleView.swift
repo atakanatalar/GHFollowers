@@ -31,6 +31,7 @@ struct FollowersTitleView: View {
             Text(follower.login)
                 .font(.body)
                 .fontWeight(.semibold)
+                .foregroundStyle(.black)
                 .lineLimit(1)
         }
     }
@@ -46,5 +47,5 @@ struct FollowersTitleView: View {
 }
 
 #Preview {
-    FollowersTitleView(follower: Follower(login: "login", avatarUrl: "url"))
+    FollowersTitleView(follower: MockData.follower)
 }

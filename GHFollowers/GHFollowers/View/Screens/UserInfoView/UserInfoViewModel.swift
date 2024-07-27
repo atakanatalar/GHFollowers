@@ -9,10 +9,14 @@ import Foundation
 import SwiftUI
 
 extension UserInfoView {
-    final class UserInfoViewModel: ObservableObject {
+    class UserInfoViewModel: ObservableObject {
+        @Published var selectedFollower: Follower
         @Published var user: User = MockData.user
         @Published var isLoading: Bool = false
-//        @Published var alertItem: AlertItem?
+        
+        init (selectedFollower: Follower) {
+            self.selectedFollower = selectedFollower
+        }
         
         @MainActor
         func getUserInfo(username: String) async {
@@ -24,13 +28,9 @@ extension UserInfoView {
             } catch {
                 hideLoadingView()
                 if let gfError = error as? GFError {
-//                    alertItem = AlertItem(title: AlertItemConstants.failureTitle,
-//                                          message: Text(gfError.rawValue),
-//                                          dismissButton: .default(AlertItemConstants.dismissButtonTitle))
-                    Toast.shared.present(title: gfError.rawValue, symbol: ToastConstants.networkErrorImageTitle, tint: Color(.systemRed))
+                    DispatchQueue.main.async { Toast.shared.present(title: gfError.rawValue, symbol: ToastConstants.networkErrorImageTitle, tint: Color(.systemRed)) }
                 } else {
-//                    alertItem = AlertContext.defaultError
-                    Toast.shared.present(title: ToastConstants.defaultErrorMessage, symbol: ToastConstants.defaultErrorImageTitle, tint: Color(.systemRed))
+                    DispatchQueue.main.async { Toast.shared.present(title: ToastConstants.defaultErrorMessage, symbol: ToastConstants.defaultErrorImageTitle, tint: Color(.systemRed)) }
                 }
             }
         }

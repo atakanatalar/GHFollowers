@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct SearchView: View {
-    @EnvironmentObject var userManager: UserManager
     @StateObject private var viewModel = SearchViewModel()
     
     var body: some View {
@@ -40,6 +39,7 @@ struct SearchView: View {
                     .padding(.horizontal, 48)
                     .padding(.bottom, 24)
                 }
+                .navigationDestination(isPresented: $viewModel.isShowingFollowersView) { viewModel.createFollowersView(selectedUsername: viewModel.username) }
                 .toolbar {
                     ToolbarItemGroup(placement: .keyboard) {
                         Spacer()
@@ -48,21 +48,20 @@ struct SearchView: View {
                         } label: { Image(systemName: KeyboardConstants.imageTitle) }
                     }
                 }
-                .navigationDestination(isPresented: $viewModel.isShowingFollowersView) { viewModel.createFollowersView() }
+                .resignKeyboardOnDragGesture()
             }
         }
     }
     
     private func checkIsEmpty() {
         if !viewModel.isUsernameEmpty {
-           showFollowersView()
+            showFollowersView()
         } else {
             Toast.shared.present(title: ToastConstants.invalidUsernameMessage, symbol: ToastConstants.invalidUsernameImageTitle, tint: Color(.systemRed))
         }
     }
     
     private func showFollowersView() {
-        userManager.addUsername(to: viewModel.username)
         viewModel.isShowingFollowersView = true
     }
 }
