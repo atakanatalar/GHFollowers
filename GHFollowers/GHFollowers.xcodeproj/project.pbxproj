@@ -45,6 +45,8 @@
 		0CA18A812C4E88F400BD5767 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA18A802C4E88F400BD5767 /* SplashView.swift */; };
 		0CA18A832C4EA63600BD5767 /* OnboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA18A822C4EA63600BD5767 /* OnboardView.swift */; };
 		0CA18A852C4EA7EF00BD5767 /* OnboardInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA18A842C4EA7EF00BD5767 /* OnboardInfoView.swift */; };
+		0CBC72F82C55111300B40A20 /* View+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CBC72F72C55111300B40A20 /* View+Ext.swift */; };
+		0CBC72FA2C5534AB00B40A20 /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CBC72F92C5534AB00B40A20 /* AvatarView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -87,6 +89,8 @@
 		0CA18A802C4E88F400BD5767 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		0CA18A822C4EA63600BD5767 /* OnboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardView.swift; sourceTree = "<group>"; };
 		0CA18A842C4EA7EF00BD5767 /* OnboardInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardInfoView.swift; sourceTree = "<group>"; };
+		0CBC72F72C55111300B40A20 /* View+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Ext.swift"; sourceTree = "<group>"; };
+		0CBC72F92C5534AB00B40A20 /* AvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +170,7 @@
 				0CA18A232C429D6200BD5767 /* GFButton.swift */,
 				0CA18A252C42AA7D00BD5767 /* GFTextField.swift */,
 				0CA18A2B2C4538AE00BD5767 /* LogoView.swift */,
+				0CBC72F92C5534AB00B40A20 /* AvatarView.swift */,
 				0CA18A462C456FF600BD5767 /* FollowerTitleView.swift */,
 				0CA18A632C4A915400BD5767 /* FavoritesListCell.swift */,
 				0CA18A4A2C458BF500BD5767 /* LoadingView.swift */,
@@ -203,6 +208,7 @@
 			isa = PBXGroup;
 			children = (
 				0CA18A5B2C492E4B00BD5767 /* Date+Ext.swift */,
+				0CBC72F72C55111300B40A20 /* View+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -343,6 +349,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0CBC72F82C55111300B40A20 /* View+Ext.swift in Sources */,
 				0C64BA432C51044B009B627B /* Toast.swift in Sources */,
 				0CA18A762C4E6BCC00BD5767 /* UserInfoViewModel.swift in Sources */,
 				0CA18A4D2C469D9500BD5767 /* EmptyStateView.swift in Sources */,
@@ -369,6 +376,7 @@
 				0CA18A3E2C4559B000BD5767 /* Follower.swift in Sources */,
 				0CA18A472C456FF600BD5767 /* FollowerTitleView.swift in Sources */,
 				0CA18A0E2C42970E00BD5767 /* ContentView.swift in Sources */,
+				0CBC72FA2C5534AB00B40A20 /* AvatarView.swift in Sources */,
 				0C63E4A82C51AF7600BF1F9B /* Keyboard.swift in Sources */,
 				0CA18A432C455A4200BD5767 /* NetworkManager.swift in Sources */,
 				0CA18A562C480E0B00BD5767 /* ItemInfoView.swift in Sources */,
