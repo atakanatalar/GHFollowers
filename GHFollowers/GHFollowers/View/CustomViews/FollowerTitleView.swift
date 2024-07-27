@@ -12,36 +12,13 @@ struct FollowersTitleView: View {
     
     var body: some View {
         VStack(spacing: 12) {
-            AsyncImage(url: URL(string: follower.avatarUrl)) { phase in
-                switch phase {
-                case .empty:
-                    PlaceholderImageView()
-                case .success(let image):
-                    image
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .clipShape(RoundedRectangle(cornerRadius: 10))
-                case .failure:
-                    PlaceholderImageView()
-                @unknown default:
-                    PlaceholderImageView()
-                }
-            }
+            AvatarView(url: follower.avatarUrl)
             
             Text(follower.login)
                 .font(.body)
                 .fontWeight(.semibold)
                 .foregroundStyle(.black)
                 .lineLimit(1)
-        }
-    }
-    
-    struct PlaceholderImageView: View {
-        var body: some View {
-            Image(.avatarPlaceholder)
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .clipShape(RoundedRectangle(cornerRadius: 10))
         }
     }
 }
