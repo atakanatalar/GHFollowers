@@ -9,73 +9,87 @@ import SwiftUI
 
 struct UserInfoHeaderView: View {
     let user: User
+    let dynamicTypeSize: DynamicTypeSize
     
     var body: some View {
-        VStack(alignment: .leading) {
-            HStack(alignment: .top, spacing: 12) {
-                AvatarImageView(user: user)
+        if dynamicTypeSize >= .accessibility1 {
+            bigSizeHeaderView
+        } else {
+            normalSizeHeaderView
+        }
+    }
+    
+    var normalSizeHeaderView: some View {
+        HStack {
+            VStack(alignment: .leading) {
+                HStack(alignment: .top, spacing: 12) {
+                    AvatarView(url: user.avatarUrl, width: dynamicTypeSize >= .accessibility1 ? 240 : 120)
+                    
+                    VStack(alignment: .leading) {
+                        Text(user.login)
+                            .font(.largeTitle)
+                            .fontWeight(.bold)
+                            .lineLimit(1)
+                        
+                        Text(user.name ?? "Name")
+                            .font(.title3)
+                            .fontWeight(.medium)
+                            .foregroundStyle(.secondary)
+                            .lineLimit(1)
+                        
+                        Label(user.location ?? "No Location", systemImage: "mappin.and.ellipse")
+                            .font(.title3)
+                            .fontWeight(.medium)
+                            .foregroundStyle(.secondary)
+                            .lineLimit(1)
+                    }
+                }
+                .padding(.vertical)
                 
-                VStack(alignment: .leading) {
+                Text(user.bio ?? "No bio available")
+                    .font(.body)
+                    .foregroundStyle(.secondary)
+                    .lineLimit(3)
+            }
+            
+            Spacer()
+        }
+    }
+    
+    var bigSizeHeaderView: some View {
+        HStack {
+            Spacer()
+            
+            VStack(alignment: .center, spacing: 20) {
+                AvatarView(url: user.avatarUrl, width: dynamicTypeSize >= .accessibility1 ? 240 : 120)
+                
+                VStack {
                     Text(user.login)
                         .font(.largeTitle)
                         .fontWeight(.bold)
-                        .lineLimit(1)
                     
                     Text(user.name ?? "Name")
                         .font(.title3)
                         .fontWeight(.medium)
                         .foregroundStyle(.secondary)
-                        .lineLimit(1)
                     
                     Label(user.location ?? "No Location", systemImage: "mappin.and.ellipse")
                         .font(.title3)
                         .fontWeight(.medium)
                         .foregroundStyle(.secondary)
-                        .lineLimit(1)
                 }
+                
+                Text(user.bio ?? "No bio available")
+                    .font(.body)
+                    .foregroundStyle(.secondary)
+                    .multilineTextAlignment(.center)
             }
-            .padding(.vertical)
             
-            Text(user.bio ?? "No bio available")
-                .font(.body)
-                .foregroundStyle(.secondary)
-                .lineLimit(3)
-        }
-    }
-    
-    struct AvatarImageView: View {
-        let user: User
-        
-        var body: some View {
-            AsyncImage(url: URL(string: user.avatarUrl)) { phase in
-                switch phase {
-                case .empty:
-                    PlaceholderImageView()
-                case .success(let image):
-                    image
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .clipShape(RoundedRectangle(cornerRadius: 10))
-                case .failure:
-                    PlaceholderImageView()
-                @unknown default:
-                    PlaceholderImageView()
-                }
-            }
-            .frame(width: 120)
-        }
-    }
-    
-    struct PlaceholderImageView: View {
-        var body: some View {
-            Image(.avatarPlaceholder)
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .clipShape(RoundedRectangle(cornerRadius: 10))
+            Spacer()
         }
     }
 }
 
 #Preview {
-    UserInfoHeaderView(user: MockData.user)
+    UserInfoHeaderView(user: MockData.user, dynamicTypeSize: .medium)
 }

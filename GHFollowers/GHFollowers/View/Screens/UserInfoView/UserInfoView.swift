@@ -8,19 +8,16 @@
 import SwiftUI
 
 struct UserInfoView: View {
+    @Environment(\.dynamicTypeSize) var dynamicTypeSize
     @StateObject var viewModel: UserInfoViewModel
     
     var body: some View {
         ZStack {
             NavigationStack {
                 VStack() {
-                    HStack {
-                        UserInfoHeaderView(user: viewModel.user)
-                        Spacer()
-                    }
-                    
-                    RepoItemInfoView(user: viewModel.user)
-                    FollowerItemInfoView(user: viewModel.user)
+                    UserInfoHeaderView(user: viewModel.user, dynamicTypeSize: dynamicTypeSize)
+                    RepoItemInfoView(user: viewModel.user, dynamicTypeSize: dynamicTypeSize)
+                    FollowerItemInfoView(user: viewModel.user, dynamicTypeSize: dynamicTypeSize)
                     Spacer()
                     
                     Label(UserInfoViewConstants.dateLabelTitle + " \(viewModel.user.createdAt.convertToMonthYearFormat())", systemImage: UserInfoViewConstants.dateLabelImageTitle)

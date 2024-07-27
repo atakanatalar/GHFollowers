@@ -9,23 +9,24 @@ import SwiftUI
 
 struct FollowerItemInfoView: View {
     @State var isShowingFollowersView: Bool = false
-    var user: User
+    
+    let user: User
+    let dynamicTypeSize: DynamicTypeSize
     
     var body: some View {
         ZStack {
             NavigationStack {
                 VStack {
-                    HStack {
-                        ItemInfoView(itemInfoType: .followers, count: user.followers)
-                        Spacer()
-                        ItemInfoView(itemInfoType: .following, count: user.following)
+                    if dynamicTypeSize >= .accessibility1 {
+                        bigSizeInfoViews
+                    } else {
+                        normalSizeInfoViews
                     }
-                    .padding(.top, 24)
-                    .padding(.horizontal, 12)
                     
                     NavigationLink(destination: FollowersView(viewModel: FollowersView.FollowersViewModel(selectedUsername: user.login))) {
                         Label(FollowersItemInfoViewConstants.getFollowersButtonTitle, systemImage: FollowersItemInfoViewConstants.getFollowersButtonImageTitle)
-                            .frame(maxWidth: .infinity, maxHeight: 48)
+                            .frame(maxWidth: .infinity)
+                            .frame(height: dynamicTypeSize >= .accessibility1 ? 72 : 48)
                     }
                     .modifier(CustomButtonModifier(backgroundColor: Color(.systemGreen)))
                     .padding(.horizontal, 24)
@@ -37,8 +38,27 @@ struct FollowerItemInfoView: View {
             }
         }
     }
+    
+    var normalSizeInfoViews: some View {
+        HStack {
+            ItemInfoView(itemInfoType: .followers, count: user.followers)
+            Spacer()
+            ItemInfoView(itemInfoType: .following, count: user.following)
+        }
+        .padding(.top, 24)
+        .padding(.horizontal, 12)
+    }
+    
+    var bigSizeInfoViews: some View {
+        VStack(alignment: .center) {
+            ItemInfoView(itemInfoType: .followers, count: user.followers)
+            ItemInfoView(itemInfoType: .following, count: user.following)
+        }
+        .padding(.top, 24)
+        .padding(.horizontal, 12)
+    }
 }
 
 #Preview {
-    FollowerItemInfoView(user: MockData.user)
+    FollowerItemInfoView(user: MockData.user, dynamicTypeSize: .medium)
 }

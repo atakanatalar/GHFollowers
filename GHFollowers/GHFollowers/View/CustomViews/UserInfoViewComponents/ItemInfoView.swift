@@ -12,9 +12,9 @@ enum ItemInfoType {
 }
 
 struct ItemInfoView: View {
-    var itemInfoType: ItemInfoType
-    var count: Int
-        
+    let itemInfoType: ItemInfoType
+    let count: Int
+    
     private var label: Label<Text, Image> {
         switch itemInfoType {
         case .repos:
@@ -30,12 +30,12 @@ struct ItemInfoView: View {
     
     var body: some View {
         VStack(alignment: .center, spacing: 6) {
-            HStack(spacing: 20) {
-                label
-                    .font(.callout)
-                    .fontWeight(.semibold)
-                    .foregroundColor(.primary)
-            }
+            label
+                .font(.callout)
+                .fontWeight(.semibold)
+                .truncationMode(.tail)
+                .foregroundColor(.primary)
+            
             Text("\(count)")
                 .font(.callout)
                 .fontWeight(.semibold)

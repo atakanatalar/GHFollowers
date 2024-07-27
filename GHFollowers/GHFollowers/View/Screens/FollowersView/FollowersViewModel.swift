@@ -24,10 +24,14 @@ extension FollowersView {
             guard !searchTerm.isEmpty else { return followers }
             return followers.filter { $0.login.localizedCaseInsensitiveContains(searchTerm) }
         }
-        let columns = Array(repeating: GridItem(.flexible()), count: 3)
         
         init(selectedUsername: String) {
             self.selectedUsername = selectedUsername
+        }
+        
+        @MainActor
+        func getColumns(dynamicTypeSize: DynamicTypeSize) -> [GridItem] {
+            return Array(repeating: GridItem(.flexible()), count: dynamicTypeSize >= .accessibility1 ? 2 : 3)
         }
         
         @MainActor
@@ -98,8 +102,12 @@ extension FollowersView {
         func showEmptyStateView() { isEmptyState = true }
         
         @MainActor
-        @ViewBuilder func createUserInfoView(selectedFollower: Follower) -> some View {
-            UserInfoView(viewModel: UserInfoView.UserInfoViewModel(selectedFollower: selectedFollower))
+        @ViewBuilder func createUserInfoView(selectedFollower: Follower, dynamicTypeSize: DynamicTypeSize) -> some View {
+            if dynamicTypeSize >= .accessibility1 {
+                UserInfoView(viewModel: UserInfoView.UserInfoViewModel(selectedFollower: selectedFollower)).embedInScrollView()
+            } else {
+                UserInfoView(viewModel: UserInfoView.UserInfoViewModel(selectedFollower: selectedFollower))
+            }
         }
     }
 }

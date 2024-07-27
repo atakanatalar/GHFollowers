@@ -8,13 +8,14 @@
 import SwiftUI
 
 struct FavoritesView: View {
+    @Environment(\.dynamicTypeSize) var dynamicTypeSize
     @StateObject private var viewModel = FavoritesViewModel()
     
     var body: some View {
         ZStack {
             NavigationStack {
                 List(viewModel.favorites, id: \.self) { favorite in
-                    NavigationLink(destination: viewModel.createUserInfoView(selectedFavorite: favorite)) {
+                    NavigationLink(destination: viewModel.createUserInfoView(selectedFavorite: favorite, dynamicTypeSize: dynamicTypeSize )) {
                         FavoritesListCell(favorite: favorite)
                             .swipeActions {
                                 Button(role: .destructive) {

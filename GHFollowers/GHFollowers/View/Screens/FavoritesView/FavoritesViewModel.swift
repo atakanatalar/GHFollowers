@@ -59,8 +59,12 @@ extension FavoritesView {
         func hideEmptyStateView() { isEmptyState = false }
         
         @MainActor
-        @ViewBuilder func createUserInfoView(selectedFavorite: Follower) -> some View {
-            UserInfoView(viewModel: UserInfoView.UserInfoViewModel(selectedFollower: selectedFavorite))
+        @ViewBuilder func createUserInfoView(selectedFavorite: Follower, dynamicTypeSize: DynamicTypeSize) -> some View {
+            if dynamicTypeSize >= .accessibility1 {
+                UserInfoView(viewModel: UserInfoView.UserInfoViewModel(selectedFollower: selectedFavorite)).embedInScrollView()
+            } else {
+                UserInfoView(viewModel: UserInfoView.UserInfoViewModel(selectedFollower: selectedFavorite))
+            }
         }
     }
 }

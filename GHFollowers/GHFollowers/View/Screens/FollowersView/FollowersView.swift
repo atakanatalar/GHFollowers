@@ -8,15 +8,16 @@
 import SwiftUI
 
 struct FollowersView: View {
+    @Environment(\.dynamicTypeSize) var dynamicTypeSize
     @StateObject var viewModel: FollowersViewModel
     
     var body: some View {
         ZStack {
             NavigationStack {
                 ScrollView {
-                    LazyVGrid(columns: viewModel.columns) {
+                    LazyVGrid(columns: viewModel.getColumns(dynamicTypeSize: dynamicTypeSize)) {
                         ForEach(viewModel.filteredFollowers, id: \.self) { follower in
-                            NavigationLink(destination: viewModel.createUserInfoView(selectedFollower: follower)) {
+                            NavigationLink(destination: viewModel.createUserInfoView(selectedFollower: follower, dynamicTypeSize: dynamicTypeSize)) {
                                 FollowersTitleView(follower: follower)
                             }
                         }
