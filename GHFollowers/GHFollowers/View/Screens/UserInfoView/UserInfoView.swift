@@ -12,22 +12,23 @@ struct UserInfoView: View {
     @StateObject var viewModel: UserInfoViewModel
     
     var body: some View {
-        ZStack {
-            NavigationStack {
-                VStack() {
-                    UserInfoHeaderView(user: viewModel.user, dynamicTypeSize: dynamicTypeSize)
-                    RepoItemInfoView(user: viewModel.user, dynamicTypeSize: dynamicTypeSize)
-                    FollowerItemInfoView(user: viewModel.user, dynamicTypeSize: dynamicTypeSize)
-                    Spacer()
-                    
-                    Label(UserInfoViewConstants.dateLabelTitle + " \(viewModel.user.createdAt.convertToMonthYearFormat())", systemImage: UserInfoViewConstants.dateLabelImageTitle)
-                        .padding()
-                }
-                .padding(.horizontal)
+        NavigationStack {
+            VStack() {
+                UserInfoHeaderView(user: viewModel.user, dynamicTypeSize: dynamicTypeSize)
+                RepoItemInfoView(user: viewModel.user, dynamicTypeSize: dynamicTypeSize)
+                    .disabled(viewModel.isLoading)
+                FollowerItemInfoView(user: viewModel.user, dynamicTypeSize: dynamicTypeSize)
+                    .disabled(viewModel.isLoading)
+                
+                Spacer()
+                
+                Label(UserInfoViewConstants.dateLabelTitle + " \(viewModel.user.createdAt.convertToMonthYearFormat())", systemImage: UserInfoViewConstants.dateLabelImageTitle)
+                    .padding()
             }
-            if viewModel.isLoading { LoadingView() }
+            .padding(.horizontal)
         }
         .navigationBarTitleDisplayMode(.inline)
+        .redacted(reason: viewModel.isLoading ? .placeholder : [])
         .task { await viewModel.getUserInfo(username: viewModel.selectedFollower.login) }
     }
 }

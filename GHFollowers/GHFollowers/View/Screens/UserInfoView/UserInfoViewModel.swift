@@ -26,7 +26,6 @@ extension UserInfoView {
                 self.user = user
                 hideLoadingView()
             } catch {
-                hideLoadingView()
                 if let gfError = error as? GFError {
                     DispatchQueue.main.async { Toast.shared.present(title: gfError.rawValue, symbol: ToastConstants.networkErrorImageTitle, tint: Color(.systemRed)) }
                 } else {
