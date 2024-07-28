@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct FollowersTitleView: View {
+    @Environment(\.colorScheme) var colorScheme
+    
     let follower: Follower
     
     var body: some View {
@@ -17,7 +19,7 @@ struct FollowersTitleView: View {
             Text(follower.login)
                 .font(.body)
                 .fontWeight(.semibold)
-                .foregroundStyle(.black)
+                .foregroundStyle(colorScheme == .dark ? .white : .black)
                 .lineLimit(1)
         }
     }
