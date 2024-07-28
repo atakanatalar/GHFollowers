@@ -49,15 +49,6 @@ struct FollowersView: View {
                 EmptyStateView(message: FollowersViewConstants.noResultMessageFirst + "\(viewModel.searchTerm)" + FollowersViewConstants.noResultMessageSecond).padding(.horizontal, 40)
             }
         }
-        .toolbar {
-            ToolbarItem(placement: .topBarTrailing) {
-                Button() {
-                    viewModel.getUserForFavorite(username: viewModel.selectedUsername)
-                } label: {
-                    Label(FollowersViewConstants.favoriteToolbarButtonTitle, systemImage: FollowersViewConstants.favoriteToolbarButtonImageTitle)
-                }
-            }
-        }
     }
 }
 

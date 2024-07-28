@@ -14,6 +14,8 @@ extension UserInfoView {
         @Published var user: User = MockData.user
         @Published var isLoading: Bool = false
         
+        let addFavoriteTip = AddFavoriteTip()
+        
         init (selectedFollower: Follower) {
             self.selectedFollower = selectedFollower
         }
@@ -30,6 +32,22 @@ extension UserInfoView {
                     DispatchQueue.main.async { Toast.shared.present(title: gfError.rawValue, symbol: ToastConstants.networkErrorImageTitle, tint: Color(.systemRed)) }
                 } else {
                     DispatchQueue.main.async { Toast.shared.present(title: ToastConstants.defaultErrorMessage, symbol: ToastConstants.defaultErrorImageTitle, tint: Color(.systemRed)) }
+                }
+            }
+        }
+        
+        @MainActor
+        func addUserToFavorite(user: User) {
+            let favorite = Follower(login: user.login, avatarUrl: user.avatarUrl)
+            PersistenceManager.updateWith(favorite: favorite, actionType: .add) { error in
+                guard error != nil else {
+                    DispatchQueue.main.async {
+                        Toast.shared.present(title: ToastConstants.addUserSuccessMessage, symbol: ToastConstants.addUserSuccessImageTitle, tint: Color(.systemGreen), timing: .medium)
+                    }
+                    return
+                }
+                DispatchQueue.main.async {
+                    Toast.shared.present(title: error?.rawValue ?? "", symbol: ToastConstants.addUserFailureImageTitle, tint: Color(.systemRed), timing: .medium)
                 }
             }
         }

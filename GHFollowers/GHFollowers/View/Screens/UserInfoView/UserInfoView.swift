@@ -30,6 +30,20 @@ struct UserInfoView: View {
         .navigationBarTitleDisplayMode(.inline)
         .redacted(reason: viewModel.isLoading ? .placeholder : [])
         .task { await viewModel.getUserInfo(username: viewModel.selectedFollower.login) }
+        .onAppear {
+            Task { await AddFavoriteTip.viewVisitedEvent.donate() }
+        }
+        .toolbar {
+            ToolbarItem(placement: .topBarTrailing) {
+                Button() {
+                    viewModel.addUserToFavorite(user: viewModel.user)
+                    viewModel.addFavoriteTip.invalidate(reason: .actionPerformed)
+                } label: {
+                    Image(systemName: UserInfoViewConstants.favoriteToolbarButtonImageTitle)
+                }
+                .popoverTip(viewModel.addFavoriteTip)
+            }
+        }
     }
 }
 
