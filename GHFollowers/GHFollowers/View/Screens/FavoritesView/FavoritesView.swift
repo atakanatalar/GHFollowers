@@ -15,7 +15,7 @@ struct FavoritesView: View {
         ZStack {
             NavigationStack {
                 List(viewModel.favorites, id: \.self) { favorite in
-                    NavigationLink(destination: viewModel.createUserInfoView(selectedFavorite: favorite, dynamicTypeSize: dynamicTypeSize )) {
+                    NavigationLink(destination: viewModel.createFollowersView(selectedUsername: favorite.login)) {
                         FavoritesListCell(favorite: favorite)
                             .swipeActions {
                                 Button(role: .destructive) {
