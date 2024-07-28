@@ -23,13 +23,12 @@ enum FollowersViewConstants {
     static let userInfoViewToolbarButtonTitle = "Done"
     static let noResultMessageFirst = "No result for \""
     static let noResultMessageSecond = "\" "
-    static let favoriteToolbarButtonTitle = "Favorite"
-    static let favoriteToolbarButtonImageTitle = "star"
 }
 
 enum UserInfoViewConstants {
     static let dateLabelTitle = "GitHub since"
     static let dateLabelImageTitle = "calendar"
+    static let favoriteToolbarButtonImageTitle = "plus"
 }
 
 enum FavoritesViewConstants {
@@ -111,4 +110,9 @@ enum ToastConstants {
 
 enum KeyboardConstants {
     static let imageTitle = "keyboard.chevron.compact.down"
+}
+
+enum TipConstants {
+    static let addToFavoriteTitle = Text("Add New User")
+    static let addToFavoriteTitleMessage = Text("Tap here to add a new user to the favorites")
 }

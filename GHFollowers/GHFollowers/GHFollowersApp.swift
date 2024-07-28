@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import TipKit
 
 @main
 struct GHFollowersApp: App {
@@ -13,6 +14,10 @@ struct GHFollowersApp: App {
         WindowGroup {
             RootView {
                 ContentView()
+                    .task {
+                        try? Tips.configure([
+                            .datastoreLocation(.applicationDefault)])
+                    }
             }
         }
     }

@@ -47,6 +47,7 @@
 		0CA18A852C4EA7EF00BD5767 /* OnboardInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA18A842C4EA7EF00BD5767 /* OnboardInfoView.swift */; };
 		0CBC72F82C55111300B40A20 /* View+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CBC72F72C55111300B40A20 /* View+Ext.swift */; };
 		0CBC72FA2C5534AB00B40A20 /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CBC72F92C5534AB00B40A20 /* AvatarView.swift */; };
+		0CBC72FE2C56922B00B40A20 /* Tip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CBC72FD2C56922B00B40A20 /* Tip.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -91,6 +92,7 @@
 		0CA18A842C4EA7EF00BD5767 /* OnboardInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardInfoView.swift; sourceTree = "<group>"; };
 		0CBC72F72C55111300B40A20 /* View+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Ext.swift"; sourceTree = "<group>"; };
 		0CBC72F92C5534AB00B40A20 /* AvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
+		0CBC72FD2C56922B00B40A20 /* Tip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tip.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 			children = (
 				0C64BA422C51044B009B627B /* Toast.swift */,
 				0C63E4A72C51AF7600BF1F9B /* Keyboard.swift */,
+				0CBC72FD2C56922B00B40A20 /* Tip.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -385,6 +388,7 @@
 				0CA18A0C2C42970E00BD5767 /* GHFollowersApp.swift in Sources */,
 				0CA18A222C429A9200BD5767 /* AppTabView.swift in Sources */,
 				0CA18A4F2C47F0E300BD5767 /* UserInfoView.swift in Sources */,
+				0CBC72FE2C56922B00B40A20 /* Tip.swift in Sources */,
 				0CA18A5A2C4811EA00BD5767 /* FollowerItemInfoView.swift in Sources */,
 				0CA18A262C42AA7D00BD5767 /* GFTextField.swift in Sources */,
 			);
