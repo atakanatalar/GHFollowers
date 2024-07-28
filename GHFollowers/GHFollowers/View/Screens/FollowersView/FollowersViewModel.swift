@@ -17,6 +17,7 @@ extension FollowersView {
         @Published var hasMoreFollower: Bool = true
         @Published var isLoading: Bool = false
         @Published var isEmptyState: Bool = false
+        @Published var isInvalidResponse: Bool = false
         @Published var isShowingUserInfoView: Bool = false
         @Published var selectedUsername: String
         
@@ -44,15 +45,15 @@ extension FollowersView {
                 if self.followers.isEmpty {
                     DispatchQueue.main.async { self.showEmptyStateView() }
                 }
-                hideLoadingView()
             } catch {
-                hideLoadingView()
                 if let gfError = error as? GFError {
                     Toast.shared.present(title: gfError.rawValue, symbol: ToastConstants.networkErrorImageTitle, tint: Color(.systemRed))
+                    showInvalidResponseView()
                 } else {
                     Toast.shared.present(title: ToastConstants.defaultErrorMessage, symbol: ToastConstants.defaultErrorImageTitle, tint: Color(.systemRed))
                 }
             }
+            hideLoadingView()
         }
         
         @MainActor
@@ -100,6 +101,8 @@ extension FollowersView {
         func hideLoadingView() { isLoading = false }
         @MainActor
         func showEmptyStateView() { isEmptyState = true }
+        @MainActor
+        func showInvalidResponseView() { isInvalidResponse = true }
         
         @MainActor
         @ViewBuilder func createUserInfoView(selectedFollower: Follower, dynamicTypeSize: DynamicTypeSize) -> some View {

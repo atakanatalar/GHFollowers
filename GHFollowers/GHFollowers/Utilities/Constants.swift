@@ -19,6 +19,7 @@ enum FollowersViewConstants {
     static let followersTitleViewAvatarUrl = ""
     static let searchTitle = "Search Followers"
     static let emptyMessage = "This user doesn't have any followers, go follow them"
+    static let invalidResponseMessage = "There is no one with this username, please check again"
     static let userInfoViewToolbarButtonTitle = "Done"
     static let noResultMessageFirst = "No result for \""
     static let noResultMessageSecond = "\" "

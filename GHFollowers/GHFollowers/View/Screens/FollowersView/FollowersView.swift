@@ -37,6 +37,7 @@ struct FollowersView: View {
                 }
             }
             if viewModel.isEmptyState { EmptyStateView(message: FollowersViewConstants.emptyMessage).padding(.horizontal, 40) }
+            if viewModel.isInvalidResponse { EmptyStateView(message: FollowersViewConstants.invalidResponseMessage).padding(.horizontal, 40) }
             if viewModel.isLoading { LoadingView() }
         }
         .navigationTitle(viewModel.selectedUsername)
