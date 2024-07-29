@@ -57,6 +57,23 @@ extension FollowersView {
         }
         
         @MainActor
+        func addUserToFavorite(favorite: Follower) {
+            let favorite = Follower(login: favorite.login, avatarUrl: favorite.avatarUrl)
+            PersistenceManager.updateWith(favorite: favorite, actionType: .add) { error in
+                guard error != nil else {
+                    DispatchQueue.main.async {
+                        Toast.shared.present(title: ToastConstants.addUserSuccessMessage, symbol: ToastConstants.addUserSuccessImageTitle, tint: Color(.systemGreen), timing: .medium)
+                        HapticManager.playSuccess()
+                    }
+                    return
+                }
+                DispatchQueue.main.async {
+                    Toast.shared.present(title: error?.localizedDescription ?? "", symbol: ToastConstants.addUserFailureImageTitle, tint: Color(.systemRed), timing: .medium)
+                }
+            }
+        }
+        
+        @MainActor
         func showLoadingView() { isLoading = true }
         @MainActor
         func hideLoadingView() { isLoading = false }

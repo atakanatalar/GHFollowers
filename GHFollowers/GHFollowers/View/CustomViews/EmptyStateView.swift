@@ -22,7 +22,6 @@ struct EmptyStateView: View {
                 .fontWeight(.bold)
                 .foregroundStyle(.secondary)
                 .multilineTextAlignment(.center)
-                .lineLimit(3)
         }
         .padding()
     }

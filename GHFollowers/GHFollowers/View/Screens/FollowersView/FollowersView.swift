@@ -20,6 +20,11 @@ struct FollowersView: View {
                             NavigationLink(destination: viewModel.createUserInfoView(selectedFollower: follower, dynamicTypeSize: dynamicTypeSize)) {
                                 FollowersTitleView(follower: follower)
                             }
+                            .contextMenu {
+                                Button(FollowersViewConstants.contextMenuFavoriteButtonTitle, systemImage: FollowersViewConstants.contextMenuFavoriteButtonImageTitle) {
+                                    viewModel.addUserToFavorite(favorite: follower)
+                                }
+                            }
                         }
                         
                         if viewModel.hasMoreFollower && !viewModel.followers.isEmpty {

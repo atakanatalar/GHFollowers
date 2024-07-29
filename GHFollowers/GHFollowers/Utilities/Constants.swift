@@ -19,6 +19,8 @@ enum FollowersViewConstants {
     static let followersTitleViewAvatarUrl = ""
     static let searchTitle = String.localized("followers_search_title")
     static let emptyMessage = String.localized("followers_empty_message")
+    static let contextMenuFavoriteButtonTitle = String.localized("followers_context_menu_favorite_button_title")
+    static let contextMenuFavoriteButtonImageTitle = "star"
     static let invalidResponseMessage = String.localized("followers_invalid_response_message")
     static let noResultMessageFirst = String.localized("followers_no_result_message1")
     static let noResultMessageSecond = String.localized("followers_no_result_message2")

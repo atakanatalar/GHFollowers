@@ -13,22 +13,23 @@
 //MARK: - Followers View
 "followers_title_view_title" = "Daha Fazla Takipçi";
 "followers_search_title" = "Takipçi ara";
-"followers_empty_message" = "Kullanıcının takipçisi yok, hadi ilk takipçisi ol";
+"followers_context_menu_favorite_button_title" = "Favorilere ekle";
+"followers_empty_message" = "Kullanıcının takipçisi yok";
 "followers_invalid_response_message" = "Bu kullanıcı adına sahip kimse yok, lütfen kontrol edin";
 "followers_no_result_message1" = "Bu arama için sonuç bulunamadı \"";
 "followers_no_result_message2" = "\" ";
 
 //MARK: - User Info View
-"user_info_date_label_title" = "GitHub'a katılım";
+"user_info_date_label_title" = "GitHub'a üyelik";
 
 //MARK: - Favorites View
 
 "favorites_swipe_button_title" = "Sil";
 "favorites_navigation_title" = "Favoriler";
-"favorites_empty_message" = "Favorileriniz yok mu?\nTakipçiler ekranından bir tane ekleyin";
+"favorites_empty_message" = "Favorileriniz yok mu?\nKullanıcı profil ekranından bir tane ekleyin";
 
 //MARK: - App Tab View
-"app_tab_search_tab_item_title" = "Ara";
+"app_tab_search_tab_item_title" = "Arama";
 "app_tab_favorites_tab_item_title" = "Favoriler";
 
 //MARK: - Onboard View
