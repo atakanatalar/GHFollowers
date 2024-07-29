@@ -39,10 +39,9 @@ fileprivate class PassthroughWindow: UIWindow {
     }
 }
 
-@Observable
-class Toast {
+class Toast: ObservableObject {
     static let shared = Toast()
-    fileprivate var toasts: [ToastItem] = []
+    @Published fileprivate var toasts: [ToastItem] = []
     
     func present(title: String, symbol: String?, tint: Color = .primary, isUserInteractionEnabled: Bool = true, timing: ToastTime = .long) {
         withAnimation(.snappy) {
@@ -67,7 +66,7 @@ enum ToastTime: CGFloat {
 }
 
 fileprivate struct ToastGroup: View {
-    var model = Toast.shared
+    @ObservedObject var model = Toast.shared
     
     var body: some View {
         GeometryReader {
@@ -80,7 +79,6 @@ fileprivate struct ToastGroup: View {
                         .scaleEffect(scale(toast))
                         .offset(y: offsetY(toast))
                         .zIndex(Double(model.toasts.firstIndex(where: { $0.id == toast.id }) ?? 0))
-                    
                 }
             }
             .padding(.bottom, safeArea.top == .zero ? 15 : 10)
@@ -128,7 +126,7 @@ fileprivate struct ToastView: View {
         .contentShape(RoundedRectangle(cornerRadius: 15))
         .gesture(
             DragGesture(minimumDistance: 0)
-                .onEnded({ value in
+                .onEnded { value in
                     guard item.isUserInteractionEnabled else { return }
                     let endY = value.translation.height
                     let velocityY = value.velocity.height
@@ -136,7 +134,7 @@ fileprivate struct ToastView: View {
                     if (endY + velocityY) > 100 {
                         removeToast()
                     }
-                })
+                }
         )
         .onAppear {
             guard delayTask == nil else { return }

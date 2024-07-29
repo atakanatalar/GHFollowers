@@ -31,17 +31,29 @@ struct UserInfoView: View {
         .redacted(reason: viewModel.isLoading ? .placeholder : [])
         .task { await viewModel.getUserInfo(username: viewModel.selectedFollower.login) }
         .onAppear {
-            Task { await AddFavoriteTip.viewVisitedEvent.donate() }
+            Task { if #available(iOS 17.0, *) {
+                await AddFavoriteTip.viewVisitedEvent.donate()
+            } else {
+                
+            } }
         }
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
-                Button() {
-                    viewModel.addUserToFavorite(user: viewModel.user)
-                    viewModel.addFavoriteTip.invalidate(reason: .actionPerformed)
-                } label: {
-                    Image(systemName: UserInfoViewConstants.favoriteToolbarButtonImageTitle)
+                if #available(iOS 17.0, *) {
+                    Button() {
+                        viewModel.addUserToFavorite(user: viewModel.user)
+                        viewModel.addFavoriteTip.invalidate(reason: .actionPerformed)
+                    } label: {
+                        Image(systemName: UserInfoViewConstants.favoriteToolbarButtonImageTitle)
+                    }
+                    .popoverTip(viewModel.addFavoriteTip)
+                } else {
+                    Button() {
+                        viewModel.addUserToFavorite(user: viewModel.user)
+                    } label: {
+                        Image(systemName: UserInfoViewConstants.favoriteToolbarButtonImageTitle)
+                    }
                 }
-                .popoverTip(viewModel.addFavoriteTip)
             }
         }
     }

@@ -15,8 +15,12 @@ struct GHFollowersApp: App {
             RootView {
                 ContentView()
                     .task {
-                        try? Tips.configure([
-                            .datastoreLocation(.applicationDefault)])
+                        if #available(iOS 17.0, *) {
+                            try? Tips.configure([
+                                .datastoreLocation(.applicationDefault)])
+                        } else {
+                            // Fallback on earlier versions
+                        }
                     }
             }
         }
