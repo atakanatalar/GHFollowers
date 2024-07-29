@@ -43,6 +43,7 @@ extension UserInfoView {
                 guard error != nil else {
                     DispatchQueue.main.async {
                         Toast.shared.present(title: ToastConstants.addUserSuccessMessage, symbol: ToastConstants.addUserSuccessImageTitle, tint: Color(.systemGreen), timing: .medium)
+                        HapticManager.playSuccess()
                     }
                     return
                 }
