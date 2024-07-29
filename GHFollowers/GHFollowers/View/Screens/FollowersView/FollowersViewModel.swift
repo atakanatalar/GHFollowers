@@ -67,7 +67,9 @@ extension FollowersView {
         
         @MainActor
         @ViewBuilder func createUserInfoView(selectedFollower: Follower, dynamicTypeSize: DynamicTypeSize) -> some View {
-            if dynamicTypeSize >= .accessibility1 {
+            if Device.isSmallScreen() {
+                UserInfoView(viewModel: UserInfoView.UserInfoViewModel(selectedFollower: selectedFollower)).embedInScrollView()
+            } else if dynamicTypeSize >= .accessibility1 {
                 UserInfoView(viewModel: UserInfoView.UserInfoViewModel(selectedFollower: selectedFollower)).embedInScrollView()
             } else {
                 UserInfoView(viewModel: UserInfoView.UserInfoViewModel(selectedFollower: selectedFollower))
