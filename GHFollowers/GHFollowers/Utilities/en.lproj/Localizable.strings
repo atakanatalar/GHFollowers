@@ -1,0 +1,70 @@
+/* 
+  Localizable.strings
+  GHFollowers
+
+  Created by Atakan Atalar on 29.07.2024.
+  
+*/
+
+//MARK: - Search View
+"search_text_field_text" = "Enter a username";
+"search_button_title" = "Get Followers";
+
+//MARK: - Followers View
+"followers_title_view_title" = "More Followers";
+"followers_search_title" = "Search Followers";
+"followers_empty_message" = "This user doesn't have any followers, go follow them";
+"followers_invalid_response_message" = "There is no one with this username, please check again";
+"followers_no_result_message1" = "No result for \"";
+"followers_no_result_message2" = "\" ";
+
+//MARK: - User Info View
+"user_info_date_label_title" = "GitHub since";
+
+//MARK: - Favorites View
+
+"favorites_swipe_button_title" = "Delete";
+"favorites_navigation_title" = "Favorites";
+"favorites_empty_message" = "No Favorites?\nAdd one on the Followers screen";
+
+//MARK: - App Tab View
+"app_tab_search_tab_item_title" = "Search";
+"app_tab_favorites_tab_item_title" = "Favorites";
+
+//MARK: - Onboard View
+"onboard_title1" = "View Followers";
+"onboard_description1" = "See the followers of a given GitHub username and explore their list of followers";
+"onboard_title2" = "Profile Viewing";
+"onboard_description2" = "Click on followers' profiles to view detailed information";
+"onboard_title3" = "Favorites List";
+"onboard_description3" = "Add desired users to your favorites list for easy access";
+"onboard_button_title" = "Continue";
+
+//MARK: - Repo Item Info View
+"repo_item_button" = "GitHub Profile";
+
+//MARK: - Followers Item View
+"followers_item_button" = "Get Followers";
+
+//MARK: - Item Info View
+"item_info_repos_title" = "Public Repos";
+"item_info_gists_title" = "Public Gists";
+"item_info_followers_title" = "Followers";
+"item_info_following_title" = "Following";
+
+//MARK: - GFError
+"error_invalid_username" = "This username created an invalid request";
+"error_invalid_response" = "User could not be found";
+"error_invalid_data" = "The data received from the server was invalid";
+"error_unable_to_favorite" = "There was an error favoriting this user";
+"error_already_in_favorites" = "You have already favorited this user";
+
+//MARK: - Toast
+"toast_add_user_success_message" = "Added to favorites";
+"toast_remove_user_success_message" = " has been removed";
+"toast_invalid_username_message" = "Please enter a username";
+"toast_network_error_message" = "Check your network connection";
+
+//MARK: - Tip
+"tip_add_to_favorite_title" = "Add New User";
+"tip_add_to_favorite_message" = "Tap here to add a new user to the favorites";

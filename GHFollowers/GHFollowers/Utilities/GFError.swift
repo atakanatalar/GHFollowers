@@ -8,9 +8,13 @@
 import Foundation
 
 enum GFError: String, Error {
-    case invalidUsername = "This username created an invalid request, please try again"
-    case invalidResponse = "Invalid response from the server, please try again"
-    case invalidData = "The data received from the server was invalid, please try again"
-    case unableToFavorite = "There was an error favoriting this user, Please try again"
-    case alreadyInFavorites = "You have already favorited this user, you must really like them"
+    case invalidUsername = "error_invalid_username"
+    case invalidResponse = "error_invalid_response"
+    case invalidData = "error_invalid_data"
+    case unableToFavorite = "error_unable_to_favorite"
+    case alreadyInFavorites = "error_already_in_favorites"
+    
+    var localizedDescription: String {
+        return String.localized(self.rawValue)
+    }
 }

@@ -32,7 +32,7 @@ extension FavoritesView {
         func removeFromFavorites(favorite: Follower) {
             PersistenceManager.updateWith(favorite: favorite, actionType: .remove) { error in
                 guard let error = error else {
-                    let toastTitle = "\(favorite.login)" + ToastConstants.removeSuccessTitle
+                    let toastTitle = "\(favorite.login)" + ToastConstants.removeSuccessMessage
                     Toast.shared.present(title: toastTitle, symbol: ToastConstants.removeSuccessImageTitle, tint: Color(.systemGreen), timing: .medium)
                     self.favorites.removeAll { $0 == favorite }
                     self.checkIsEpmty()

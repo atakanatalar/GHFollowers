@@ -47,10 +47,10 @@ extension FollowersView {
                 }
             } catch {
                 if let gfError = error as? GFError {
-                    Toast.shared.present(title: gfError.rawValue, symbol: ToastConstants.networkErrorImageTitle, tint: Color(.systemRed))
+                    Toast.shared.present(title: gfError.localizedDescription, symbol: ToastConstants.defaultErrorImageTitle, tint: Color(.systemRed))
                     showInvalidResponseView()
                 } else {
-                    Toast.shared.present(title: ToastConstants.defaultErrorMessage, symbol: ToastConstants.defaultErrorImageTitle, tint: Color(.systemRed))
+                    Toast.shared.present(title: ToastConstants.networkErrorMessage, symbol: ToastConstants.networkErrorImageTitle, tint: Color(.systemRed))
                 }
             }
             hideLoadingView()

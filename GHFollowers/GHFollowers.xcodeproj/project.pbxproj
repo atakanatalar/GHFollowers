@@ -19,7 +19,6 @@
 		0CA18A242C429D6200BD5767 /* GFButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA18A232C429D6200BD5767 /* GFButton.swift */; };
 		0CA18A262C42AA7D00BD5767 /* GFTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA18A252C42AA7D00BD5767 /* GFTextField.swift */; };
 		0CA18A2C2C4538AE00BD5767 /* LogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA18A2B2C4538AE00BD5767 /* LogoView.swift */; };
-		0CA18A2E2C4542A300BD5767 /* AlertItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA18A2D2C4542A300BD5767 /* AlertItem.swift */; };
 		0CA18A302C454AAE00BD5767 /* FollowersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA18A2F2C454AAE00BD5767 /* FollowersView.swift */; };
 		0CA18A3E2C4559B000BD5767 /* Follower.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA18A3D2C4559AF00BD5767 /* Follower.swift */; };
 		0CA18A402C4559BC00BD5767 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA18A3F2C4559BC00BD5767 /* User.swift */; };
@@ -48,6 +47,8 @@
 		0CBC72F82C55111300B40A20 /* View+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CBC72F72C55111300B40A20 /* View+Ext.swift */; };
 		0CBC72FA2C5534AB00B40A20 /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CBC72F92C5534AB00B40A20 /* AvatarView.swift */; };
 		0CBC72FE2C56922B00B40A20 /* Tip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CBC72FD2C56922B00B40A20 /* Tip.swift */; };
+		0CBC73012C56ED4F00B40A20 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0CBC72FF2C56ED4F00B40A20 /* Localizable.strings */; };
+		0CBC73032C56F7E900B40A20 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CBC73022C56F7E900B40A20 /* String+Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,7 +65,6 @@
 		0CA18A232C429D6200BD5767 /* GFButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFButton.swift; sourceTree = "<group>"; };
 		0CA18A252C42AA7D00BD5767 /* GFTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFTextField.swift; sourceTree = "<group>"; };
 		0CA18A2B2C4538AE00BD5767 /* LogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoView.swift; sourceTree = "<group>"; };
-		0CA18A2D2C4542A300BD5767 /* AlertItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertItem.swift; sourceTree = "<group>"; };
 		0CA18A2F2C454AAE00BD5767 /* FollowersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersView.swift; sourceTree = "<group>"; };
 		0CA18A3D2C4559AF00BD5767 /* Follower.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Follower.swift; sourceTree = "<group>"; };
 		0CA18A3F2C4559BC00BD5767 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -93,6 +93,9 @@
 		0CBC72F72C55111300B40A20 /* View+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Ext.swift"; sourceTree = "<group>"; };
 		0CBC72F92C5534AB00B40A20 /* AvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
 		0CBC72FD2C56922B00B40A20 /* Tip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tip.swift; sourceTree = "<group>"; };
+		0CBC73002C56ED4F00B40A20 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		0CBC73022C56F7E900B40A20 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
+		0CBC73042C577C7300B40A20 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,9 +201,9 @@
 		0CA18A342C4554AF00BD5767 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				0CA18A2D2C4542A300BD5767 /* AlertItem.swift */,
 				0CA18A442C45686E00BD5767 /* GFError.swift */,
 				0CA18A712C4DA4FC00BD5767 /* Constants.swift */,
+				0CBC72FF2C56ED4F00B40A20 /* Localizable.strings */,
 				0C64BA412C510415009B627B /* Helpers */,
 				0CA18A352C4554BF00BD5767 /* Extensions */,
 			);
@@ -212,6 +215,7 @@
 			children = (
 				0CA18A5B2C492E4B00BD5767 /* Date+Ext.swift */,
 				0CBC72F72C55111300B40A20 /* View+Ext.swift */,
+				0CBC73022C56F7E900B40A20 /* String+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -324,6 +328,7 @@
 			knownRegions = (
 				en,
 				Base,
+				tr,
 			);
 			mainGroup = 0CA189FF2C42970E00BD5767;
 			productRefGroup = 0CA18A092C42970E00BD5767 /* Products */;
@@ -341,6 +346,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0CA18A132C42970F00BD5767 /* Preview Assets.xcassets in Resources */,
+				0CBC73012C56ED4F00B40A20 /* Localizable.strings in Resources */,
 				0CA18A102C42970F00BD5767 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -369,7 +375,6 @@
 				0CA18A582C48101F00BD5767 /* RepoItemInfoView.swift in Sources */,
 				0CA18A782C4E6F9F00BD5767 /* MockData.swift in Sources */,
 				0CA18A302C454AAE00BD5767 /* FollowersView.swift in Sources */,
-				0CA18A2E2C4542A300BD5767 /* AlertItem.swift in Sources */,
 				0CA18A542C47FB1E00BD5767 /* UserInfoHeaderView.swift in Sources */,
 				0CA18A1E2C429A5C00BD5767 /* SearchView.swift in Sources */,
 				0CA18A812C4E88F400BD5767 /* SplashView.swift in Sources */,
@@ -390,11 +395,24 @@
 				0CA18A4F2C47F0E300BD5767 /* UserInfoView.swift in Sources */,
 				0CBC72FE2C56922B00B40A20 /* Tip.swift in Sources */,
 				0CA18A5A2C4811EA00BD5767 /* FollowerItemInfoView.swift in Sources */,
+				0CBC73032C56F7E900B40A20 /* String+Ext.swift in Sources */,
 				0CA18A262C42AA7D00BD5767 /* GFTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		0CBC72FF2C56ED4F00B40A20 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0CBC73002C56ED4F00B40A20 /* en */,
+				0CBC73042C577C7300B40A20 /* tr */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		0CA18A142C42970F00BD5767 /* Debug */ = {

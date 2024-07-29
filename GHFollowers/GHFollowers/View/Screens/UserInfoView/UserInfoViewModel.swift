@@ -29,9 +29,9 @@ extension UserInfoView {
                 hideLoadingView()
             } catch {
                 if let gfError = error as? GFError {
-                    DispatchQueue.main.async { Toast.shared.present(title: gfError.rawValue, symbol: ToastConstants.networkErrorImageTitle, tint: Color(.systemRed)) }
+                    DispatchQueue.main.async { Toast.shared.present(title: gfError.localizedDescription, symbol: ToastConstants.defaultErrorImageTitle, tint: Color(.systemRed)) }
                 } else {
-                    DispatchQueue.main.async { Toast.shared.present(title: ToastConstants.defaultErrorMessage, symbol: ToastConstants.defaultErrorImageTitle, tint: Color(.systemRed)) }
+                    DispatchQueue.main.async { Toast.shared.present(title: ToastConstants.networkErrorMessage, symbol: ToastConstants.networkErrorImageTitle, tint: Color(.systemRed)) }
                 }
             }
         }
@@ -47,7 +47,7 @@ extension UserInfoView {
                     return
                 }
                 DispatchQueue.main.async {
-                    Toast.shared.present(title: error?.rawValue ?? "", symbol: ToastConstants.addUserFailureImageTitle, tint: Color(.systemRed), timing: .medium)
+                    Toast.shared.present(title: error?.localizedDescription ?? "", symbol: ToastConstants.addUserFailureImageTitle, tint: Color(.systemRed), timing: .medium)
                 }
             }
         }

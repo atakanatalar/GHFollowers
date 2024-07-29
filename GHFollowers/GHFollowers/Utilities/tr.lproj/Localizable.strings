@@ -1,0 +1,70 @@
+/* 
+  Localizable.strings
+  GHFollowers
+
+  Created by Atakan Atalar on 29.07.2024.
+  
+*/
+
+//MARK: - Search View
+"search_text_field_text" = "Kullanıcı adı giriniz";
+"search_button_title" = "Takipçileri Göster";
+
+//MARK: - Followers View
+"followers_title_view_title" = "Daha Fazla Takipçi";
+"followers_search_title" = "Takipçi ara";
+"followers_empty_message" = "Kullanıcının takipçisi yok, hadi ilk takipçisi ol";
+"followers_invalid_response_message" = "Bu kullanıcı adına sahip kimse yok, lütfen kontrol edin";
+"followers_no_result_message1" = "Bu arama için sonuç bulunamadı \"";
+"followers_no_result_message2" = "\" ";
+
+//MARK: - User Info View
+"user_info_date_label_title" = "GitHub'a katılım";
+
+//MARK: - Favorites View
+
+"favorites_swipe_button_title" = "Sil";
+"favorites_navigation_title" = "Favoriler";
+"favorites_empty_message" = "Favorileriniz yok mu?\nTakipçiler ekranından bir tane ekleyin";
+
+//MARK: - App Tab View
+"app_tab_search_tab_item_title" = "Ara";
+"app_tab_favorites_tab_item_title" = "Favoriler";
+
+//MARK: - Onboard View
+"onboard_title1" = "Takipçileri Görüntüle";
+"onboard_description1" = "İstediğiniz GitHub kullanıcısının takipçilerini görüntüleyin";
+"onboard_title2" = "Profil Görüntüle";
+"onboard_description2" = "Detaylı bilgi için takipçilerin profillerine tıklayın";
+"onboard_title3" = "Favoriler Listesi";
+"onboard_description3" = "Kolay erişim için istediğiniz kullanıcıları favori listenize ekleyin";
+"onboard_button_title" = "Sürdür";
+
+//MARK: - Repo Item Info View
+"repo_item_button" = "GitHub Profili";
+
+//MARK: - Followers Item View
+"followers_item_button" = "Takipçileri Göster";
+
+//MARK: - Item Info View
+"item_info_repos_title" = "Public Repos";
+"item_info_gists_title" = "Public Gists";
+"item_info_followers_title" = "Takipçi";
+"item_info_following_title" = "Takip";
+
+//MARK: - GFError
+"error_invalid_username" = "Kullanıcı adı geçersiz bir istek oluşturdu";
+"error_invalid_response" = "Kullanıcı bulunamadı";
+"error_invalid_data" = "Sunucudan alınan veriler geçersiz";
+"error_unable_to_favorite" = "Kullanıcıyı favorilere eklerken bir hata oluştu";
+"error_already_in_favorites" = "Kullanıcı favorilerinizde bulunuyor";
+
+//MARK: - Toast
+"toast_add_user_success_message" = "Favorilere eklendi";
+"toast_remove_user_success_message" = " kaldırıldı";
+"toast_invalid_username_message" = "Lütfen kullanıcı adı girin";
+"toast_network_error_message" = "Ağ bağlantınızı kontrol edin";
+
+//MARK: - Tip
+"tip_add_to_favorite_title" = "Yeni Kullanıcı Ekle";
+"tip_add_to_favorite_message" = "Favorilere yeni bir kullanıcı eklemek için buraya dokunun";
