@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AvatarView: View {
     let url: String
-    var width: CGFloat?
+    var height: CGFloat?
     
     var body: some View {
         AsyncImage(url: URL(string: url)) { phase in
@@ -20,6 +20,7 @@ struct AvatarView: View {
                 image
                     .resizable()
                     .aspectRatio(contentMode: .fit)
+                    .frame(height: height)
                     .clipShape(RoundedRectangle(cornerRadius: 10))
             case .failure:
                 placeholderImageView
@@ -27,13 +28,13 @@ struct AvatarView: View {
                 placeholderImageView
             }
         }
-        .frame(width: width)
     }
     
     var placeholderImageView: some View {
         Image(.avatarPlaceholder)
             .resizable()
             .aspectRatio(contentMode: .fit)
+            .frame(height: height)
             .clipShape(RoundedRectangle(cornerRadius: 10))
     }
 }

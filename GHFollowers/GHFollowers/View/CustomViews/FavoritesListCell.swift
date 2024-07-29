@@ -12,7 +12,7 @@ struct FavoritesListCell: View {
     
     var body: some View {
         HStack(spacing: 12) {
-            AvatarView(url: favorite.avatarUrl, width: 60)
+            AvatarView(url: favorite.avatarUrl, height: 60)
             
             Text(favorite.login)
                 .font(.title)

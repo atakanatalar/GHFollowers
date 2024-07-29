@@ -21,9 +21,9 @@ struct UserInfoHeaderView: View {
     
     var normalSizeHeaderView: some View {
         HStack {
-            VStack(alignment: .leading) {
+            VStack(alignment: .leading, spacing: 12) {
                 HStack(alignment: .top, spacing: 12) {
-                    AvatarView(url: user.avatarUrl, width: dynamicTypeSize >= .accessibility1 ? 240 : 120)
+                    AvatarView(url: user.avatarUrl, height: dynamicTypeSize >= .accessibility1 ? 240 : 120)
                     
                     VStack(alignment: .leading) {
                         Text(user.login)
@@ -44,7 +44,7 @@ struct UserInfoHeaderView: View {
                             .lineLimit(1)
                     }
                 }
-                .padding(.vertical)
+                .padding(.top)
                 
                 Text(user.bio ?? "No bio available")
                     .font(.body)
@@ -61,7 +61,7 @@ struct UserInfoHeaderView: View {
             Spacer()
             
             VStack(alignment: .center, spacing: 20) {
-                AvatarView(url: user.avatarUrl, width: dynamicTypeSize >= .accessibility1 ? 240 : 120)
+                AvatarView(url: user.avatarUrl, height: dynamicTypeSize >= .accessibility1 ? 240 : 120)
                 
                 VStack {
                     Text(user.login)
