@@ -20,6 +20,10 @@ extension FollowersView {
         @Published var isInvalidResponse: Bool = false
         @Published var isShowingUserInfoView: Bool = false
         @Published var selectedUsername: String
+        @Published var profile: Follower = MockData.follower
+        @Published var isShowingProfileView: Bool = false
+        
+        let goToProfileTip = GoToProfileTip()
         
         var filteredFollowers: [Follower] {
             guard !searchTerm.isEmpty else { return followers }
@@ -71,6 +75,23 @@ extension FollowersView {
                     Toast.shared.present(title: error?.localizedDescription ?? "", symbol: ToastConstants.addUserFailureImageTitle, tint: Color(.systemRed), timing: .medium)
                 }
             }
+        }
+        
+        @MainActor
+        func getUserInfo(username: String) async {
+            showLoadingView()
+            do {
+                let user = try await NetworkManager.shared.fetchUserInfo(username: username)
+                let profile = Follower(login: user.login, avatarUrl: user.avatarUrl)
+                self.profile = profile
+            } catch {
+                if let gfError = error as? GFError {
+                    DispatchQueue.main.async { Toast.shared.present(title: gfError.localizedDescription, symbol: ToastConstants.defaultErrorImageTitle, tint: Color(.systemRed)) }
+                } else {
+                    DispatchQueue.main.async { Toast.shared.present(title: ToastConstants.networkErrorMessage, symbol: ToastConstants.networkErrorImageTitle, tint: Color(.systemRed)) }
+                }
+            }
+            hideLoadingView()
         }
         
         @MainActor

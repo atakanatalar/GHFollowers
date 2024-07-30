@@ -98,6 +98,8 @@ enum ToastConstants {
 enum TipConstants {
     static let addToFavoriteTitle = Text(String.localized("tip_add_to_favorite_title"))
     static let addToFavoriteTitleMessage = Text(String.localized("tip_add_to_favorite_message"))
+    static let seeUserInfoTitle = Text(String.localized("tip_see_user_info_title"))
+    static let seeUserInfoTitleMessage = Text(String.localized("tip_see_user_info_message"))
 }
 
 enum KeyboardConstants {

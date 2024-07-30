@@ -47,13 +47,50 @@ struct FollowersView: View {
         }
         .navigationTitle(viewModel.selectedUsername)
         .navigationBarTitleDisplayMode(.large)
-        .task { await viewModel.getFollowers(username: viewModel.selectedUsername, page: viewModel.page) }
-        .onAppear { viewModel.followers = [] }
+        .task {
+            await viewModel.getFollowers(username: viewModel.selectedUsername, page: viewModel.page)
+            await viewModel.getUserInfo(username: viewModel.selectedUsername)
+        }
+        .onAppear {
+            viewModel.followers = []
+            
+            Task {
+                if #available(iOS 17.0, *) { await GoToProfileTip.followersViewVisitedEventProfile.donate() }
+            }
+        }
         .overlay {
             if viewModel.filteredFollowers.isEmpty && !viewModel.followers.isEmpty {
                 EmptyStateView(message: FollowersViewConstants.noResultMessageFirst + "\(viewModel.searchTerm)" + FollowersViewConstants.noResultMessageSecond).padding(.horizontal, 40)
             }
         }
+        .navigationDestination(isPresented: $viewModel.isShowingProfileView) {
+            viewModel.createUserInfoView(selectedFollower: viewModel.profile, dynamicTypeSize: dynamicTypeSize)
+        }
+        .toolbar {
+            ToolbarItem(placement: .topBarTrailing) {
+                if #available(iOS 17.0, *) {
+                    Button() {
+                        showFollowersView()
+                        viewModel.goToProfileTip.invalidate(reason: .actionPerformed)
+                    } label: {
+                        Image(systemName: "person")
+                    }
+                    .popoverTip(viewModel.goToProfileTip)
+                    .disabled(viewModel.isInvalidResponse)
+                } else {
+                    Button() {
+                        showFollowersView()
+                    } label: {
+                        Image(systemName: "person")
+                    }
+                    .disabled(viewModel.isInvalidResponse)
+                }
+            }
+        }
+    }
+    
+    private func showFollowersView() {
+        viewModel.isShowingProfileView = true
     }
 }
 

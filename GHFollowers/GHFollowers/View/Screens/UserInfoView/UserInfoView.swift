@@ -31,11 +31,9 @@ struct UserInfoView: View {
         .redacted(reason: viewModel.isLoading ? .placeholder : [])
         .task { await viewModel.getUserInfo(username: viewModel.selectedFollower.login) }
         .onAppear {
-            Task { if #available(iOS 17.0, *) {
-                await AddFavoriteTip.viewVisitedEvent.donate()
-            } else {
-                
-            } }
+            Task {
+                if #available(iOS 17.0, *) { await AddFavoriteTip.userInfoViewVisitedEvent.donate() }
+            }
         }
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {

@@ -18,8 +18,6 @@ struct GHFollowersApp: App {
                         if #available(iOS 17.0, *) {
                             try? Tips.configure([
                                 .datastoreLocation(.applicationDefault)])
-                        } else {
-                            // Fallback on earlier versions
                         }
                     }
             }

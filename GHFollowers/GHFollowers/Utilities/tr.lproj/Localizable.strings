@@ -1,10 +1,10 @@
-/* 
-  Localizable.strings
-  GHFollowers
-
-  Created by Atakan Atalar on 29.07.2024.
-  
-*/
+/*
+ Localizable.strings
+ GHFollowers
+ 
+ Created by Atakan Atalar on 29.07.2024.
+ 
+ */
 
 //MARK: - Search View
 "search_text_field_text" = "Kullanıcı adı giriniz";
@@ -14,7 +14,7 @@
 "followers_title_view_title" = "Daha Fazla Takipçi";
 "followers_search_title" = "Takipçi ara";
 "followers_context_menu_favorite_button_title" = "Favorilere ekle";
-"followers_empty_message" = "Kullanıcının takipçisi yok";
+"followers_empty_message" = "Kullanıcının henüz takipçisi bulunmuyor, hemen bilgilerini gör ve ilk takip eden sen ol!";
 "followers_invalid_response_message" = "Bu kullanıcı adına sahip kimse yok, lütfen kontrol edin";
 "followers_no_result_message1" = "Bu arama için sonuç bulunamadı \"";
 "followers_no_result_message2" = "\" ";
@@ -55,7 +55,8 @@
 
 //MARK: - GFError
 "error_invalid_username" = "Kullanıcı adı geçersiz bir istek oluşturdu";
-"error_invalid_response" = "Kullanıcı bulunamadı";
+"error_invalid_response_followers" = "Kullanıcı bulunamadı";
+"error_invalid_response_user_info" = "Kullanıcı bilgileri getirilemedi";
 "error_invalid_data" = "Sunucudan alınan veriler geçersiz";
 "error_unable_to_favorite" = "Kullanıcıyı favorilere eklerken bir hata oluştu";
 "error_already_in_favorites" = "Kullanıcı favorilerinizde bulunuyor";
@@ -69,3 +70,5 @@
 //MARK: - Tip
 "tip_add_to_favorite_title" = "Yeni Kullanıcı Ekle";
 "tip_add_to_favorite_message" = "Favorilere yeni bir kullanıcı eklemek için buraya dokunun";
+"tip_see_user_info_title" = "Kullanıcı Bilgilerini Gör";
+"tip_see_user_info_message" = "Kullanıcı bilgilerini görmek için buraya dokunun";

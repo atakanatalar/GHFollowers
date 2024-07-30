@@ -1,10 +1,10 @@
-/* 
-  Localizable.strings
-  GHFollowers
-
-  Created by Atakan Atalar on 29.07.2024.
-  
-*/
+/*
+ Localizable.strings
+ GHFollowers
+ 
+ Created by Atakan Atalar on 29.07.2024.
+ 
+ */
 
 //MARK: - Search View
 "search_text_field_text" = "Enter a username";
@@ -14,7 +14,7 @@
 "followers_title_view_title" = "More Followers";
 "followers_search_title" = "Search Followers";
 "followers_context_menu_favorite_button_title" = "Add to favorites";
-"followers_empty_message" = "This user doesn't have any followers";
+"followers_empty_message" = "The user has no followers, see their information now and be the first to follow!";
 "followers_invalid_response_message" = "There is no one with this username, please check again";
 "followers_no_result_message1" = "No result for \"";
 "followers_no_result_message2" = "\" ";
@@ -55,7 +55,8 @@
 
 //MARK: - GFError
 "error_invalid_username" = "This username created an invalid request";
-"error_invalid_response" = "User could not be found";
+"error_invalid_response_followers" = "User could not be found";
+"error_invalid_response_user_info" = "Could not retrieve user information";
 "error_invalid_data" = "The data received from the server was invalid";
 "error_unable_to_favorite" = "There was an error favoriting this user";
 "error_already_in_favorites" = "You have already favorited this user";
@@ -69,3 +70,5 @@
 //MARK: - Tip
 "tip_add_to_favorite_title" = "Add New User";
 "tip_add_to_favorite_message" = "Tap here to add a new user to the favorites";
+"tip_see_user_info_title" = "See User Information";
+"tip_see_user_info_message" = "Tap here to see user information";
