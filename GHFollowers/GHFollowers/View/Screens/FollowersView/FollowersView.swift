@@ -19,6 +19,7 @@ struct FollowersView: View {
                         ForEach(viewModel.filteredFollowers, id: \.self) { follower in
                             NavigationLink(destination: viewModel.createUserInfoView(selectedFollower: follower, dynamicTypeSize: dynamicTypeSize)) {
                                 FollowersTitleView(follower: follower)
+                                    .accessibilityHint(FollowersViewConstants.accessibilityHintTitleView)
                             }
                             .contextMenu {
                                 Button(FollowersViewConstants.contextMenuFavoriteButtonTitle, systemImage: FollowersViewConstants.contextMenuFavoriteButtonImageTitle) {
@@ -73,17 +74,21 @@ struct FollowersView: View {
                         showFollowersView()
                         viewModel.goToProfileTip.invalidate(reason: .actionPerformed)
                     } label: {
-                        Image(systemName: "person")
+                        Image(systemName: FollowersViewConstants.profileButtonImageTitle)
                     }
                     .popoverTip(viewModel.goToProfileTip)
                     .disabled(viewModel.isInvalidResponse)
+                    .accessibilityLabel("\(viewModel.selectedUsername)" + FollowersViewConstants.accessibilityLabelProfileButton)
+                    .accessibilityHint(FollowersViewConstants.accessibilityHintProfileButton)
                 } else {
                     Button() {
                         showFollowersView()
                     } label: {
-                        Image(systemName: "person")
+                        Image(systemName: FollowersViewConstants.profileButtonImageTitle)
                     }
                     .disabled(viewModel.isInvalidResponse)
+                    .accessibilityLabel("\(viewModel.selectedUsername)" + FollowersViewConstants.accessibilityLabelProfileButton)
+                    .accessibilityHint(FollowersViewConstants.accessibilityHintProfileButton)
                 }
             }
         }

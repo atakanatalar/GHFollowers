@@ -29,6 +29,8 @@ struct OnboardInfoView: View {
                     .lineLimit(3)
             }
         }
+        .accessibilityElement(children: .combine)
+        .accessibilityLabel("\(title), \(description)")
     }
 }
 

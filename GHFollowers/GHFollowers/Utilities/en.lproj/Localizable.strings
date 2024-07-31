@@ -9,6 +9,8 @@
 //MARK: - Search View
 "search_text_field_text" = "Enter a username";
 "search_button_title" = "Get Followers";
+"search_accessibility_label_app_logo" = "Application Logo";
+"search_accessibility_hint_button" = "Opens the followers screen for the entered username";
 
 //MARK: - Followers View
 "followers_title_view_title" = "More Followers";
@@ -18,15 +20,20 @@
 "followers_invalid_response_message" = "There is no one with this username, please check again";
 "followers_no_result_message1" = "No result for \"";
 "followers_no_result_message2" = "\" ";
+"followers_accessibility_hint_title_view" = "Opens the user's profile screen";
+"followers_accessibility_label_profile_button" = "'s profile";
+"followers_accessibility_hint_profile_button" = "Opens the user's profile screen";
 
 //MARK: - User Info View
-"user_info_date_label_title" = "GitHub since";
+"user_info_accessibility_hint_created_at" = "The date when the user joined GitHub";
+"user_info_accessibility_label_favorite_button" = "Add user to favorites";
+"user_info_accessibility_hint_favorite_button" = "Adds the user to your favorites";
 
 //MARK: - Favorites View
-
 "favorites_swipe_button_title" = "Delete";
 "favorites_navigation_title" = "Favorites";
 "favorites_empty_message" = "No Favorites?\nAdd one on the user profile screen";
+"favorites_accessibility_hint_list_cell" = "Opens the user's followers screen";
 
 //MARK: - App Tab View
 "app_tab_search_tab_item_title" = "Search";
@@ -40,12 +47,19 @@
 "onboard_title3" = "Favorites List";
 "onboard_description3" = "Add desired users to your favorites list for easy access";
 "onboard_button_title" = "Continue";
+"onboard_accessibility_label_app_logo" = "Application Logo";
+"onboard_accessibility_hint_button" = "Tap to use the app";
+
+//MARK: - User Info Header View
+"user_info_header_accessibility_label_avatar_view" = "'s photo";
 
 //MARK: - Repo Item Info View
 "repo_item_button" = "GitHub Profile";
+"repo_item_accessibility_hint_gitHub" = "Opens the user's GitHub profile in the browser";
 
 //MARK: - Followers Item View
 "followers_item_button" = "Get Followers";
+"followers_item_accessibility_hint_followers" = "Opens the user's followers screen";
 
 //MARK: - Item Info View
 "item_info_repos_title" = "Public Repos";
@@ -66,6 +80,9 @@
 "toast_remove_user_success_message" = " has been removed";
 "toast_invalid_username_message" = "Please enter a username";
 "toast_network_error_message" = "Check your network connection";
+
+//MARK: - Splash View
+"splash_accessibility_label_app_logo" = "Application Logo";
 
 //MARK: - Tip
 "tip_add_to_favorite_title" = "Add New User";

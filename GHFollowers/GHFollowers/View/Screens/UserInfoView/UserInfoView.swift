@@ -22,8 +22,9 @@ struct UserInfoView: View {
                 
                 Spacer()
                 
-                Label(UserInfoViewConstants.dateLabelTitle + " \(viewModel.user.createdAt.convertToMonthYearFormat())", systemImage: UserInfoViewConstants.dateLabelImageTitle)
+                Label("\(viewModel.user.createdAt.convertToMonthYearFormat())", systemImage: UserInfoViewConstants.dateLabelImageTitle)
                     .padding()
+                    .accessibilityHint(UserInfoViewConstants.accessibilityHintCreatedAt)
             }
             .padding(.horizontal)
         }
@@ -45,12 +46,16 @@ struct UserInfoView: View {
                         Image(systemName: UserInfoViewConstants.favoriteToolbarButtonImageTitle)
                     }
                     .popoverTip(viewModel.addFavoriteTip)
+                    .accessibilityLabel(UserInfoViewConstants.accessibilityLabelFavoriteButton)
+                    .accessibilityHint(UserInfoViewConstants.accessibilityHintFavoriteButton)
                 } else {
                     Button() {
                         viewModel.addUserToFavorite(user: viewModel.user)
                     } label: {
                         Image(systemName: UserInfoViewConstants.favoriteToolbarButtonImageTitle)
                     }
+                    .accessibilityLabel(UserInfoViewConstants.accessibilityLabelFavoriteButton)
+                    .accessibilityHint(UserInfoViewConstants.accessibilityHintFavoriteButton)
                 }
             }
         }

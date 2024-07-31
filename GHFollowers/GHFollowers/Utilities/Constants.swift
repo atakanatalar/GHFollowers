@@ -12,6 +12,8 @@ enum SearchViewConstants {
     static let textFieldText = String.localized("search_text_field_text")
     static let buttonTitle = String.localized("search_button_title")
     static let buttonImageTitle = "person.3"
+    static let accessibilityLabelAppLogo = String.localized("search_accessibility_label_app_logo")
+    static let accessibilityHintButton = String.localized("search_accessibility_hint_button")
 }
 
 enum FollowersViewConstants {
@@ -24,12 +26,18 @@ enum FollowersViewConstants {
     static let invalidResponseMessage = String.localized("followers_invalid_response_message")
     static let noResultMessageFirst = String.localized("followers_no_result_message1")
     static let noResultMessageSecond = String.localized("followers_no_result_message2")
+    static let profileButtonImageTitle = "person"
+    static let accessibilityHintTitleView = String.localized("followers_accessibility_hint_title_view")
+    static let accessibilityLabelProfileButton = String.localized("followers_accessibility_label_profile_button")
+    static let accessibilityHintProfileButton = String.localized("followers_accessibility_hint_profile_button")
 }
 
 enum UserInfoViewConstants {
-    static let dateLabelTitle = String.localized("user_info_date_label_title")
     static let dateLabelImageTitle = "calendar"
     static let favoriteToolbarButtonImageTitle = "plus"
+    static let accessibilityHintCreatedAt = String.localized("user_info_accessibility_hint_created_at")
+    static let accessibilityLabelFavoriteButton = String.localized("user_info_accessibility_label_favorite_button")
+    static let accessibilityHintFavoriteButton = String.localized("user_info_accessibility_hint_favorite_button")
 }
 
 enum FavoritesViewConstants {
@@ -37,6 +45,7 @@ enum FavoritesViewConstants {
     static let swipeDeleteButtonImageTitle = "trash"
     static let navigationTitle = String.localized("favorites_navigation_title")
     static let emptyMessage = String.localized("favorites_empty_message")
+    static let accessibilityHintListCell = String.localized("favorites_accessibility_hint_list_cell")
 }
 
 enum OnboardViewConstants {
@@ -51,6 +60,8 @@ enum OnboardViewConstants {
     static let favoritesListDescription = String.localized("onboard_description3")
     static let buttonTitle = String.localized("onboard_button_title" )
     static let buttonImageTitle = "arrow.right"
+    static let accessibilityLabelAppLogo = String.localized("onboard_accessibility_label_app_logo")
+    static let accessibilityHintButton = String.localized("onboard_accessibility_hint_button")
 }
 
 enum AppTabViewConstants {
@@ -60,14 +71,20 @@ enum AppTabViewConstants {
     static let favoritesViewTabItemImageTitle = "star"
 }
 
+enum UserInfoHeaderViewConstants {
+    static let accessibilityLabelAvatarView = String.localized("user_info_header_accessibility_label_avatar_view")
+}
+
 enum RepoItemInfoViewConstants {
     static let gitHubProfileButtonTitle = String.localized("repo_item_button")
     static let gitHubProfileButtonImageTitle = "person"
+    static let accessibilityHintGitHub = String.localized("repo_item_accessibility_hint_gitHub")
 }
 
 enum FollowersItemInfoViewConstants {
     static let getFollowersButtonTitle = String.localized("followers_item_button")
     static let getFollowersButtonImageTitle = "person.3"
+    static let accessibilityHintFollowers = String.localized("followers_item_accessibility_hint_followers")
 }
 
 enum ItemInfoViewConstants {
@@ -100,6 +117,10 @@ enum TipConstants {
     static let addToFavoriteTitleMessage = Text(String.localized("tip_add_to_favorite_message"))
     static let seeUserInfoTitle = Text(String.localized("tip_see_user_info_title"))
     static let seeUserInfoTitleMessage = Text(String.localized("tip_see_user_info_message"))
+}
+
+enum SplashViewConstants {
+    static let accessibilityLabelAppLogo = String.localized("splash_accessibility_label_app_logo")
 }
 
 enum KeyboardConstants {

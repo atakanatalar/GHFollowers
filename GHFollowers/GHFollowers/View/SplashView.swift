@@ -36,6 +36,7 @@ struct SplashView: View {
                             withAnimation(.easeIn(duration: 0.5)) { isPresented.toggle() }
                         }
                     }
+                    .accessibilityLabel(SplashViewConstants.accessibilityLabelAppLogo)
             }
         }
     }

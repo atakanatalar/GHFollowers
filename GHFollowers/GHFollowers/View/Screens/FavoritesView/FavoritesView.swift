@@ -17,6 +17,7 @@ struct FavoritesView: View {
                 List(viewModel.favorites, id: \.self) { favorite in
                     NavigationLink(destination: viewModel.createFollowersView(selectedUsername: favorite.login)) {
                         FavoritesListCell(favorite: favorite)
+                            .accessibilityHint(FavoritesViewConstants.accessibilityHintListCell)
                             .swipeActions {
                                 Button(role: .destructive) {
                                     viewModel.removeFromFavorites(favorite: favorite)

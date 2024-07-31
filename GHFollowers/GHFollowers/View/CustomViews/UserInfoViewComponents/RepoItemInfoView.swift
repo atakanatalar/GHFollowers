@@ -28,6 +28,7 @@ struct RepoItemInfoView: View {
                 .modifier(CustomButtonModifier(backgroundColor: Color(.systemPurple)))
                 .padding(.horizontal, 24)
                 .padding(.bottom, 24)
+                .accessibilityHint(RepoItemInfoViewConstants.accessibilityHintGitHub)
             }
             .background(Color(.secondarySystemBackground))
             .clipShape(RoundedRectangle(cornerRadius: 18))

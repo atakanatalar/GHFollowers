@@ -20,6 +20,7 @@ struct SearchView: View {
                     LogoView(frameWidth: 180)
                         .padding(.top, 96)
                         .padding(.bottom, 24)
+                        .accessibilityLabel(SearchViewConstants.accessibilityLabelAppLogo)
                     
                     TextField(SearchViewConstants.textFieldText, text: $viewModel.username)
                         .modifier(CustomTextFieldModifier(dynamicTypeSize: dynamicTypeSize))
@@ -40,6 +41,7 @@ struct SearchView: View {
                     .opacity(viewModel.isUsernameEmpty ? 0.8 : 1.0)
                     .padding(.horizontal, 48)
                     .padding(.bottom, 24)
+                    .accessibilityHint(SearchViewConstants.accessibilityHintButton)
                 }
                 .navigationDestination(isPresented: $viewModel.isShowingFollowersView) { viewModel.createFollowersView(selectedUsername: viewModel.username) }
                 .toolbar {

@@ -31,6 +31,7 @@ struct FollowerItemInfoView: View {
                     .modifier(CustomButtonModifier(backgroundColor: Color(.systemGreen)))
                     .padding(.horizontal, 24)
                     .padding(.bottom, 24)
+                    .accessibilityHint(FollowersItemInfoViewConstants.accessibilityHintFollowers)
                 }
                 .background(Color(.secondarySystemBackground))
                 .clipShape(RoundedRectangle(cornerRadius: 18))

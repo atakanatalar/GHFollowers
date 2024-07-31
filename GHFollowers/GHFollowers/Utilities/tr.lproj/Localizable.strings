@@ -9,6 +9,8 @@
 //MARK: - Search View
 "search_text_field_text" = "Kullanıcı adı giriniz";
 "search_button_title" = "Takipçileri Göster";
+"search_accessibility_label_app_logo" = "Uygulama Logosu";
+"search_accessibility_hint_button" = "Girilen kullanıcı adına ait takipçiler ekranını açar";
 
 //MARK: - Followers View
 "followers_title_view_title" = "Daha Fazla Takipçi";
@@ -18,15 +20,20 @@
 "followers_invalid_response_message" = "Bu kullanıcı adına sahip kimse yok, lütfen kontrol edin";
 "followers_no_result_message1" = "Bu arama için sonuç bulunamadı \"";
 "followers_no_result_message2" = "\" ";
+"followers_accessibility_hint_title_view" = "Kullanıcının profil ekranını açar";
+"followers_accessibility_label_profile_button" = " kullanıcısının profili";
+"followers_accessibility_hint_profile_button" = "Kullanıcının profil ekranını açar";
 
 //MARK: - User Info View
-"user_info_date_label_title" = "GitHub'a üyelik";
+"user_info_accessibility_hint_created_at" = "Kullanıcının GitHub'a katıldığı tarih";
+"user_info_accessibility_label_favorite_button" = "Kullanıcıyı favorilere ekle";
+"user_info_accessibility_hint_favorite_button" = "Kullanıcıyı favorilere ekler";
 
 //MARK: - Favorites View
-
 "favorites_swipe_button_title" = "Sil";
 "favorites_navigation_title" = "Favoriler";
 "favorites_empty_message" = "Favorileriniz yok mu?\nKullanıcı profil ekranından bir tane ekleyin";
+"favorites_accessibility_hint_list_cell" = "Kullanıcının takipçileri ekranını açar";
 
 //MARK: - App Tab View
 "app_tab_search_tab_item_title" = "Arama";
@@ -40,12 +47,19 @@
 "onboard_title3" = "Favoriler Listesi";
 "onboard_description3" = "Kolay erişim için istediğiniz kullanıcıları favori listenize ekleyin";
 "onboard_button_title" = "Sürdür";
+"onboard_accessibility_label_app_logo" = "Uygulama Logosu";
+"onboard_accessibility_hint_button" = "Uygulamayı kullanmak için tıklayın";
+
+//MARK: - User Info Header View
+"user_info_header_accessibility_label_avatar_view" = " kullanıcısının fotoğrafı";
 
 //MARK: - Repo Item Info View
 "repo_item_button" = "GitHub Profili";
+"repo_item_accessibility_hint_gitHub" = "Kullanıcının GitHub profilini tarayıcıda açar";
 
 //MARK: - Followers Item View
 "followers_item_button" = "Takipçileri Göster";
+"followers_item_accessibility_hint_followers" = "Kullanıcının takipçileri ekranını açar";
 
 //MARK: - Item Info View
 "item_info_repos_title" = "Public Repos";
@@ -66,6 +80,9 @@
 "toast_remove_user_success_message" = " kaldırıldı";
 "toast_invalid_username_message" = "Lütfen kullanıcı adı girin";
 "toast_network_error_message" = "Ağ bağlantınızı kontrol edin";
+
+//MARK: - Splash View
+"splash_accessibility_label_app_logo" = "Uygulama Logosu";
 
 //MARK: - Tip
 "tip_add_to_favorite_title" = "Yeni Kullanıcı Ekle";

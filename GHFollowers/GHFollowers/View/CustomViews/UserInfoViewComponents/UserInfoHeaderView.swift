@@ -24,6 +24,7 @@ struct UserInfoHeaderView: View {
             VStack(alignment: .leading, spacing: 12) {
                 HStack(alignment: .top, spacing: 12) {
                     AvatarView(url: user.avatarUrl, height: dynamicTypeSize >= .accessibility1 ? 240 : 120)
+                        .accessibilityLabel("\(user.login)" + UserInfoHeaderViewConstants.accessibilityLabelAvatarView)
                     
                     VStack(alignment: .leading) {
                         Text(user.login)
@@ -62,6 +63,7 @@ struct UserInfoHeaderView: View {
             
             VStack(alignment: .center, spacing: 20) {
                 AvatarView(url: user.avatarUrl, height: dynamicTypeSize >= .accessibility1 ? 240 : 120)
+                    .accessibilityLabel("\(user.login)" + UserInfoHeaderViewConstants.accessibilityLabelAvatarView)
                 
                 VStack {
                     Text(user.login)

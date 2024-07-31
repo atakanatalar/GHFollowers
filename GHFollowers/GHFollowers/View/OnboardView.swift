@@ -16,6 +16,7 @@ struct OnboardView: View {
             LogoView(frameWidth: 180)
                 .padding(.top, 96)
                 .padding(.bottom,32)
+                .accessibilityLabel(OnboardViewConstants.accessibilityLabelAppLogo)
             
             VStack(alignment: .leading, spacing: 24) {
                 OnboardInfoView(imageTitle: OnboardViewConstants.viewFollowersImageTitle,
@@ -44,6 +45,7 @@ struct OnboardView: View {
             .modifier(CustomButtonModifier(backgroundColor: Color(.systemGreen)))
             .padding(.horizontal, 48)
             .padding(.bottom, 24)
+            .accessibilityHint(OnboardViewConstants.accessibilityHintButton)
         }
     }
 }
