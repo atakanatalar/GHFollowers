@@ -81,8 +81,8 @@ fileprivate struct ToastGroup: View {
                         .zIndex(Double(model.toasts.firstIndex(where: { $0.id == toast.id }) ?? 0))
                 }
             }
-            .padding(.bottom, safeArea.top == .zero ? 15 : 10)
-            .frame(width: size.width, height: size.height, alignment: .bottom)
+            .padding(.top, safeArea.top == .zero ? 5 : 0)
+            .frame(width: size.width, height: size.height, alignment: .top)
         }
     }
     
@@ -129,11 +129,7 @@ fileprivate struct ToastView: View {
                 .onEnded { value in
                     guard item.isUserInteractionEnabled else { return }
                     let endY = value.translation.height
-                    let velocityY = value.velocity.height
-                    
-                    if (endY + velocityY) > 100 {
-                        removeToast()
-                    }
+                    if endY < -10 { removeToast() }
                 }
         )
         .onAppear {
@@ -147,7 +143,7 @@ fileprivate struct ToastView: View {
             }
         }
         .frame(maxWidth: size.width * 0.8)
-        .transition(.offset(y: 150))
+        .transition(.offset(y: -150))
     }
     
     func removeToast() {
