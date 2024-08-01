@@ -38,7 +38,7 @@ struct SearchView: View {
                     }
                     .modifier(CustomButtonModifier(backgroundColor: Color(.systemGreen)))
                     .disabled(viewModel.isUsernameEmpty)
-                    .opacity(viewModel.isUsernameEmpty ? 0.8 : 1.0)
+                    .opacity(viewModel.isUsernameEmpty ? 0.6 : 1.0)
                     .padding(.horizontal, 48)
                     .padding(.bottom, 24)
                     .accessibilityHint(SearchViewConstants.accessibilityHintButton)
