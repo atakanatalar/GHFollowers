@@ -23,7 +23,8 @@ struct SearchView: View {
                         .accessibilityLabel(SearchViewConstants.accessibilityLabelAppLogo)
                     
                     TextField(SearchViewConstants.textFieldText, text: $viewModel.username)
-                        .modifier(CustomTextFieldModifier(dynamicTypeSize: dynamicTypeSize))
+                        .modifier(CustomTextFieldModifier(text: $viewModel.username, dynamicTypeSize: dynamicTypeSize))
+                        .animation(.easeInOut, value: viewModel.username)
                         .padding(.horizontal, 48)
                         .onSubmit { checkIsEmpty() }
                     
