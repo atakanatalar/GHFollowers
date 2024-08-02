@@ -123,6 +123,14 @@ enum SplashViewConstants {
     static let accessibilityLabelAppLogo = String.localized("splash_accessibility_label_app_logo")
 }
 
+enum LoadingViewConstants {
+    static let loadingText = String.localized("loading_loading_text")
+}
+
+enum GFTextFieldConstants {
+    static let clearButtonImageTitle = "multiply.circle.fill"
+}
+
 enum KeyboardConstants {
     static let imageTitle = "keyboard.chevron.compact.down"
 }

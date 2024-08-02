@@ -26,7 +26,7 @@ struct CustomTextFieldModifier: ViewModifier {
                 Button(action: {
                     self.text = ""
                 }) {
-                    Image(systemName: "multiply.circle.fill")
+                    Image(systemName: GFTextFieldConstants.clearButtonImageTitle)
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .foregroundColor(.secondary)

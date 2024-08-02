@@ -84,6 +84,9 @@
 //MARK: - Splash View
 "splash_accessibility_label_app_logo" = "Application Logo";
 
+//MARK: - Loading View
+"loading_loading_text" = "Loading...";
+
 //MARK: - Tip
 "tip_add_to_favorite_title" = "Add New User";
 "tip_add_to_favorite_message" = "Tap here to add a new user to the favorites";

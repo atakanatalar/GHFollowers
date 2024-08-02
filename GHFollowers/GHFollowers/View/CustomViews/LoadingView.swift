@@ -14,10 +14,15 @@ struct LoadingView: View {
                 .opacity(0.9)
                 .ignoresSafeArea(.all)
         
-            ProgressView()
-                .progressViewStyle(CircularProgressViewStyle(tint: Color(.systemGreen)))
-                .scaleEffect(1.5)
-                .offset(y: -40)
+            VStack(spacing: 16) {
+                ProgressView()
+                    .progressViewStyle(CircularProgressViewStyle(tint: Color(.systemGreen)))
+                    .scaleEffect(1.5)
+                
+                Text(LoadingViewConstants.loadingText)
+                    .foregroundStyle(Color(.systemGreen))
+            }
+            .offset(y: -40)
         }
     }
 }
