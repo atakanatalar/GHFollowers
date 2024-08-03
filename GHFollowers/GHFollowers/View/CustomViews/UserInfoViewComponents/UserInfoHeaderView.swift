@@ -45,7 +45,6 @@ struct UserInfoHeaderView: View {
                             .lineLimit(1)
                     }
                 }
-                .padding(.top)
                 
                 Text(user.bio ?? "No bio available")
                     .font(.body)

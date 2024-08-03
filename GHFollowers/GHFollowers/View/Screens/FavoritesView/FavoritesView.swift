@@ -13,25 +13,24 @@ struct FavoritesView: View {
     
     var body: some View {
         ZStack {
-            NavigationStack {
-                List(viewModel.favorites, id: \.self) { favorite in
-                    NavigationLink(destination: viewModel.createFollowersView(selectedUsername: favorite.login)) {
-                        FavoritesListCell(favorite: favorite)
-                            .accessibilityHint(FavoritesViewConstants.accessibilityHintListCell)
-                            .swipeActions {
-                                Button(role: .destructive) {
-                                    viewModel.removeFromFavorites(favorite: favorite)
-                                } label: {
-                                    Label(FavoritesViewConstants.swipeDeleteButtonTitle, systemImage: FavoritesViewConstants.swipeDeleteButtonImageTitle)
-                                }
+            List(viewModel.favorites, id: \.self) { favorite in
+                NavigationLink(destination: viewModel.createFollowersView(selectedUsername: favorite.login)) {
+                    FavoritesListCell(favorite: favorite)
+                        .accessibilityHint(FavoritesViewConstants.accessibilityHintListCell)
+                        .swipeActions {
+                            Button(role: .destructive) {
+                                viewModel.removeFromFavorites(favorite: favorite)
+                            } label: {
+                                Label(FavoritesViewConstants.swipeDeleteButtonTitle, systemImage: FavoritesViewConstants.swipeDeleteButtonImageTitle)
                             }
-                    }
+                        }
                 }
-                .listStyle(.plain)
-                .navigationTitle(FavoritesViewConstants.navigationTitle)
             }
+            .listStyle(.plain)
+            
             if viewModel.isEmptyState { EmptyStateView(message: FavoritesViewConstants.emptyMessage).padding(.horizontal, 40) }
         }
+        .navigationTitle(FavoritesViewConstants.navigationTitle)
         .onAppear {
             viewModel.getFavorites()
         }

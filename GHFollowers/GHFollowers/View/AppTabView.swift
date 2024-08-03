@@ -13,13 +13,17 @@ struct AppTabView: View {
     
     var body: some View {
         TabView {
-            SearchView()
-                .tabItem { Label(AppTabViewConstants.searchViewTabItemTitle, systemImage: AppTabViewConstants.searchViewTabItemImageTitle) }
-                .toolbarBackground(.visible, for: .tabBar)
+            NavigationStack {
+                SearchView()
+            }
+            .tabItem { Label(AppTabViewConstants.searchViewTabItemTitle, systemImage: AppTabViewConstants.searchViewTabItemImageTitle) }
+            .toolbarBackground(.visible, for: .tabBar)
             
-            FavoritesView()
-                .tabItem { Label(AppTabViewConstants.favoritesViewTabItemTitle, systemImage: AppTabViewConstants.favoritesViewTabItemImageTitle) }
-                .toolbarBackground(.visible, for: .tabBar)
+            NavigationStack {
+                FavoritesView()
+            }
+            .tabItem { Label(AppTabViewConstants.favoritesViewTabItemTitle, systemImage: AppTabViewConstants.favoritesViewTabItemImageTitle) }
+            .toolbarBackground(.visible, for: .tabBar)
         }
         .onAppear {
             if isFirstTime {

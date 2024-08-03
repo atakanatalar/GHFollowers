@@ -12,22 +12,20 @@ struct UserInfoView: View {
     @StateObject var viewModel: UserInfoViewModel
     
     var body: some View {
-        NavigationStack {
-            VStack() {
-                UserInfoHeaderView(user: viewModel.user, dynamicTypeSize: dynamicTypeSize)
-                RepoItemInfoView(user: viewModel.user, dynamicTypeSize: dynamicTypeSize)
-                    .disabled(viewModel.isLoading)
-                FollowerItemInfoView(user: viewModel.user, dynamicTypeSize: dynamicTypeSize)
-                    .disabled(viewModel.isLoading)
-                
-                Spacer()
-                
-                Label("\(viewModel.user.createdAt.convertToMonthYearFormat())", systemImage: UserInfoViewConstants.dateLabelImageTitle)
-                    .padding()
-                    .accessibilityHint(UserInfoViewConstants.accessibilityHintCreatedAt)
-            }
-            .padding(.horizontal)
+        VStack() {
+            UserInfoHeaderView(user: viewModel.user, dynamicTypeSize: dynamicTypeSize)
+            RepoItemInfoView(user: viewModel.user, dynamicTypeSize: dynamicTypeSize)
+                .disabled(viewModel.isLoading)
+            FollowerItemInfoView(user: viewModel.user, dynamicTypeSize: dynamicTypeSize)
+                .disabled(viewModel.isLoading)
+            
+            Spacer()
+            
+            Label("\(viewModel.user.createdAt.convertToMonthYearFormat())", systemImage: UserInfoViewConstants.dateLabelImageTitle)
+                .padding()
+                .accessibilityHint(UserInfoViewConstants.accessibilityHintCreatedAt)
         }
+        .padding()
         .navigationBarTitleDisplayMode(.inline)
         .redacted(reason: viewModel.isLoading ? .placeholder : [])
         .task { await viewModel.getUserInfo(username: viewModel.selectedFollower.login) }
