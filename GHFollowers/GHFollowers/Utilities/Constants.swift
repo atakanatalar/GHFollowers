@@ -73,6 +73,10 @@ enum AppTabViewConstants {
 
 enum UserInfoHeaderViewConstants {
     static let accessibilityLabelAvatarView = String.localized("user_info_header_accessibility_label_avatar_view")
+    static let locationImageTitle = "mappin.and.ellipse"
+    static let userName = String.localized("user_info_header_user_name")
+    static let userLocation = String.localized("user_info_header_user_location")
+    static let userBio = String.localized("user_info_header_user_bio")
 }
 
 enum RepoItemInfoViewConstants {

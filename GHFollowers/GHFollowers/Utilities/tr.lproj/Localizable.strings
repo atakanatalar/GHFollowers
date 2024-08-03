@@ -52,6 +52,9 @@
 
 //MARK: - User Info Header View
 "user_info_header_accessibility_label_avatar_view" = " kullanıcısının fotoğrafı";
+"user_info_header_user_name" = "İsim";
+"user_info_header_user_location" = "Konum yok";
+"user_info_header_user_bio" = "Biyografi mevcut değil";
 
 //MARK: - Repo Item Info View
 "repo_item_button" = "GitHub Profili";

@@ -32,13 +32,13 @@ struct UserInfoHeaderView: View {
                             .fontWeight(.bold)
                             .lineLimit(1)
                         
-                        Text(user.name ?? "Name")
+                        Text(user.name ?? UserInfoHeaderViewConstants.userName)
                             .font(.title3)
                             .fontWeight(.medium)
                             .foregroundStyle(.secondary)
                             .lineLimit(1)
                         
-                        Label(user.location ?? "No Location", systemImage: "mappin.and.ellipse")
+                        Label(user.location ?? UserInfoHeaderViewConstants.userLocation, systemImage: UserInfoHeaderViewConstants.locationImageTitle)
                             .font(.title3)
                             .fontWeight(.medium)
                             .foregroundStyle(.secondary)
@@ -46,7 +46,7 @@ struct UserInfoHeaderView: View {
                     }
                 }
                 
-                Text(user.bio ?? "No bio available")
+                Text(user.bio ?? UserInfoHeaderViewConstants.userBio)
                     .font(.body)
                     .foregroundStyle(.secondary)
                     .lineLimit(3)
@@ -69,18 +69,18 @@ struct UserInfoHeaderView: View {
                         .font(.largeTitle)
                         .fontWeight(.bold)
                     
-                    Text(user.name ?? "Name")
+                    Text(user.name ?? UserInfoHeaderViewConstants.userName)
                         .font(.title3)
                         .fontWeight(.medium)
                         .foregroundStyle(.secondary)
                     
-                    Label(user.location ?? "No Location", systemImage: "mappin.and.ellipse")
+                    Label(user.location ?? UserInfoHeaderViewConstants.userLocation, systemImage: UserInfoHeaderViewConstants.locationImageTitle)
                         .font(.title3)
                         .fontWeight(.medium)
                         .foregroundStyle(.secondary)
                 }
                 
-                Text(user.bio ?? "No bio available")
+                Text(user.bio ?? UserInfoHeaderViewConstants.userBio)
                     .font(.body)
                     .foregroundStyle(.secondary)
                     .multilineTextAlignment(.center)

@@ -52,6 +52,9 @@
 
 //MARK: - User Info Header View
 "user_info_header_accessibility_label_avatar_view" = "'s photo";
+"user_info_header_user_name" = "Name";
+"user_info_header_user_location" = "No Location";
+"user_info_header_user_bio" = "No bio available";
 
 //MARK: - Repo Item Info View
 "repo_item_button" = "GitHub Profile";
