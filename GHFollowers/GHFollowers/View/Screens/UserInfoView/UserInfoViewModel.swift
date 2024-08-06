@@ -10,14 +10,14 @@ import SwiftUI
 
 extension UserInfoView {
     class UserInfoViewModel: ObservableObject {
-        @Published var selectedFollower: Follower
+        @Published var selectedUsername: String
         @Published var user: User = MockData.user
         @Published var isLoading: Bool = false
         
         let addFavoriteTip = AddFavoriteTip()
         
-        init (selectedFollower: Follower) {
-            self.selectedFollower = selectedFollower
+        init (selectedUsername: String) {
+            self.selectedUsername = selectedUsername
         }
         
         @MainActor

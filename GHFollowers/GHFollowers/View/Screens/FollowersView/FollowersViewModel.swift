@@ -20,7 +20,6 @@ extension FollowersView {
         @Published var isInvalidResponse: Bool = false
         @Published var isShowingUserInfoView: Bool = false
         @Published var selectedUsername: String
-        @Published var profile: Follower = MockData.follower
         @Published var isShowingProfileView: Bool = false
         
         let goToProfileTip = GoToProfileTip()
@@ -78,23 +77,6 @@ extension FollowersView {
         }
         
         @MainActor
-        func getUserInfo(username: String) async {
-            showLoadingView()
-            do {
-                let user: User = try await NetworkManager.shared.fetchData(endpoint: Endpoint.userInfo(username: username))
-                let profile = Follower(login: user.login, avatarUrl: user.avatarUrl)
-                self.profile = profile
-            } catch {
-                if let gfError = error as? GFError {
-                    DispatchQueue.main.async { Toast.shared.present(title: gfError.localizedDescription, symbol: ToastConstants.defaultErrorImageTitle, tint: Color(.systemRed)) }
-                } else {
-                    DispatchQueue.main.async { Toast.shared.present(title: ToastConstants.networkErrorMessage, symbol: ToastConstants.networkErrorImageTitle, tint: Color(.systemRed)) }
-                }
-            }
-            hideLoadingView()
-        }
-        
-        @MainActor
         func showLoadingView() { isLoading = true }
         @MainActor
         func hideLoadingView() { isLoading = false }
@@ -104,13 +86,13 @@ extension FollowersView {
         func showInvalidResponseView() { isInvalidResponse = true }
         
         @MainActor
-        @ViewBuilder func createUserInfoView(selectedFollower: Follower, dynamicTypeSize: DynamicTypeSize) -> some View {
+        @ViewBuilder func createUserInfoView(selectedUsername: String, dynamicTypeSize: DynamicTypeSize) -> some View {
             if Device.isSmallScreen() {
-                UserInfoView(viewModel: UserInfoView.UserInfoViewModel(selectedFollower: selectedFollower)).embedInScrollView()
+                UserInfoView(viewModel: UserInfoView.UserInfoViewModel(selectedUsername: selectedUsername)).embedInScrollView()
             } else if dynamicTypeSize >= .accessibility1 {
-                UserInfoView(viewModel: UserInfoView.UserInfoViewModel(selectedFollower: selectedFollower)).embedInScrollView()
+                UserInfoView(viewModel: UserInfoView.UserInfoViewModel(selectedUsername: selectedUsername)).embedInScrollView()
             } else {
-                UserInfoView(viewModel: UserInfoView.UserInfoViewModel(selectedFollower: selectedFollower))
+                UserInfoView(viewModel: UserInfoView.UserInfoViewModel(selectedUsername: selectedUsername))
             }
         }
     }

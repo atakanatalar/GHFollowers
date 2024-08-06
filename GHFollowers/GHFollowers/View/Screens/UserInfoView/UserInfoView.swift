@@ -28,7 +28,7 @@ struct UserInfoView: View {
         .padding()
         .navigationBarTitleDisplayMode(.inline)
         .redacted(reason: viewModel.isLoading ? .placeholder : [])
-        .task { await viewModel.getUserInfo(username: viewModel.selectedFollower.login) }
+        .task { await viewModel.getUserInfo(username: viewModel.selectedUsername) }
         .onAppear {
             Task {
                 if #available(iOS 17.0, *) { await AddFavoriteTip.userInfoViewVisitedEvent.donate() }
@@ -61,5 +61,5 @@ struct UserInfoView: View {
 }
 
 #Preview {
-    UserInfoView(viewModel: UserInfoView.UserInfoViewModel(selectedFollower: MockData.follower))
+    UserInfoView(viewModel: UserInfoView.UserInfoViewModel(selectedUsername: ""))
 }

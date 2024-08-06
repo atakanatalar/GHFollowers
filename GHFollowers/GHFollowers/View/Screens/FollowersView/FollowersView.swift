@@ -16,7 +16,7 @@ struct FollowersView: View {
             ScrollView {
                 LazyVGrid(columns: viewModel.getColumns(dynamicTypeSize: dynamicTypeSize)) {
                     ForEach(viewModel.filteredFollowers, id: \.self) { follower in
-                        NavigationLink(destination: viewModel.createUserInfoView(selectedFollower: follower, dynamicTypeSize: dynamicTypeSize)) {
+                        NavigationLink(destination: viewModel.createUserInfoView(selectedUsername: follower.login, dynamicTypeSize: dynamicTypeSize)) {
                             FollowersTitleView(follower: follower)
                                 .accessibilityHint(FollowersViewConstants.accessibilityHintTitleView)
                         }
@@ -47,10 +47,7 @@ struct FollowersView: View {
         }
         .navigationTitle(viewModel.selectedUsername)
         .navigationBarTitleDisplayMode(.large)
-        .task {
-            await viewModel.getFollowers(username: viewModel.selectedUsername, page: viewModel.page)
-            await viewModel.getUserInfo(username: viewModel.selectedUsername)
-        }
+        .task { await viewModel.getFollowers(username: viewModel.selectedUsername, page: viewModel.page) }
         .onAppear {
             viewModel.followers = []
             Task {
@@ -66,7 +63,7 @@ struct FollowersView: View {
             ToolbarItem(placement: .topBarTrailing) {
                 if #available(iOS 17.0, *) {
                     Button() {
-                        showFollowersView()
+                        showProfileView()
                         viewModel.goToProfileTip.invalidate(reason: .actionPerformed)
                     } label: {
                         Image(systemName: FollowersViewConstants.profileButtonImageTitle)
@@ -77,7 +74,7 @@ struct FollowersView: View {
                     .accessibilityHint(FollowersViewConstants.accessibilityHintProfileButton)
                 } else {
                     Button() {
-                        showFollowersView()
+                        showProfileView()
                     } label: {
                         Image(systemName: FollowersViewConstants.profileButtonImageTitle)
                     }
@@ -88,11 +85,11 @@ struct FollowersView: View {
             }
         }
         .navigationDestination(isPresented: $viewModel.isShowingProfileView) {
-            viewModel.createUserInfoView(selectedFollower: viewModel.profile, dynamicTypeSize: dynamicTypeSize)
+            viewModel.createUserInfoView(selectedUsername: viewModel.selectedUsername, dynamicTypeSize: dynamicTypeSize)
         }
     }
     
-    private func showFollowersView() {
+    private func showProfileView() {
         viewModel.isShowingProfileView = true
     }
 }
