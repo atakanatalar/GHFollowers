@@ -72,8 +72,7 @@
 
 //MARK: - GFError
 "error_invalid_username" = "This username created an invalid request";
-"error_invalid_response_followers" = "User could not be found";
-"error_invalid_response_user_info" = "Could not retrieve user information";
+"error_invalid_response" = "Invalid server response";
 "error_invalid_data" = "The data received from the server was invalid";
 "error_unable_to_favorite" = "There was an error favoriting this user";
 "error_already_in_favorites" = "You have already favorited this user";

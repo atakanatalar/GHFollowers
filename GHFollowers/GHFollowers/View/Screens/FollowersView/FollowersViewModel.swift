@@ -43,7 +43,7 @@ extension FollowersView {
         func getFollowers(username: String, page: Int) async {
             showLoadingView()
             do {
-                let followers = try await NetworkManager.shared.fetchFollowers(username: username, page: page)
+                let followers: [Follower] = try await NetworkManager.shared.fetchData(endpoint: Endpoint.followers(username: username, page: page))
                 if followers.count < 100 { hasMoreFollower = false }
                 self.followers.append(contentsOf: followers)
                 if self.followers.isEmpty {
@@ -81,7 +81,7 @@ extension FollowersView {
         func getUserInfo(username: String) async {
             showLoadingView()
             do {
-                let user = try await NetworkManager.shared.fetchUserInfo(username: username)
+                let user: User = try await NetworkManager.shared.fetchData(endpoint: Endpoint.userInfo(username: username))
                 let profile = Follower(login: user.login, avatarUrl: user.avatarUrl)
                 self.profile = profile
             } catch {

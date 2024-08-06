@@ -9,7 +9,6 @@ import Foundation
 
 class NetworkManager {
     static let shared = NetworkManager()
-    private let baseUrl = "https://api.github.com/users/"
     let decoder = JSONDecoder()
     
     private init() {
@@ -17,43 +16,41 @@ class NetworkManager {
         decoder.dateDecodingStrategy = .iso8601
     }
     
-    func fetchFollowers(username: String, page: Int) async throws -> [Follower] {
-        let urlString = "\(baseUrl)\(username)/followers?per_page=100&page=\(page)"
-        
-        guard let url = URL(string: urlString) else {
+    func fetchData<T: Decodable>(endpoint: Endpoint) async throws -> T {
+        guard let url = endpoint.url else {
             throw GFError.invalidUsername
         }
         
         let (data, response) = try await URLSession.shared.data(from: url)
         
         guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-            throw GFError.invalidResponseFetchFollowers
+            throw GFError.invalidResponse
         }
         
         do {
-            return try decoder.decode([Follower].self, from: data)
+            return try decoder.decode(T.self, from: data)
         } catch {
             throw GFError.invalidData
         }
     }
+}
+
+enum Endpoint {
+    case followers(username: String, page: Int)
+    case userInfo(username: String)
     
-    func fetchUserInfo(username: String) async throws -> User  {
-        let urlString = "\(baseUrl)\(username)"
+    var urlString: String {
+        let baseUrl = "https://api.github.com/users/"
         
-        guard let url = URL(string: urlString) else {
-            throw GFError.invalidUsername
+        switch self {
+        case .followers(let username, let page):
+            return "\(baseUrl)\(username)/followers?per_page=100&page=\(page)"
+        case .userInfo(let username):
+            return "\(baseUrl)\(username)"
         }
-        
-        let (data, response) = try await URLSession.shared.data(from: url)
-        
-        guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-            throw GFError.invalidResponseFetchUserInfo
-        }
-        
-        do {
-            return try decoder.decode(User.self, from: data)
-        } catch {
-            throw GFError.invalidData
-        }
+    }
+    
+    var url: URL? {
+        return URL(string: self.urlString)
     }
 }

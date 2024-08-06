@@ -9,8 +9,7 @@ import Foundation
 
 enum GFError: String, Error {
     case invalidUsername = "error_invalid_username"
-    case invalidResponseFetchFollowers = "error_invalid_response_followers"
-    case invalidResponseFetchUserInfo = "error_invalid_response_user_info"
+    case invalidResponse = "error_invalid_response"
     case invalidData = "error_invalid_data"
     case unableToFavorite = "error_unable_to_favorite"
     case alreadyInFavorites = "error_already_in_favorites"

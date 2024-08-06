@@ -24,7 +24,7 @@ extension UserInfoView {
         func getUserInfo(username: String) async {
             showLoadingView()
             do {
-                let user = try await NetworkManager.shared.fetchUserInfo(username: username)
+                let user: User = try await NetworkManager.shared.fetchData(endpoint: Endpoint.userInfo(username: username))
                 self.user = user
                 hideLoadingView()
             } catch {
